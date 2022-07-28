@@ -1,78 +1,74 @@
-# 42 Labs 3º Edição
+<h3 align="center">42 São Paulo - Labs v3</h3>
 
-Este é desafio técnico do processo seletivo da 3º Edição do 42 Labs. É neste momento que você poderá aplicar os seus conhecimentos, trabalhando com outros Cadetes para desenvolver uma aplicação que tem como o objetivo apresentar conhecimentos que passam pelas área de desenvolvimento web e redes, que serão especialmente importantes no 42 Labs.
+<div align="center">
 
-## Desafio
+![42 São Paulo](https://img.shields.io/badge/42-SP-1E2952)
+![License](https://img.shields.io/github/license/42sp/42labs-selection-process-v3-librity?color=yellow)
+![Code size in bytes](https://img.shields.io/github/languages/code-size/42sp/42labs-selection-process-v3-librity?color=blue)
+![Lines of code](https://img.shields.io/tokei/lines/github/42sp/42labs-selection-process-v3-librity?color=blueviolet)
+![Top language](https://img.shields.io/github/languages/top/42sp/42labs-selection-process-v3-librity?color=ff69b4)
+![Last commit](https://img.shields.io/github/last-commit/42sp/42labs-selection-process-v3-librity?color=orange)
 
-Em uma linha: Aplicação de monitoramento de serviços web.
+</div>
 
-Vamos monitorar serviços web utilizando 3 protocolos: *HTTP*, *PING* e *DNS*. Para cada protocolo, existirão configurações que definem como o monitoramento vai acontecer, assim como o endereço do serviço monitorado. As configurações de monitoramento estarão em um arquivo com nome `monitoring.db`, onde cada linha representa uma espécie de monitoramento com base nas configurações definidas na mesma linha. O programa `monitoring` irá procurar e analisar esse arquivo, iniciando o processo de monitoramento.
+<div align="center">
 
-Velho conhecido seu, o *C* será utilizado para o desenvolvimento.
+[![Build](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/build.yml/badge.svg)](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/build.yml)
+[![Norminette v3](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/norminette_v3.yml)
 
-### monitoring.db
+</div>
 
-O arquivo `monitoring.db` define como a sua aplicação vai agir. Esse arquivo tem uma estrutura estrita e deve ser rejeitado caso não corresponda a essa estrutura.
+<p align="center"> A network monitoring service in pure C.
+  <br>
+</p>
 
-A estrutura é definida por linhas e colunas, onde cada linha terá as configurações separadas por um TAB, que definem as colunas. Para cada monitoramento, as configurações até a 3º coluna serão as mesmas, já a partir da 4º a configuração é específica, baseando-se no protocolo escolhido na 2º coluna.
+---
 
-As configurações para cada protocolo são:
+## 📜 Table of Contents
 
-| Protocolo   | Configurações                                                           |
-|-------------|-------------------------------------------------------------------------|
-| HTTP        | nome, protocolo, endereço, método HTTP, código HTTP esperado, intervalo |
-| PING        | nome, protocolo, endereço, intervalo                                    |
-| DNS         | nome, protocolo, endereço, intervalo, servidor DNS                      |
+- [About](#about)
+- [Checklist](#checklist)
+- [Getting Started](#getting_started)
+- [Notes](#notes)
+- [42 São Paulo](#ft_sp)
+- [Resources](#resources)
 
-Abaixo, exemplo do arquivo descrito acima:
+## 🧐 About <a name = "about"></a>
 
-```txt
-# monitoring.db
+- [Project English](https://github.com/42sp/42labs-selection-process-v3-librity/blob/master/project_en.md)
+- [Project Portuguese](https://github.com/42sp/42labs-selection-process-v3-librity/blob/master/project_pt.md)
 
-intra	HTTP	intra.42.fr	GET	200	120
-game ping test	PING	game.42sp.org.br	60
-workspaces monitoring	PING	workspaces.42sp.org.br	60
+## ✅ Checklist <a name = "checklist"></a>
+
+### Mandatory
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+### 🖥️ Installing
+
+Clone the repo and build with `make`:
+
+```bash
+$ git clone --recurse-submodules https://github.com/42sp/42labs-selection-process-v3-librity.git ft_labs_v3
+$ cd ft_labs_v3
+$ make
 ```
 
-### monitoring
+## 📝 Notes <a name = "notes"></a>
 
-O programa `monitoring` é onde tudo vai acontecer. Lendo o arquivo de configuração, os serviços devem começar a ser monitorados da mesma forma que foram configurados.
+## 🛸 42 São Paulo <a name = "ft_sp"></a>
 
-Informações dos serviços monitorados devem ser exibidas na saída padrão de uma forma sucinta e informações mais detalhadas para análises aprofundadas devem ser armazenadas no arquivo `monitoring.log` usando uma estrutura estrita e padronizada, definida por você. Deve ser possível também adquirir as informações sucintas, as mesmas que uma vez estavam na saída padrão, apenas utilizando o argumento `--simplify` no programa.
+Part of the larger [42 Network](https://www.42.fr/42-network/),
+[42 São Paulo](https://www.42sp.org.br/) is a software engineering school
+that offers a healthy alternative to traditional education:
 
-Um serviço saudável é aquele que consegue responder a requisição do monitoramento de forma esperada, em contrapartida ao serviço não saudável que não responde de forma esperada. Sendo um serviço de monitoramento, a sua aplicação deve ser capaz de identificar e exibir essa informação corretamente.
+- It doesn't have any teachers and classes.
+- Students learn by cooperating
+  and correcting each other's work (peer-to-peer learning).
+- Its focus is as much on social skills as it is on technical skills.
+- It's completely free to anyone that passes its selection process -
+  [**The Piscine**](https://42.fr/en/admissions/42-piscine/)
 
-### É necessário
+It's an amazing school, and I'm grateful for the opportunity.
 
-- Que o programa seja útil e realmente funcione como um serviço de monitoramento de serviços.
-- Que exista um programa chamado `monitoring`.
-- O arquivo `monitoring.db` deve ser analisado e validado pelo programa.
-- Os serviços configurados para monitoramento devem seguir as configurações definidas.
-- Arquivo `monitoring.log` deve armazenar todas as informações possíveis do monitoramento e deve ser possível traduzir a sua estrutura de uma forma resumida, sucinta utilizando o argumento ao programa `--simplify`.
-
-### O que será avaliado
-
-- Código bem escrito e limpo.
-- A documentação do seu código.
-- Ferramentas que foram utilizadas e por quê.
-- Sua criatividade e capacidade de lidar com problemas diferentes.
-- Alinhamento do seu projeto com a proposta.
-
-### O mínimo necessário
-
-- README.md com a documentação contendo informações do projeto.
-
-### Bônus
-
-Os itens a seguir não são obrigatórios, mas são funcionalidades que darão mais valor ao seu programa.
-
-- Notificação de serviço não saudável no Discord, email, Slack ou Webhook.
-- Testes.
-- Identificação de comportamentos incomuns dos serviços monitorados, como o aumento de latência de resposta.
-- Análise agregada dos dados do arquivo `monitoring.log`, exibindo diagramas e gráficos da CLI.
-- Parseamento de argumentos UNIX-Like podendo filtrar ou alterar comportamentos da aplicação.
-- Cuidados especiais com otimização e padrões de código.
-- Possibilidade de monitoramento MQTT e TCP.
-- Uso de ferramentas externas para planejamento nas etapas de desenvolvimento.
-
-<sub><sup>[Importante](https://imgs.xkcd.com/comics/networking_problems.png)</sup></sub>
+## 📚 Resources <a name = "resources"></a>
