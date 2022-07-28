@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 17:59:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:55:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	initialize(int argc, char **argv)
 {
 	initialize_control(argc, argv);
+	handle_flags();
 }
 
 void	run_log(void)
