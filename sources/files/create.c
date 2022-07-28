@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 17:59:35 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/01 22:04:01 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/28 17:47:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	initialize(int argc, char **argv)
+int	create_file_or_die(char *path)
 {
-	initialize_control(argc, argv);
-}
+	int	open_fd;
+	int	create_flags;
 
-void	run_log(void)
-{
-}
-
-void	cleanup(void)
-{
-	free_memory();
-}
-
-int	main(int argc, char **argv)
-{
-	initialize(argc, argv);
-	run_log();
-	cleanup();
-	return (EXIT_SUCCESS);
+	create_flags = O_CREAT | O_WRONLY | O_APPEND;
+	open_fd = open(path, create_flags, CREATE_PERMISSION);
+	if (open_fd < 0)
+		die(FILE_CREATE_ERR);
+	return (open_fd);
 }

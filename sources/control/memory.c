@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 17:59:35 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/28 16:34:42 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	initialize(int argc, char **argv)
+t_list	**lalloc(void)
 {
-	initialize_control(argc, argv);
+	return (&(c()->lalloc));
 }
 
-void	run_log(void)
+void	free_memory(void)
 {
-}
-
-void	cleanup(void)
-{
-	free_memory();
-}
-
-int	main(int argc, char **argv)
-{
-	initialize(argc, argv);
-	run_log();
-	cleanup();
-	return (EXIT_SUCCESS);
+	ft_free_lalloc(&(c()->lalloc));
 }

@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/28 12:51:59 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/28 17:56:11 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,4 +59,6 @@ make re || exit
 
 separator
 
-./monitoring
+# ./monitoring
+./monitoring -h
+./monitoring --help

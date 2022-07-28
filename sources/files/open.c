@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   open.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 17:59:35 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/01 22:04:01 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/28 17:47:21 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	initialize(int argc, char **argv)
+int	open_file_or_die(char *path)
 {
-	initialize_control(argc, argv);
-}
+	int	open_fd;
+	int	open_flags;
 
-void	run_log(void)
-{
-}
-
-void	cleanup(void)
-{
-	free_memory();
-}
-
-int	main(int argc, char **argv)
-{
-	initialize(argc, argv);
-	run_log();
-	cleanup();
-	return (EXIT_SUCCESS);
+	open_flags = O_RDONLY;
+	open_fd = open(path, open_flags);
+	if (open_fd < 0)
+		die(FILE_OPEN_ERR);
+	return (open_fd);
 }

@@ -44,6 +44,7 @@
     "cstdarg": "c",
     "cmath": "c",
     "ratio": "c",
-    "stdarg.h": "c"
+    "stdarg.h": "c",
+    "monitoring.h": "c"
   }
 }
