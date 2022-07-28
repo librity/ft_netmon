@@ -1,4 +1,4 @@
-<h3 align="center">42 São Paulo - Labs v3</h3>
+<h3 align="center">42 São Paulo - Labs, 3rd Edition</h3>
 
 <div align="center">
 
@@ -35,8 +35,8 @@
 
 ## 🧐 About <a name = "about"></a>
 
-- [Project English](https://github.com/42sp/42labs-selection-process-v3-librity/blob/master/project_en.md)
-- [Project Portuguese](https://github.com/42sp/42labs-selection-process-v3-librity/blob/master/project_pt.md)
+- [Specs (English)](./github/specs_en.md)
+- [Specs (Portuguese)](./github/specs_pt.md)
 
 ## ✅ Checklist <a name = "checklist"></a>
 

@@ -6,11 +6,11 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/26 21:09:42 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/28 13:10:23 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = monitoring
 
 CC = gcc
 CC_STRICT = $(CC) \
@@ -49,14 +49,14 @@ LIBFT_INCLUDES = $(LIBFT_PATH)/includes
 # MANDATORY
 ################################################################################
 
-M_HEADER = $(INCLUDES_PATH)/push_swap.h
-M_ARCHIVE = $(ARCHIVES_PATH)/push_swap.a
+M_HEADER = $(INCLUDES_PATH)/monitoring.h
+M_ARCHIVE = $(ARCHIVES_PATH)/monitoring.a
 
-M_SOURCES_PATH = $(SOURCES_PATH)/mandatory
-M_OBJECTS_PATH = $(OBJECTS_PATH)/mandatory
+M_SOURCES_PATH = $(SOURCES_PATH)
+M_OBJECTS_PATH = $(OBJECTS_PATH)
 
 M_SOURCES = $(wildcard $(M_SOURCES_PATH)/**/*.c) $(wildcard $(M_SOURCES_PATH)/*.c)
-# M_SOURCES = ./sources/mandatory/children/forks.c ./sources/mandatory/children/left.c ./sources/mandatory/children/right.c ./sources/mandatory/cleanup/memory.c ./sources/mandatory/commands/execute.c ./sources/mandatory/commands/find.c ./sources/mandatory/commands/find_left.c ./sources/mandatory/commands/find_right.c ./sources/mandatory/commands/loggers.c ./sources/mandatory/commands/split.c ./sources/mandatory/commands/tokenize.c ./sources/mandatory/environment/loggers.c ./sources/mandatory/environment/path.c ./sources/mandatory/environment/paths.c ./sources/mandatory/errors/arguments.c ./sources/mandatory/errors/die_1.c ./sources/mandatory/errors/die_2.c ./sources/mandatory/errors/print_error.c ./sources/mandatory/files/close.c ./sources/mandatory/files/create.c ./sources/mandatory/files/create_outfile.c ./sources/mandatory/files/open.c ./sources/mandatory/files/open_infile.c ./sources/mandatory/initializers/children.c ./sources/mandatory/initializers/environment.c ./sources/mandatory/initializers/files.c ./sources/mandatory/initializers/fourex.c ./sources/mandatory/initializers/left.c ./sources/mandatory/initializers/right.c ./sources/mandatory/initializers/utils.c ./sources/mandatory/pipes/core.c ./sources/mandatory/pipes/redirections.c ./sources/mandatory/fourex.c
+# M_SOURCES =
 
 M_OBJECTS = $(patsubst $(M_SOURCES_PATH)/%.c, $(M_OBJECTS_PATH)/%.o, $(M_SOURCES))
 M_OBJECT_DIRECTORIES = $(sort $(dir $(M_OBJECTS)))
@@ -184,29 +184,7 @@ VG_LOG_FLAGS = --log-file=$(VG_LOG) \
 	--track-origins=yes \
 	--verbose
 
-# VG_TARGET = ./$(NAME) 2 +2147483648 3
-# VG_TARGET = ./$(NAME) 1 2 2 3
-# VG_TARGET = ./$(NAME) 3 2 1 3
-
-# VG_TARGET = ./$(NAME)
-# VG_TARGET = ./$(NAME) 2 1 3 6 5 8
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..1).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..2).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..3).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..4).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..5).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..6).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..7).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..8).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..9).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..10).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..11).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..20).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..50).to_a.shuffle.join(' ')")
-VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..100).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..500).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..1000).to_a.shuffle.join(' ')")
-# VG_TARGET = ./push_swap  $(shell ruby -e "puts (1..10000).to_a.shuffle.join(' ')")
+VG_TARGET = ./$(NAME)
 
 vg: vg_build
 	$(VG) $(VG_FLAGS) $(VG_TARGET)
@@ -236,8 +214,6 @@ norm:
 	@printf "\n$(G)=== No norminette errors found in $(SOURCES_PATH) ===$(RC)\n\n"
 	norminette $(M_MAIN)
 	@printf "\n$(G)=== No norminette errors found in $(M_MAIN) ===$(RC)\n\n"
-#	 norminette $(B_MAIN)
-#	 @printf "\n$(G)=== No norminette errors found in $(B_MAIN) ===$(RC)\n\n"
 
 git:
 	git add -A
@@ -250,10 +226,8 @@ gitm:
 	git push
 
 dump_sources:
-	@echo =========== MANDATORY ===========
+	@echo =========== SOURCES ===========
 	@echo "M_SOURCES = $(M_SOURCES)"
-	@echo ============= BONUS =============
-	@echo "B_SOURCES = $(B_SOURCES)"
 	@echo =================================
 
 ################################################################################

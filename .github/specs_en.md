@@ -1,6 +1,10 @@
 # 42 Labs 3rd Edition
 
-This is the technical challenge of the selection process for the 3rd Edition of 42 Labs. It is at this moment that you will be able to apply your knowledge, working with other Cadets to develop an application that aims to present knowledge that passes through the areas of web development and networks, which will be especially important at 42 Labs.
+This is the technical challenge of the selection process for the 3rd Edition of 42 Labs.
+From this moment forward you will be able to apply your knowledge,
+working with other Cadets to develop an application that aims to present
+knowledge that passes through the areas of web development and networks,
+which will be especially important at 42 Labs.
 
 ## Challenge
 

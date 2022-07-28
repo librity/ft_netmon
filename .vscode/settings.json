@@ -43,6 +43,7 @@
     "internals.h": "c",
     "cstdarg": "c",
     "cmath": "c",
-    "ratio": "c"
+    "ratio": "c",
+    "stdarg.h": "c"
   }
 }
