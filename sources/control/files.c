@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quit.c                                             :+:      :+:    :+:   */
+/*   files.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 16:35:56 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 23:48:53 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 23:47:13 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/28 23:47:52 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	quit(void)
+void	close_files(void)
 {
-	close_files();
-	free_memory();
-	exit(EXIT_SUCCESS);
+	close_log();
+	close_config();
 }

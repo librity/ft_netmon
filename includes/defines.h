@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 22:41:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 00:18:21 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,13 @@ workspaces monitoring	PING	workspaces.42sp.org.br	60\n\
 # define CLOSED_FD -1
 
 /******************************************************************************\
+ * CONFIG
+\******************************************************************************/
+
+# define COMMENT_INDICATOR '#'
+# define FIELD_SEPARATOR '\t'
+
+/******************************************************************************\
  * SHELL
 \******************************************************************************/
 
@@ -99,12 +106,18 @@ workspaces monitoring	PING	workspaces.42sp.org.br	60\n\
 
 # define FILE_CREATE_ERR "ERROR: Unable to create necessary file.\n"
 # define FILE_OPEN_ERR "ERROR: Unable to open necessary file.\n"
-# define FD_ALREADY_CLOSED_ERR "ERROR: Closing a closed file descriptor.\n"
+# define FD_DOUBLE_CLOSE_ERR "ERROR: Closing a closed file descriptor.\n"
 # define FD_CLOSE_ERR "ERROR: Unable to close necessary file descriptor.\n"
 
 # define FILE_FLAG_NULL_PATH_ERR "ERROR: \
 File flags must be followed by a file path argument.\n"
 # define EQUAL_FILE_PATHS_ERR "ERROR: \
 Config and log file paths must be different.\n"
+
+# define DOUBLE_OPEN_CONFIG_ERR "ERROR: Config file descriptor already open.\n"
+# define CONFIG_READ_ERR "ERROR: Couldn't read config file.\n"
+
+# define DOUBLE_OPEN_LOG_ERR "ERROR: Log file descriptor already open.\n"
+# define LOG_READ_ERR "ERROR: Couldn't read log file.\n"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 22:31:17 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 00:54:21 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,19 @@ void		activate_simplify_flag(void);
 
 char		*config_path(void);
 void		set_config_path(char *path);
+
+int			config_fd(void);
+void		open_config(void);
+void		close_config(void);
+
 char		*log_path(void);
 void		set_log_path(char *path);
+
+int			log_fd(void);
+void		open_log(void);
+void		close_log(void);
+
+void		close_files(void);
 
 t_list		**lalloc(void);
 void		free_memory(void);
@@ -75,6 +86,13 @@ bool		is_file_flag(char *arg);
 
 void		help_and_quit(void);
 void		simplify_and_quit(void);
+
+/******************************************************************************\
+ * CONFIG
+\******************************************************************************/
+
+void		handle_config(void);
+void		validate_fields_or_die(char **fields);
 
 /******************************************************************************\
  * SHELL
@@ -101,5 +119,6 @@ void		quit(void);
 \******************************************************************************/
 
 void		die(char *error_message);
+void		free_and_die(void *free_me, char *error_message);
 
 #endif
