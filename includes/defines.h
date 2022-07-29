@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 19:26:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/28 22:41:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ OPTIONS: \033[0m \n\
 \033[1;32m	-h, --help \033[0m\n\
 		Print this help message.\n\
 \n\
-\033[1;32m	--simplify \033[0m\n\
-		???\n\
+\033[1;32m	-s, --simplify \033[0m\n\
+		Print the log file in easily-readable form.\n\
 \n\
 \033[1;32m	--config-file <file> \033[0m\n\
-		Config file path (default ./monitoring.db)\n\
+		Set config file path (default ./monitoring.db)\n\
 \n\
 \033[1;32m	--log-file <file> \033[0m\n\
-		Log file path (default ./monitoring.log)\n\
+		Set log file path (default ./monitoring.log)\n\
 \033[0;33m\n\
 CONFIG FILE FORMAT: \033[0m\n\
 \n\
@@ -45,7 +45,7 @@ CONFIG FILE FORMAT: \033[0m\n\
 	\033[0;34m|\033[0m DNS      \033[0;34m|\033[0m name    DNS     address    timeout        dns_server                    \033[0;34m|\033[0m\n\
 	\033[0;34m====================================================================================== \033[0m\n\
 \033[0;33m\n\
-EXAMPLE: \033[0m\n\
+CONFIG FILE EXAMPLE: \033[0m\n\
 \033[1;36m \n\
 \"\"\"\n\
 # monitoring.db\n\
@@ -69,9 +69,12 @@ workspaces monitoring	PING	workspaces.42sp.org.br	60\n\
  * FLAGS
 \******************************************************************************/
 
-# define HELP_FLAG_1 "-h"
-# define HELP_FLAG_2 "--help"
+# define HELP_FLAG "--help"
+# define HELP_FLAG_SHORT "-h"
+
 # define SIMPLIFY_FLAG "--simplify"
+# define SIMPLIFY_FLAG_SHORT "-s"
+
 # define CONFIG_FILE_FLAG "--config-file"
 # define LOG_FILE_FLAG "--log-file"
 
@@ -80,6 +83,7 @@ workspaces monitoring	PING	workspaces.42sp.org.br	60\n\
 \******************************************************************************/
 
 # define CREATE_PERMISSION 0000664
+# define CLOSED_FD -1
 
 /******************************************************************************\
  * SHELL
@@ -92,10 +96,15 @@ workspaces monitoring	PING	workspaces.42sp.org.br	60\n\
 \******************************************************************************/
 
 # define GENERIC_ERR "ERROR\n"
+
 # define FILE_CREATE_ERR "ERROR: Unable to create necessary file.\n"
 # define FILE_OPEN_ERR "ERROR: Unable to open necessary file.\n"
+# define FD_ALREADY_CLOSED_ERR "ERROR: Closing a closed file descriptor.\n"
 # define FD_CLOSE_ERR "ERROR: Unable to close necessary file descriptor.\n"
+
 # define FILE_FLAG_NULL_PATH_ERR "ERROR: \
 File flags must be followed by a file path argument.\n"
+# define EQUAL_FILE_PATHS_ERR "ERROR: \
+Config and log file paths must be different.\n"
 
 #endif

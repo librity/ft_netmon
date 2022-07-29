@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/28 18:59:33 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/28 22:33:57 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,14 +55,52 @@ make re || exit
 separator
 
 ################################################################################
+# HELP
+################################################################################
+
+# ./monitoring -h
+# separator
+
+# ./monitoring --help
+# separator
+
+# ./monitoring --help --config-file foo
+# separator
+
+# ./monitoring --help --log-file bar
+# separator
+
+################################################################################
+# SIMPLIFY
+################################################################################
+
+# ./monitoring --simplify
+# separator
+
+# ./monitoring -s
+# separator
+
+# ./monitoring -s -h
+# separator
+
+################################################################################
 # RUN
 ################################################################################
 
 # ./monitoring
 # separator
 
-# ./monitoring -h
+# ./monitoring --log-file bar
 # separator
 
-./monitoring --help
-separator
+# ./monitoring --config-file bar
+# separator
+
+# ./monitoring --config-file bar --log-file bar
+# separator
+
+# ./monitoring --config-file --log-file bar
+# separator
+
+# ./monitoring --config-file bar --log-file
+# separator

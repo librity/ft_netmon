@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   config_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 22:04:01 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 22:42:24 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 18:38:44 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/28 19:42:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-int	close_or_die(int close_me)
+char	*config_path(void)
 {
-	if (close_me == CLOSED_FD)
-		die(FD_ALREADY_CLOSED_ERR);
-	close_me = close(close_me);
-	if (close_me < 0)
-		die(FD_CLOSE_ERR);
-	return (CLOSED_FD);
+	return (c()->config.path);
+}
+
+void	set_config_path(char *path)
+{
+	c()->config.path = path;
 }

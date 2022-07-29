@@ -45,6 +45,7 @@
     "cmath": "c",
     "ratio": "c",
     "stdarg.h": "c",
-    "monitoring.h": "c"
+    "monitoring.h": "c",
+    "ip_icmp.h": "c"
   }
 }

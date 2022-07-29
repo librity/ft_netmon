@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 18:34:18 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 18:58:02 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/28 22:22:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	**file_flags(void)
 	return (__file_flags);
 }
 
-void	set_file_flag(char **arguments)
+void	set_file_flags(char **arguments)
 {
 	char	*file_path;
 

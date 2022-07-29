@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 17:57:48 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/28 22:36:14 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	initialize_control(int argc, char **argv)
 	c()->argv = argv;
 	c()->help_flag = false;
 	c()->simplify_flag = false;
-	c()->config_path = DEFAULT_CONFIG_PATH;
-	c()->log_path = DEFAULT_LOG_PATH;
+	c()->config.path = DEFAULT_CONFIG_PATH;
+	c()->config.fd = CLOSED_FD;
+	c()->log.path = DEFAULT_LOG_PATH;
+	c()->log.fd = CLOSED_FD;
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 18:51:10 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/28 22:31:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <libft.h>
 # include <fcntl.h>
 
+typedef struct s_file
+{
+	char	*path;
+	int		fd;
+}		t_file;
+
 typedef struct s_control
 {
 	int		argc;
@@ -25,8 +31,8 @@ typedef struct s_control
 	bool	help_flag;
 	bool	simplify_flag;
 
-	char	*config_path;
-	char	*log_path;
+	t_file	config;
+	t_file	log;
 
 	t_list	*lalloc;
 }		t_control;
@@ -46,9 +52,9 @@ void		activate_help_flag(void);
 bool		simplify_flag(void);
 void		activate_simplify_flag(void);
 
-bool		config_path(void);
+char		*config_path(void);
 void		set_config_path(char *path);
-bool		log_path(void);
+char		*log_path(void);
 void		set_log_path(char *path);
 
 t_list		**lalloc(void);
@@ -61,11 +67,14 @@ void		free_memory(void);
 void		handle_flags(void);
 void		parse_flags(void);
 
-void		set_simple_flag(char *flag);
+void		set_simple_flags(char *flag);
 bool		is_simple_flag(char *argument);
 
-void		set_file_flag(char **arguments);
+void		set_file_flags(char **arguments);
 bool		is_file_flag(char *arg);
+
+void		help_and_quit(void);
+void		simplify_and_quit(void);
 
 /******************************************************************************\
  * SHELL
