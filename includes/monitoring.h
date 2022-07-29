@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 00:54:21 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 02:30:15 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define MONITORING_H
 
 # include <defines.h>
+# include <help.h>
+# include <http.h>
+# include <errors.h>
+
 # include <libft.h>
 # include <fcntl.h>
 
@@ -120,5 +124,6 @@ void		quit(void);
 
 void		die(char *error_message);
 void		free_and_die(void *free_me, char *error_message);
+void		free_strings_and_die(char **free_me, char *error_message);
 
 #endif
