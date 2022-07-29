@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 18:34:18 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 22:22:51 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 19:03:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,7 @@ void	set_file_flags(char **arguments)
 		return (set_log_path(file_path));
 }
 
-bool	is_file_flag(char *arg)
+bool	is_file_flag(char *argument)
 {
-	char	**flag;
-
-	flag = file_flags();
-	while (*flag != NULL)
-	{
-		if (ft_streq(arg, *flag))
-			return (true);
-		flag++;
-	}
-	return (false);
+	return (ft_str_in_strarr(file_flags(), argument));
 }

@@ -6,40 +6,17 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 02:30:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 20:56:15 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MONITORING_H
 # define MONITORING_H
 
-# include <defines.h>
-# include <help.h>
-# include <http.h>
-# include <errors.h>
-
-# include <libft.h>
 # include <fcntl.h>
 
-typedef struct s_file
-{
-	char	*path;
-	int		fd;
-}		t_file;
-
-typedef struct s_control
-{
-	int		argc;
-	char	**argv;
-
-	bool	help_flag;
-	bool	simplify_flag;
-
-	t_file	config;
-	t_file	log;
-
-	t_list	*lalloc;
-}		t_control;
+# include <defines.h>
+# include <structs.h>
 
 /******************************************************************************\
  * CONTROL
@@ -96,7 +73,28 @@ void		simplify_and_quit(void);
 \******************************************************************************/
 
 void		handle_config(void);
-void		validate_fields_or_die(char **fields);
+
+bool		is_valid_protocol(char *field);
+
+char		*extract_field(char **fields, int index);
+char		*get_field(char *protocol, char **fields, int index);
+
+/******************************************************************************\
+ * VALIDATORS
+\******************************************************************************/
+
+void		validate_fields(char **fields);
+
+void		validate_http(char **fields);
+
+void		validate_frequency(char *protocol, char **fields);
+
+/******************************************************************************\
+ * HTTP
+\******************************************************************************/
+
+bool		is_http_method(char *field);
+bool		is_http_code(char *field);
 
 /******************************************************************************\
  * SHELL
@@ -124,6 +122,6 @@ void		quit(void);
 
 void		die(char *error_message);
 void		free_and_die(void *free_me, char *error_message);
-void		free_strings_and_die(char **free_me, char *error_message);
+void		free_arr_and_die(char **free_me, char *error_message);
 
 #endif

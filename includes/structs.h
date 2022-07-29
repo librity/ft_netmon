@@ -1,63 +1,93 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defines.h                                          :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 18:28:02 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/29 18:07:08 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINES_H
-# define DEFINES_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-# include <help.h>
-# include <http.h>
-# include <ping.h>
-# include <dns.h>
-# include <errors.h>
-
-/******************************************************************************\
- * DEFAULTS
-\******************************************************************************/
-
-# define DEFAULT_CONFIG_PATH "./monitoring.db"
-# define DEFAULT_LOG_PATH "./monitoring.log"
-
-/******************************************************************************\
- * FLAGS
-\******************************************************************************/
-
-# define HELP_FLAG "--help"
-# define HELP_FLAG_SHORT "-h"
-
-# define SIMPLIFY_FLAG "--simplify"
-# define SIMPLIFY_FLAG_SHORT "-s"
-
-# define CONFIG_FILE_FLAG "--config-file"
-# define LOG_FILE_FLAG "--log-file"
+# include <libft.h>
 
 /******************************************************************************\
  * FILES
 \******************************************************************************/
 
-# define CREATE_PERMISSION 0000664
-# define CLOSED_FD -1
+typedef struct s_file
+{
+	char		*path;
+	int			fd;
+}				t_file;
 
 /******************************************************************************\
- * CONFIG
+ * CONTROL
 \******************************************************************************/
 
-# define COMMENT_INDICATOR '#'
-# define FIELD_SEPARATOR '\t'
-# define PROTOCOL_INDEX 1
+typedef struct s_control
+{
+	int			argc;
+	char		**argv;
+
+	bool		help_flag;
+	bool		simplify_flag;
+
+	t_file		config;
+	t_file		log;
+
+	t_list		*lalloc;
+}				t_control;
 
 /******************************************************************************\
- * SHELL
+ * NETWORK
 \******************************************************************************/
 
-# define CLEAR_REGEX "\e[1;1H\e[2J"
+typedef struct s_address
+{
+	char		*name;
+	char		*ip;
+}				t_address;
+
+/******************************************************************************\
+ * HTTP
+\******************************************************************************/
+
+typedef struct s_http_target
+{
+	char		*name;
+	t_address	address;
+	char		*method;
+	char		*code;
+	int			frequency;
+}				t_http_target;
+
+/******************************************************************************\
+ * PING
+\******************************************************************************/
+
+typedef struct s_ping_target
+{
+	char		*name;
+	t_address	address;
+	int			frequency;
+}				t_ping_target;
+
+/******************************************************************************\
+ * DNS
+\******************************************************************************/
+
+typedef struct s_dns_target
+{
+	char		*name;
+	t_address	address;
+	int			frequency;
+	t_address	server;
+
+}				t_dns_target;
 
 #endif

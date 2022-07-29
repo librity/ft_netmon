@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   die.c                                              :+:      :+:    :+:   */
+/*   fields.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 18:52:30 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/29 20:51:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	die(char *error_message)
+static char	*get_protocol(char **fields)
 {
-	close_files();
-	free_memory();
-	ft_die(error_message);
+	return (extract_field(fields, PROTOCOL_INDEX));
 }
 
-void	free_and_die(void *free_me, char *error_message)
+void	validate_fields(char **fields)
 {
-	free(free_me);
-	die(error_message);
-}
+	char	*protocol;
 
-void	free_arr_and_die(char **free_me, char *error_message)
-{
-	ft_free_strarr(free_me);
-	die(error_message);
+	protocol = get_protocol(fields);
+	if (ft_streq(protocol, HTTP))
+		return (validate_http(fields));
+	// if (ft_streq(protocol, PING))
+	// 	return (validate_ping(fields));
+	// if (ft_streq(protocol, DNS))
+	// 	return (validate_dns(fields));
+	free_arr_and_die(fields, CONFIG_PROTOCOL_ERR);
 }

@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   die.c                                              :+:      :+:    :+:   */
+/*   dns.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 18:52:30 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/29 20:49:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#ifndef DNS_H
+# define DNS_H
 
-void	die(char *error_message)
-{
-	close_files();
-	free_memory();
-	ft_die(error_message);
-}
+# define DNS "DNS"
+# define DNS_IDENTIFIER "DNS"
 
-void	free_and_die(void *free_me, char *error_message)
-{
-	free(free_me);
-	die(error_message);
-}
+# define DNS_FIELD_COUNT 5
 
-void	free_arr_and_die(char **free_me, char *error_message)
-{
-	ft_free_strarr(free_me);
-	die(error_message);
-}
+# define DNS_NAME_INDEX 0
+# define DNS_PROTOCOL_INDEX 1
+# define DNS_ADDRESS_INDEX 2
+# define DNS_FREQUENCY_INDEX 3
+# define DNS_SERVER_INDEX 4
+
+#endif

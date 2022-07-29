@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 18:34:18 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 22:33:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 19:06:57 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,5 @@ void	set_simple_flags(char *flag)
 
 bool	is_simple_flag(char *argument)
 {
-	char	**flag;
-
-	flag = simple_flags();
-	while (*flag != NULL)
-	{
-		if (ft_streq(argument, *flag))
-			return (true);
-		flag++;
-	}
-	return (false);
+	return (ft_str_in_strarr(simple_flags(), argument));
 }

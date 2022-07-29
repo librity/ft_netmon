@@ -46,6 +46,8 @@
     "ratio": "c",
     "stdarg.h": "c",
     "monitoring.h": "c",
-    "ip_icmp.h": "c"
+    "ip_icmp.h": "c",
+    "fcntl.h": "c",
+    "inet.h": "c"
   }
 }

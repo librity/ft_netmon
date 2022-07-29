@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   die.c                                              :+:      :+:    :+:   */
+/*   ping.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 18:52:30 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/29 20:48:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#ifndef PING_H
+# define PING_H
 
-void	die(char *error_message)
-{
-	close_files();
-	free_memory();
-	ft_die(error_message);
-}
+# define PING "PING"
+# define PING_IDENTIFIER "PING"
 
-void	free_and_die(void *free_me, char *error_message)
-{
-	free(free_me);
-	die(error_message);
-}
+# define PING_FIELD_COUNT 4
 
-void	free_arr_and_die(char **free_me, char *error_message)
-{
-	ft_free_strarr(free_me);
-	die(error_message);
-}
+# define PING_NAME_INDEX 0
+# define PING_PROTOCOL_INDEX 1
+# define PING_ADDRESS_INDEX 2
+# define PING_FREQUENCY_INDEX 3
+
+#endif

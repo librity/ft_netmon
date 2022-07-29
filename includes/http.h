@@ -6,14 +6,24 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 02:29:31 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 20:48:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HTTP_H
 # define HTTP_H
 
+# define HTTP "HTTP"
 # define HTTP_IDENTIFIER "HTTP"
+
+# define HTTP_FIELD_COUNT 6
+
+# define HTTP_NAME_INDEX 0
+# define HTTP_PROTOCOL_INDEX 1
+# define HTTP_ADDRESS_INDEX 2
+# define HTTP_METHOD_INDEX 3
+# define HTTP_CODE_INDEX 4
+# define HTTP_FREQUENCY_INDEX 5
 
 # define HTTP_METHOD_GET "GET"
 # define HTTP_METHOD_HEAD "HEAD"

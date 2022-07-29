@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   die.c                                              :+:      :+:    :+:   */
+/*   methods.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 18:52:30 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/29 02:31:31 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/29 19:06:14 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	die(char *error_message)
+static char	**http_methods(void)
 {
-	close_files();
-	free_memory();
-	ft_die(error_message);
+	static char	*__http_methods[] = {
+		HTTP_METHOD_GET, HTTP_METHOD_HEAD, HTTP_METHOD_POST, HTTP_METHOD_PUT,
+		HTTP_METHOD_DELETE, HTTP_METHOD_CONNECT, HTTP_METHOD_OPTIONS,
+		HTTP_METHOD_TRACE, HTTP_METHOD_PATCH, NULL};
+
+	return (__http_methods);
 }
 
-void	free_and_die(void *free_me, char *error_message)
+bool	is_http_method(char *field)
 {
-	free(free_me);
-	die(error_message);
-}
-
-void	free_arr_and_die(char **free_me, char *error_message)
-{
-	ft_free_strarr(free_me);
-	die(error_message);
+	return (ft_str_in_strarr(http_methods(), field));
 }
