@@ -11,7 +11,9 @@
 int main(int argc, char *argv[])
 {
 	unsigned char buf[sizeof(struct in6_addr)];
+	unsigned char *buffer_printer;
 	int domain, s;
+	int i;
 	char str[INET6_ADDRSTRLEN];
 
 	if (argc != 3)
@@ -32,6 +34,16 @@ int main(int argc, char *argv[])
 			perror("inet_pton");
 		exit(EXIT_FAILURE);
 	}
+
+
+	printf("NETWORK: ");
+	i = 0;
+	while (i < sizeof(struct in6_addr))
+	{
+		printf("%d ", *(buf + i));
+		i++;
+	}
+	printf("\n");
 
 	if (inet_ntop(domain, buf, str, INET6_ADDRSTRLEN) == NULL)
 	{

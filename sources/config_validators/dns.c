@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 23:30:44 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:42:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,18 @@ static void	validate_frequency(char **fields)
 		free_arr_and_die(fields, DNS_FREQUENCY_ERR);
 }
 
+static void	validate_server_address(char **fields)
+{
+	char	*ipv4;
+
+	ipv4 = get_field(DNS, fields, DNS_SERVER_IPV4_INDEX);
+	if (!is_valid_ipv4(ipv4))
+		free_arr_and_die(fields, DNS_SERVER_ADDRESS_ERR);
+}
+
 void	validate_dns(char **fields)
 {
 	validate_field_count(fields);
 	validate_frequency(fields);
+	validate_server_address(fields);
 }

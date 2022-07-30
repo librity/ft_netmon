@@ -6,15 +6,17 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 18:05:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:40:15 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MONITORING_H
 # define MONITORING_H
 
-# include <defines.h>
 # include <fcntl.h>
+# include <arpa/inet.h>
+
+# include <defines.h>
 # include <structs.h>
 
 /******************************************************************************\
@@ -160,6 +162,13 @@ void		add_dns_target(t_new_dns_target p);
 int			create_file_or_die(char *path);
 int			open_file_or_die(char *path);
 int			close_or_die(int close_me);
+
+/******************************************************************************\
+ * IP
+\******************************************************************************/
+
+bool		is_valid_ipv4(char *address);
+bool		is_valid_ipv6(char *address);
 
 /******************************************************************************\
  * DEBUG

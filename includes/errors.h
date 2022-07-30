@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 18:03:22 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:42:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,14 @@ Run program with --help for flags and usage.\n"
 # define CONFIG_PROTOCOL_ERR "Invalid monitoring protocol in config file.\n"
 
 /******************************************************************************\
- * PARSERS
+ * IP
 \******************************************************************************/
 
+# define IPV4_VALIDATION_ERR "Error validating IPv4 address with inet_pton.\n"
+# define IPV6_VALIDATION_ERR "Error validating IPv6 address with inet_pton.\n"
+
 /******************************************************************************\
- * VALIDATORS
+ * CONFIG VALIDATORS
 \******************************************************************************/
 
 # define HTTP_FIELD_COUNT_ERR "HTTP config must have \
@@ -83,5 +86,6 @@ four tab-separated fields.\n"
 # define DNS_FREQUENCY_ERR "Invalid DNS monitoring frequency.\n\
 Frequency must be a whole number greater than zero, \
 representing the interval between requests in seconds.\n"
+# define DNS_SERVER_ADDRESS_ERR "Invalid DNS server IPv4 address.\n"
 
 #endif
