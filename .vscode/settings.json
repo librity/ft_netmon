@@ -48,6 +48,9 @@
     "monitoring.h": "c",
     "ip_icmp.h": "c",
     "fcntl.h": "c",
-    "inet.h": "c"
+    "inet.h": "c",
+    "regex": "c",
+    "regex.h": "c",
+    "stdbool.h": "c"
   }
 }

@@ -5,18 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:51:38 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/29 23:28:20 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/29 23:31:08 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	validate_frequency(char *protocol, char **fields)
+static bool	is_valid_string(char *str)
 {
-	char	*frequency;
+	if (ft_strlen(str) > FREQUENCY_FIELD_MAX_LENGTH)
+		return (false);
+	if (ft_is_plus_or_minus(*str))
+		str++;
+	if (!ft_isdigit(*str))
+		return (false);
+	while (ft_isdigit(*str))
+		str++;
+	if (*str != '\0')
+		return (false);
+	return (true);
+}
 
-	frequency = get_field(protocol, fields, HTTP_FREQUENCY_INDEX);
-	if (!ft_str_is_uint(frequency))
-		free_arr_and_die(fields, HTTP_FREQUENCY_ERR);
+bool	is_valid_frequency(char *str)
+{
+	long	number;
+
+	if (!is_valid_string(str))
+		return (false);
+	number = ft_atol(str);
+	if (number > UINT_MAX)
+		return (false);
+	if (number < 1)
+		return (false);
+	return (true);
 }

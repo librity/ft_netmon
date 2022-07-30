@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:06:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:31:37 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,19 @@ Valid methods: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods\n"
 # define HTTP_CODE_ERR "Invalid HTTP response status code.\n\
 Valid codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status\n"
 # define HTTP_FREQUENCY_ERR "Invalid HTTP monitoring frequency.\n\
-Frequency must be a positive whole number \
-representing the interval between requests\n"
+Frequency must be a whole number greater than zero, \
+representing the interval between requests in seconds.\n"
+
+# define PING_FIELD_COUNT_ERR "Ping config must have \
+four tab-separated fields.\n"
+# define PING_FREQUENCY_ERR "Invalid Ping monitoring frequency.\n\
+Frequency must be a whole number greater than zero, \
+representing the interval between requests in seconds.\n"
+
+# define DNS_FIELD_COUNT_ERR "DNS config must have \
+four tab-separated fields.\n"
+# define DNS_FREQUENCY_ERR "Invalid DNS monitoring frequency.\n\
+Frequency must be a whole number greater than zero, \
+representing the interval between requests in seconds.\n"
 
 #endif

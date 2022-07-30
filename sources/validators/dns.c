@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fields.c                                           :+:      :+:    :+:   */
+/*   dns.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 23:06:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:30:44 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static char	*get_protocol(char **fields)
+static void	validate_field_count(char **fields)
 {
-	return (extract_field(fields, PROTOCOL_INDEX));
+	if (ft_strarr_len(fields) != DNS_FIELD_COUNT)
+		free_arr_and_die(fields, DNS_FIELD_COUNT_ERR);
 }
 
-void	validate_fields(char **fields)
+static void	validate_frequency(char **fields)
 {
-	char	*protocol;
+	char	*frequency;
 
-	protocol = get_protocol(fields);
-	if (ft_streq(protocol, HTTP))
-		return (validate_http(fields));
-	if (ft_streq(protocol, PING))
-		return (validate_ping(fields));
-	if (ft_streq(protocol, DNS))
-		return (validate_dns(fields));
-	free_arr_and_die(fields, CONFIG_PROTOCOL_ERR);
+	frequency = get_field(DNS, fields, DNS_FREQUENCY_INDEX);
+	if (!is_valid_frequency(frequency))
+		free_arr_and_die(fields, DNS_FREQUENCY_ERR);
+}
+
+void	validate_dns(char **fields)
+{
+	validate_field_count(fields);
+	validate_frequency(fields);
 }

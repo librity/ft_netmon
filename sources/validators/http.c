@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:53:57 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:30:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,13 @@ static void	validate_code(char **fields)
 		free_arr_and_die(fields, HTTP_CODE_ERR);
 }
 
-static void	validate_http_frequency(char **fields)
+static void	validate_frequency(char **fields)
 {
-	validate_frequency(HTTP, fields);
+	char	*frequency;
+
+	frequency = get_field(HTTP, fields, HTTP_FREQUENCY_INDEX);
+	if (!is_valid_frequency(frequency))
+		free_arr_and_die(fields, HTTP_FREQUENCY_ERR);
 }
 
 void	validate_http(char **fields)
@@ -46,5 +50,5 @@ void	validate_http(char **fields)
 	validate_field_count(fields);
 	validate_method(fields);
 	validate_code(fields);
-	validate_http_frequency(fields);
+	validate_frequency(fields);
 }

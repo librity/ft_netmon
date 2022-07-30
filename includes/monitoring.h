@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:56:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:30:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,10 @@ char		*get_field(char *protocol, char **fields, int index);
 void		validate_fields(char **fields);
 
 void		validate_http(char **fields);
+void		validate_ping(char **fields);
+void		validate_dns(char **fields);
 
-void		validate_frequency(char *protocol, char **fields);
+bool		is_valid_frequency(char *str);
 
 /******************************************************************************\
  * HTTP

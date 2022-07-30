@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 18:28:02 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:29:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@
 # define COMMENT_INDICATOR '#'
 # define FIELD_SEPARATOR '\t'
 # define PROTOCOL_INDEX 1
+# define FREQUENCY_FIELD_MAX_LENGTH 10
 
 /******************************************************************************\
  * SHELL

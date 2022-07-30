@@ -1,5 +1,7 @@
 // SOURCE: https://www.geeksforgeeks.org/clear-console-c-language/
 
+// gcc clear_shell.c && ./a.out
+
 // C program for clearing console and
 // comparing two different methods
 #include <stdio.h>
