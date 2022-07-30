@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 18:07:08 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 15:07:36 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_control
 
 	t_file		config;
 	t_file		log;
+
+	t_dlist		*http_targets;
 
 	t_list		*lalloc;
 }				t_control;

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:51:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/29 23:41:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	**get_fields(char *line)
 static void	handle_fields(char **fields)
 {
 	validate_fields(fields);
-	// parse_fields(fields);
+	parse_fields(fields);
 	ft_free_strarr(fields);
 }
 

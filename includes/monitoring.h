@@ -6,16 +6,15 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 23:30:17 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 14:58:11 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MONITORING_H
 # define MONITORING_H
 
-# include <fcntl.h>
-
 # include <defines.h>
+# include <fcntl.h>
 # include <structs.h>
 
 /******************************************************************************\
@@ -49,6 +48,8 @@ void		close_log(void);
 
 void		close_files(void);
 
+t_dlist		**http_targets(void);
+
 t_list		**lalloc(void);
 void		free_memory(void);
 
@@ -75,6 +76,7 @@ void		simplify_and_quit(void);
 void		handle_config(void);
 
 bool		is_valid_protocol(char *field);
+char		*get_protocol(char **fields);
 
 char		*extract_field(char **fields, int index);
 char		*get_field(char *protocol, char **fields, int index);
@@ -92,11 +94,29 @@ void		validate_dns(char **fields);
 bool		is_valid_frequency(char *str);
 
 /******************************************************************************\
+ * PARSERS
+\******************************************************************************/
+
+void		parse_fields(char **fields);
+
+void		parse_http(char **fields);
+
+/******************************************************************************\
  * HTTP
 \******************************************************************************/
 
 bool		is_http_method(char *field);
 bool		is_http_code(char *field);
+
+typedef struct s_new_http_target
+{
+	char	*name;
+	char	*address_name;
+	char	*method;
+	char	*code;
+	int		frequency;
+}			t_new_http_target;
+void		add_http_target(t_new_http_target p);
 
 /******************************************************************************\
  * SHELL

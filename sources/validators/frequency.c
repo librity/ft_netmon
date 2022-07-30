@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:28:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 23:31:08 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 14:25:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool	is_valid_frequency(char *str)
 	if (!is_valid_string(str))
 		return (false);
 	number = ft_atol(str);
-	if (number > UINT_MAX)
+	if (number > INT_MAX)
 		return (false);
 	if (number < 1)
 		return (false);
