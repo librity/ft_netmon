@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 16:55:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:12:06 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,21 @@
 
 # define HELP_FLAG "--help"
 # define HELP_FLAG_SHORT "-h"
+# define HELP_FLAG_NAME "help"
 
 # define SIMPLIFY_FLAG "--simplify"
 # define SIMPLIFY_FLAG_SHORT "-s"
+# define SIMPLIFY_FLAG_NAME "simplify"
 
 # define DEBUG_FLAG "--debug"
 # define DEBUG_FLAG_SHORT "-d"
+# define DEBUG_FLAG_NAME "debug"
 
 # define CONFIG_FILE_FLAG "--config-file"
+# define CONFIG_FILE_FLAG_NAME "Config file"
+
 # define LOG_FILE_FLAG "--log-file"
+# define LOG_FILE_FLAG_NAME "Log file"
 
 /******************************************************************************\
  * FILES

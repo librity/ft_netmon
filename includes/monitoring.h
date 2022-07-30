@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 16:42:46 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:37:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,14 @@ int			argc(void);
 char		**argv(void);
 
 bool		help_flag(void);
-void		activate_help_flag(void);
+void		enable_help_flag(void);
+
 bool		simplify_flag(void);
-void		activate_simplify_flag(void);
+void		enable_simplify_flag(void);
+
+bool		debug(void);
+bool		debug_flag(void);
+void		enable_debug_flag(void);
 
 char		*config_path(void);
 void		set_config_path(char *path);
@@ -62,8 +67,8 @@ void		free_memory(void);
 void		handle_flags(void);
 void		parse_flags(void);
 
-void		set_simple_flags(char *flag);
-bool		is_simple_flag(char *argument);
+void		set_bool_flags(char *flag);
+bool		is_bool_flag(char *argument);
 
 void		set_file_flags(char **arguments);
 bool		is_file_flag(char *arg);
@@ -78,13 +83,24 @@ void		simplify_and_quit(void);
 void		handle_config(void);
 
 bool		is_valid_protocol(char *field);
-char		*get_protocol(char **fields);
+
+/******************************************************************************\
+ * CONFIG PARSER
+\******************************************************************************/
+
+void		parse_config_file(void);
+void		parse_fields(char **fields);
+
+void		parse_http(char **fields);
+void		parse_ping(char **fields);
+void		parse_dns(char **fields);
 
 char		*extract_field(char **fields, int index);
+char		*get_protocol(char **fields);
 char		*get_field(char *protocol, char **fields, int index);
 
 /******************************************************************************\
- * VALIDATORS
+ * CONFIG VALIDATORS
 \******************************************************************************/
 
 void		validate_fields(char **fields);
@@ -94,16 +110,6 @@ void		validate_ping(char **fields);
 void		validate_dns(char **fields);
 
 bool		is_valid_frequency(char *str);
-
-/******************************************************************************\
- * PARSERS
-\******************************************************************************/
-
-void		parse_fields(char **fields);
-
-void		parse_http(char **fields);
-void		parse_ping(char **fields);
-void		parse_dns(char **fields);
 
 /******************************************************************************\
  * HTTP
@@ -148,12 +154,6 @@ typedef struct s_new_dns_target
 void		add_dns_target(t_new_dns_target p);
 
 /******************************************************************************\
- * SHELL
-\******************************************************************************/
-
-void		clear(void);
-
-/******************************************************************************\
  * FILES
 \******************************************************************************/
 
@@ -162,14 +162,17 @@ int			open_file_or_die(char *path);
 int			close_or_die(int close_me);
 
 /******************************************************************************\
- *
+ * DEBUG
+\******************************************************************************/
+
+void		debug_flags(void);
+void		debug_targets(void);
+
+/******************************************************************************\
+ * RUNTIME
 \******************************************************************************/
 
 void		quit(void);
-
-/******************************************************************************\
- * ERRORS
-\******************************************************************************/
 
 void		die(char *error_message);
 void		free_and_die(void *free_me, char *error_message);

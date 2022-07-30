@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   field_extractor.c                                  :+:      :+:    :+:   */
+/*   field_getters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 16:14:03 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:33:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ static bool	is_valid_field(char *protocol, int index)
 char	*extract_field(char **fields, int index)
 {
 	return (*(fields + index));
+}
+
+char	*get_protocol(char **fields)
+{
+	return (extract_field(fields, PROTOCOL_INDEX));
 }
 
 char	*get_field(char *protocol, char **fields, int index)
