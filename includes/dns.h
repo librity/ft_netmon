@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:49:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:42:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@
 # define DNS_PROTOCOL_INDEX 1
 # define DNS_ADDRESS_INDEX 2
 # define DNS_FREQUENCY_INDEX 3
-# define DNS_SERVER_INDEX 4
+# define DNS_SERVER_IPV4_INDEX 4
 
 #endif

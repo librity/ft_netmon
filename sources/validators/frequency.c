@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:28:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 14:25:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:13:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,22 @@ static bool	is_valid_string(char *str)
 	return (true);
 }
 
-bool	is_valid_frequency(char *str)
+static bool	has_valid_range(char *str)
 {
 	long	number;
 
-	if (!is_valid_string(str))
-		return (false);
 	number = ft_atol(str);
 	if (number > INT_MAX)
 		return (false);
 	if (number < 1)
 		return (false);
 	return (true);
+}
+
+bool	is_valid_frequency(char *str)
+{
+
+	if (!is_valid_string(str))
+		return (false);
+	return (has_valid_range(str));
 }

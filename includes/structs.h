@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 15:07:36 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:52:23 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,14 @@ typedef struct s_control
 
 	bool		help_flag;
 	bool		simplify_flag;
+	bool		debug_flag;
 
 	t_file		config;
 	t_file		log;
 
 	t_dlist		*http_targets;
+	t_dlist		*ping_targets;
+	t_dlist		*dns_targets;
 
 	t_list		*lalloc;
 }				t_control;
@@ -52,7 +55,8 @@ typedef struct s_control
 typedef struct s_address
 {
 	char		*name;
-	char		*ip;
+	char		*ipv4;
+	char		*ipv6;
 }				t_address;
 
 /******************************************************************************\
@@ -89,7 +93,6 @@ typedef struct s_dns_target
 	t_address	address;
 	int			frequency;
 	t_address	server;
-
 }				t_dns_target;
 
 #endif

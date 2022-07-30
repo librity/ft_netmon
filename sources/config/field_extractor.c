@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:51:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:14:03 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,22 @@ static int	resolve_field_count(char *protocol)
 	return (ARRAY_BAD_INDEX_CODE);
 }
 
+static bool	is_valid_field(char *protocol, int index)
+{
+	int	field_count;
+
+	if (!is_valid_protocol(protocol))
+		return (false);
+	if (index < 0)
+		return (false);
+	field_count = resolve_field_count(protocol);
+	if (field_count == ARRAY_BAD_INDEX_CODE)
+		return (false);
+	if (index > field_count - 1)
+		return (false);
+	return (true);
+}
+
 char	*extract_field(char **fields, int index)
 {
 	return (*(fields + index));
@@ -30,16 +46,7 @@ char	*extract_field(char **fields, int index)
 
 char	*get_field(char *protocol, char **fields, int index)
 {
-	int	field_count;
-
-	if (!is_valid_protocol(protocol))
-		return (NULL);
-	if (index < 0)
-		return (NULL);
-	field_count = resolve_field_count(protocol);
-	if (field_count == ARRAY_BAD_INDEX_CODE)
-		return (NULL);
-	if (index > field_count)
+	if (!is_valid_field(protocol, index))
 		return (NULL);
 	return (extract_field(fields, index));
 }

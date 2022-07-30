@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/28 13:10:23 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/30 16:50:51 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -184,7 +184,8 @@ VG_LOG_FLAGS = --log-file=$(VG_LOG) \
 	--track-origins=yes \
 	--verbose
 
-VG_TARGET = ./$(NAME)
+# VG_TARGET = ./$(NAME)
+VG_TARGET = ./$(NAME) --config-file test.db
 
 vg: vg_build
 	$(VG) $(VG_FLAGS) $(VG_TARGET)

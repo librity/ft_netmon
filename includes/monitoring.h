@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 14:58:11 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:42:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void		close_log(void);
 void		close_files(void);
 
 t_dlist		**http_targets(void);
+t_dlist		**ping_targets(void);
+t_dlist		**dns_targets(void);
 
 t_list		**lalloc(void);
 void		free_memory(void);
@@ -100,6 +102,8 @@ bool		is_valid_frequency(char *str);
 void		parse_fields(char **fields);
 
 void		parse_http(char **fields);
+void		parse_ping(char **fields);
+void		parse_dns(char **fields);
 
 /******************************************************************************\
  * HTTP
@@ -117,6 +121,31 @@ typedef struct s_new_http_target
 	int		frequency;
 }			t_new_http_target;
 void		add_http_target(t_new_http_target p);
+
+/******************************************************************************\
+ * PING
+\******************************************************************************/
+
+typedef struct s_new_ping_target
+{
+	char	*name;
+	char	*address_name;
+	int		frequency;
+}			t_new_ping_target;
+void		add_ping_target(t_new_ping_target p);
+
+/******************************************************************************\
+ * DNS
+\******************************************************************************/
+
+typedef struct s_new_dns_target
+{
+	char	*name;
+	char	*address_name;
+	int		frequency;
+	char	*server_ipv4;
+}			t_new_dns_target;
+void		add_dns_target(t_new_dns_target p);
 
 /******************************************************************************\
  * SHELL
