@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 16:34:43 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:39:52 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ OPTIONS: \033[0m \n\
 		Print this help message.\n\
 \n\
 \033[1;32m	-s, --simplify \033[0m\n\
-		Print the log file in easily-readable form.\n\
+		Print the log file in an easily-readable format.\n\
+\n\
+\033[1;32m	-d, --debug \033[0m\n\
+		Prints debug information throughout runtime.\n\
 \n\
 \033[1;32m	--config-file <file> \033[0m\n\
 		Set config file path (default ./monitoring.db)\n\

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 23:58:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:03:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define FILE_FLAG_NULL_PATH_ERR "File flags must be followed by \
 a file path argument.\n"
 # define EQUAL_FILE_PATHS_ERR "Config and log file paths must be different.\n"
+# define BAD_FLAGS_ERR "Invalid flag or flags. \
+Run program with --help for flags and usage.\n"
 
 /******************************************************************************\
  * CONFILE FILE

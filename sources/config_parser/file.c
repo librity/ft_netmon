@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:28:33 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 17:34:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:22:33 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,27 @@ static void	handle_fields(char **fields)
 	ft_free_strarr(fields);
 }
 
-void	parse_config_file(void)
+static void	handle_line(int *status)
 {
-	int		status;
 	char	*line;
 	char	**fields;
+
+	*status = ft_gnl_or_die(config_fd(), &line);
+	fields = get_fields(line);
+	free(line);
+	if (fields == NULL)
+		return ;
+	handle_fields(fields);
+	return ;
+}
+
+void	parse_config_file(void)
+{
+	int	status;
 
 	open_config();
 	status = GNL_FOUND_LINEBREAK;
 	while (status == GNL_FOUND_LINEBREAK)
-	{
-		status = ft_gnl(config_fd(), &line);
-		if (status == GNL_ERROR)
-			free_and_die(line, CONFIG_READ_ERR);
-		fields = get_fields(line);
-		free(line);
-		if (fields == NULL)
-			continue ;
-		handle_fields(fields);
-	}
+		handle_line(&status);
 	close_config();
 }

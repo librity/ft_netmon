@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 17:37:19 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:05:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ void		free_memory(void);
 
 void		handle_flags(void);
 void		parse_flags(void);
+void		validate_flags(void);
 
-void		set_bool_flags(char *flag);
+bool		handled_bool_flag(char *argument);
 bool		is_bool_flag(char *argument);
 
-void		set_file_flags(char **arguments);
-bool		is_file_flag(char *arg);
+bool		handled_file_flag(char **arguments);
+bool		is_file_flag(char *argument);
 
-void		help_and_quit(void);
 void		simplify_and_quit(void);
 
 /******************************************************************************\
@@ -173,6 +173,7 @@ void		debug_targets(void);
 \******************************************************************************/
 
 void		quit(void);
+void		help_and_quit(void);
 
 void		die(char *error_message);
 void		free_and_die(void *free_me, char *error_message);

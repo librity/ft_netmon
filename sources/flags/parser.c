@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 17:07:37 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:03:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ void	parse_flags(void)
 	arguments = argv() + 1;
 	while (*arguments != NULL)
 	{
-		if (is_bool_flag(*arguments))
-			set_bool_flags(*arguments);
-		if (is_file_flag(*arguments))
+		if (handled_bool_flag(*arguments))
 		{
-			set_file_flags(arguments);
 			arguments++;
+			continue ;
 		}
-		arguments++;
+		if (handled_file_flag(arguments))
+		{
+			arguments = arguments + 2;
+			continue ;
+		}
+		die(BAD_FLAGS_ERR);
 	}
 }

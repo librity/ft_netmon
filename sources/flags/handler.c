@@ -6,17 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 17:14:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:06:53 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
-
-static void	validate_flags(void)
-{
-	if (ft_streq(log_path(), config_path()))
-		die(EQUAL_FILE_PATHS_ERR);
-}
 
 void	handle_flags(void)
 {

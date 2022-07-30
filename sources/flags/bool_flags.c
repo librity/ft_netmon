@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 18:34:18 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 17:08:21 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:58:45 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	**bool_flags(void)
 	return (__bool_flags);
 }
 
-void	set_bool_flags(char *flag)
+static void	set_bool_flag(char *flag)
 {
 	if (ft_streq(flag, HELP_FLAG_SHORT))
 		return (enable_help_flag());
@@ -43,4 +43,12 @@ void	set_bool_flags(char *flag)
 bool	is_bool_flag(char *argument)
 {
 	return (ft_str_in_strarr(bool_flags(), argument));
+}
+
+bool	handled_bool_flag(char *argument)
+{
+	if (!is_bool_flag(argument))
+		return (false);
+	set_bool_flag(argument);
+	return (true);
 }
