@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/30 17:40:33 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/07/31 16:43:25 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ CC_FULL = $(CC_STRICT) \
 	$(CCF_DEBUG)
 #	$(CCF_OPTIMIZATION) \
 
-CCF_INCLUDES = -I $(LIBFT_INCLUDES) -I $(INCLUDES_PATH)
+CCF_INCLUDES = -I $(LOCAL_INCLUDES) -I $(LIBFT_INCLUDES) -I $(INCLUDES_PATH)
+CCF_LIBS = -I $(LIBFT_INCLUDES) -I $(INCLUDES_PATH)
 CCF_STRICT = -Wall -Wextra -Werror
 CCF_OPTIMIZATION = -O3
 CCF_DEBUG = -g -fsanitize=leak
@@ -44,6 +45,11 @@ LIBS_PATH = ./libs
 LIBFT_PATH = $(LIBS_PATH)/libft
 LIBFT = $(LIBFT_PATH)/libft.a
 LIBFT_INCLUDES = $(LIBFT_PATH)/includes
+
+LOCAL_INCLUDES = /home/lgeniole/.local/include
+LOCAL_LIBS = /home/lgeniole/.local/include
+
+EXTERNAL_LIBS = -lcurl
 
 ################################################################################
 # MANDATORY

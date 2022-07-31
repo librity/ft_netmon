@@ -54,6 +54,12 @@
     "stdbool.h": "c",
     "structs.h": "c",
     "netdb.h": "c",
-    "typeinfo": "c"
+    "typeinfo": "c",
+    "curl.h": "c",
+    "cstring": "c",
+    "strings.h": "c",
+    "signal.h": "c",
+    "stdlib.h": "c",
+    "socket.h": "c"
   }
 }
