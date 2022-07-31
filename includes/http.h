@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:48:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/31 12:36:41 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # define HTTP "HTTP"
 # define HTTP_IDENTIFIER "HTTP"
+
+# define HTTPS "HTTPS"
+# define HTTPS_IDENTIFIER "HTTPS"
 
 # define HTTP_FIELD_COUNT 6
 

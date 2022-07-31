@@ -52,6 +52,8 @@
     "regex": "c",
     "regex.h": "c",
     "stdbool.h": "c",
-    "structs.h": "c"
+    "structs.h": "c",
+    "netdb.h": "c",
+    "typeinfo": "c"
   }
 }

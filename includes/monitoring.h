@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 21:24:37 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:09:54 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ void		close_log(void);
 
 void		close_files(void);
 
-t_dlist		**http_targets(void);
-t_dlist		**ping_targets(void);
-t_dlist		**dns_targets(void);
+t_dlist		**targets(void);
 
 t_list		**lalloc(void);
 void		free_memory(void);
@@ -85,6 +83,7 @@ void		simplify_and_quit(void);
 void		handle_config(void);
 
 bool		is_valid_protocol(char *field);
+char		*get_protocol_by_code(t_protocol code);
 
 /******************************************************************************\
  * CONFIG PARSER
@@ -112,6 +111,12 @@ void		validate_ping(char **fields);
 void		validate_dns(char **fields);
 
 bool		is_valid_frequency(char *str);
+
+/******************************************************************************\
+ * TARGETS
+\******************************************************************************/
+
+t_target	*new_target(void);
 
 /******************************************************************************\
  * HTTP
@@ -151,7 +156,7 @@ typedef struct s_new_dns_target
 	char	*name;
 	char	*address;
 	int		frequency;
-	char	*server_ip;
+	char	*dns_ipv4;
 }			t_new_dns_target;
 void		add_dns_target(t_new_dns_target p);
 

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 21:24:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/31 12:31:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	parse_dns(char **fields)
 		.name = get_field(DNS, fields, DNS_NAME_INDEX),
 		.address = get_field(DNS, fields, DNS_ADDRESS_INDEX),
 		.frequency = frequency,
-		.server_ip = get_field(DNS, fields, DNS_SERVER_IPV4_INDEX)
+		.dns_ipv4 = get_field(DNS, fields, DNS_SERVER_IPV4_INDEX)
 	});
 }

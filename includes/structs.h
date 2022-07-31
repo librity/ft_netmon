@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 16:52:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:08:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ typedef struct s_control
 	t_file		config;
 	t_file		log;
 
-	t_dlist		*http_targets;
-	t_dlist		*ping_targets;
-	t_dlist		*dns_targets;
+	t_dlist		*targets;
 
 	t_list		*lalloc;
 }				t_control;
@@ -60,39 +58,26 @@ typedef struct s_address
 }				t_address;
 
 /******************************************************************************\
- * HTTP
+ * TARGET
 \******************************************************************************/
 
-typedef struct s_http_target
+typedef enum e_protocol
 {
+	EMPTY_CODE = 0,
+	HTTP_CODE,
+	PING_CODE,
+	DNS_CODE
+}	t_protocol;
+
+typedef struct s_target
+{
+	t_protocol	protocol;
 	char		*name;
 	t_address	address;
 	char		*method;
 	char		*code;
 	int			frequency;
-}				t_http_target;
-
-/******************************************************************************\
- * PING
-\******************************************************************************/
-
-typedef struct s_ping_target
-{
-	char		*name;
-	t_address	address;
-	int			frequency;
-}				t_ping_target;
-
-/******************************************************************************\
- * DNS
-\******************************************************************************/
-
-typedef struct s_dns_target
-{
-	char		*name;
-	t_address	address;
-	int			frequency;
-	t_address	server;
-}				t_dns_target;
+	t_address	dns;
+}				t_target;
 
 #endif

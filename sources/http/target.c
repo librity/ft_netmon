@@ -6,17 +6,18 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 21:26:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:02:33 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static t_http_target	*new_http_target(t_new_http_target p)
+static t_target	*new_http_target(t_new_http_target p)
 {
-	t_http_target	*new;
+	t_target	*new;
 
-	new = ft_lalloc(lalloc(), sizeof(t_http_target));
+	new = new_target();
+	new->protocol = HTTP_CODE;
 	new->name = ft_strdup_lalloc(lalloc(), p.name);
 	new->address.name = ft_strdup_lalloc(lalloc(), p.address);
 	new->method = ft_strdup_lalloc(lalloc(), p.method);
@@ -27,8 +28,8 @@ static t_http_target	*new_http_target(t_new_http_target p)
 
 void	add_http_target(t_new_http_target p)
 {
-	t_http_target	*http_target;
+	t_target	*http_target;
 
 	http_target = new_http_target(p);
-	ft_dlst_add_lalloc(lalloc(), http_targets(), http_target);
+	ft_dlst_add_lalloc(lalloc(), targets(), http_target);
 }
