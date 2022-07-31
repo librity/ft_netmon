@@ -55,7 +55,7 @@ dkms.conf
 *.log
 
 # Build
-push_swap
+monitoring
 
 # Tests
 test

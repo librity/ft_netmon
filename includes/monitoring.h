@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 18:40:15 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 21:24:37 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ bool		is_http_code(char *field);
 typedef struct s_new_http_target
 {
 	char	*name;
-	char	*address_name;
+	char	*address;
 	char	*method;
 	char	*code;
 	int		frequency;
@@ -137,7 +137,7 @@ void		add_http_target(t_new_http_target p);
 typedef struct s_new_ping_target
 {
 	char	*name;
-	char	*address_name;
+	char	*address;
 	int		frequency;
 }			t_new_ping_target;
 void		add_ping_target(t_new_ping_target p);
@@ -149,9 +149,9 @@ void		add_ping_target(t_new_ping_target p);
 typedef struct s_new_dns_target
 {
 	char	*name;
-	char	*address_name;
+	char	*address;
 	int		frequency;
-	char	*server_ipv4;
+	char	*server_ip;
 }			t_new_dns_target;
 void		add_dns_target(t_new_dns_target p);
 

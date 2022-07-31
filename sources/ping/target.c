@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 16:44:54 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/30 21:27:04 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static t_ping_target	*new_ping_target(t_new_ping_target p)
 {
 	t_ping_target	*new;
 
-	new = (t_ping_target *)ft_lalloc(lalloc(), sizeof(t_ping_target));
+	new = ft_lalloc(lalloc(), sizeof(t_ping_target));
 	new->name = ft_strdup_lalloc(lalloc(), p.name);
-	new->address.name = ft_strdup_lalloc(lalloc(), p.address_name);
+	new->address.name = ft_strdup_lalloc(lalloc(), p.address);
 	new->frequency = p.frequency;
 	return (new);
 }
