@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 23:57:17 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:38:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,16 @@ Valid methods: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods\n"
 # define HTTP_CODE_ERR "Invalid HTTP response status code.\n\
 Valid codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status\n"
 # define HTTP_FREQUENCY_ERR "Invalid HTTP monitoring frequency.\n\
+Frequency must be a whole number greater than zero, \
+representing the interval between requests in seconds.\n"
+
+# define HTTPS_FIELD_COUNT_ERR "HTTPS config must have \
+six tab-separated fields.\n"
+# define HTTPS_METHOD_ERR "Invalid HTTPS request method.\n\
+Valid methods: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods\n"
+# define HTTPS_CODE_ERR "Invalid HTTPS response status code.\n\
+Valid codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status\n"
+# define HTTPS_FREQUENCY_ERR "Invalid HTTPS monitoring frequency.\n\
 Frequency must be a whole number greater than zero, \
 representing the interval between requests in seconds.\n"
 

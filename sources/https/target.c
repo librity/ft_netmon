@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fields.c                                           :+:      :+:    :+:   */
+/*   target.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:31:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:39:54 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	parse_fields(char **fields)
+static t_target	*new_https_target(t_new_https_target p)
 {
-	char	*protocol;
+	t_target	*new;
 
-	protocol = get_protocol(fields);
-	if (ft_streq(protocol, HTTP))
-		return (parse_http(fields));
-	if (ft_streq(protocol, HTTPS))
-		return (parse_https(fields));
-	if (ft_streq(protocol, PING))
-		return (parse_ping(fields));
-	if (ft_streq(protocol, DNS))
-		return (parse_dns(fields));
-	free_arr_and_die(fields, CONFIG_PROTOCOL_ERR);
+	new = new_target();
+	new->protocol = HTTPS_CODE;
+	new->name = ft_strdup_lalloc(lalloc(), p.name);
+	new->address.name = ft_strdup_lalloc(lalloc(), p.address);
+	new->method = ft_strdup_lalloc(lalloc(), p.method);
+	new->code = ft_strdup_lalloc(lalloc(), p.code);
+	new->frequency = p.frequency;
+	return (new);
+}
+
+void	add_https_target(t_new_https_target p)
+{
+	t_target	*https_target;
+
+	https_target = new_https_target(p);
+	ft_dlst_add_lalloc(lalloc(), targets(), https_target);
 }

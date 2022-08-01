@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 17:33:56 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:39:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	resolve_field_count(char *protocol)
 {
 	if (ft_streq(protocol, HTTP))
 		return (HTTP_FIELD_COUNT);
+	if (ft_streq(protocol, HTTPS))
+		return (HTTPS_FIELD_COUNT);
 	if (ft_streq(protocol, PING))
 		return (PING_FIELD_COUNT);
 	if (ft_streq(protocol, DNS))

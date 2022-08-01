@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:00:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:39:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void		parse_config_file(void);
 void		parse_fields(char **fields);
 
 void		parse_http(char **fields);
+void		parse_https(char **fields);
 void		parse_ping(char **fields);
 void		parse_dns(char **fields);
 
@@ -112,6 +113,7 @@ char		*get_field(char *protocol, char **fields, int index);
 void		validate_fields(char **fields);
 
 void		validate_http(char **fields);
+void		validate_https(char **fields);
 void		validate_ping(char **fields);
 void		validate_dns(char **fields);
 
@@ -139,6 +141,20 @@ typedef struct s_new_http_target
 	int		frequency;
 }			t_new_http_target;
 void		add_http_target(t_new_http_target p);
+
+/******************************************************************************\
+ * HTTPS
+\******************************************************************************/
+
+typedef struct s_new_https_target
+{
+	char	*name;
+	char	*address;
+	char	*method;
+	char	*code;
+	int		frequency;
+}			t_new_https_target;
+void		add_https_target(t_new_https_target p);
 
 /******************************************************************************\
  * PING

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 23:06:48 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:31:57 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef enum e_protocol
 {
 	EMPTY_CODE = 0,
 	HTTP_CODE,
+	HTTPS_CODE,
 	PING_CODE,
 	DNS_CODE
 }	t_protocol;

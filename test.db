@@ -1,10 +1,12 @@
 # monitoring.db
 			#
 # HTTP:	name	HTTP	address	http_method expected_http_code frequency_in_seconds
+# HTTP:	name	HTTPS	address	http_method expected_http_code frequency_in_seconds
 # PING:	name	PING	address	frequency_in_seconds
 # DNS:	name	DNS	address	frequency_in_seconds	dns_server_ipv4
       #
 intra	HTTP	intra.42.fr	GET	200	120
+intra	HTTPS	intra.42.fr	GET	200	120
 game ping test	PING	game.42sp.org.br	60
 workspaces monitoring	PING	workspaces.42sp.org.br	60
 workspaces dns	DNS	workspaces.42sp.org.br	30	8.8.8.8

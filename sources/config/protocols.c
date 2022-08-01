@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:31:31 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 13:09:28 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:38:34 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	**protocols(void)
 {
-	static char	*__protocols[] = {HTTP, PING, DNS, NULL};
+	static char	*__protocols[] = {HTTP, HTTPS, PING, DNS, NULL};
 
 	return (__protocols);
 }
@@ -28,6 +28,8 @@ char	*get_protocol_by_code(t_protocol code)
 {
 	if (code == HTTP_CODE)
 		return (HTTP);
+	if (code == HTTPS_CODE)
+		return (HTTPS);
 	if (code == PING_CODE)
 		return (PING);
 	if (code == DNS_CODE)

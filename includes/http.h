@@ -6,18 +6,19 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 12:36:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:41:16 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HTTP_H
 # define HTTP_H
 
+/******************************************************************************\
+ * HTTP
+\******************************************************************************/
+
 # define HTTP "HTTP"
 # define HTTP_IDENTIFIER "HTTP"
-
-# define HTTPS "HTTPS"
-# define HTTPS_IDENTIFIER "HTTPS"
 
 # define HTTP_FIELD_COUNT 6
 
@@ -28,6 +29,26 @@
 # define HTTP_CODE_INDEX 4
 # define HTTP_FREQUENCY_INDEX 5
 
+/******************************************************************************\
+ * HTTPS
+\******************************************************************************/
+
+# define HTTPS "HTTPS"
+# define HTTPS_IDENTIFIER "HTTPS"
+
+# define HTTPS_FIELD_COUNT 6
+
+# define HTTPS_NAME_INDEX 0
+# define HTTPS_PROTOCOL_INDEX 1
+# define HTTPS_ADDRESS_INDEX 2
+# define HTTPS_METHOD_INDEX 3
+# define HTTPS_CODE_INDEX 4
+# define HTTPS_FREQUENCY_INDEX 5
+
+/******************************************************************************\
+ * METHODS
+\******************************************************************************/
+
 # define HTTP_METHOD_GET "GET"
 # define HTTP_METHOD_HEAD "HEAD"
 # define HTTP_METHOD_POST "POST"
@@ -37,6 +58,10 @@
 # define HTTP_METHOD_OPTIONS "OPTIONS"
 # define HTTP_METHOD_TRACE "TRACE"
 # define HTTP_METHOD_PATCH "PATCH"
+
+/******************************************************************************\
+ * CODES
+\******************************************************************************/
 
 # define HTTP_CODE_100 "100"
 # define HTTP_CODE_101 "101"
