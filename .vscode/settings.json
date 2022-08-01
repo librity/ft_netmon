@@ -101,6 +101,7 @@
     "cinttypes": "c",
     "cstdbool": "c",
     "time.h": "c",
-    "errors.h": "c"
+    "errors.h": "c",
+    "pthread.h": "c"
   }
 }

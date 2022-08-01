@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 23:14:04 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 02:28:30 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:47:05 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void	initialize(int argc, char **argv)
 	atexit(cleanup);
 	enable_tty_raw_mode();
 	handle_flags();
+	if (help_flag())
+		help_and_quit();
+	if (simplify_flag())
+		simplify_and_quit();
 	print_banner();
 	handle_config();
 }

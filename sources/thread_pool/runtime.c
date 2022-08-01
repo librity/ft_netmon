@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   targets.c                                          :+:      :+:    :+:   */
+/*   runtime.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:45:22 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/01 16:51:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static void	debug_target_count(t_dlist **targets)
+void	init(void)
 {
-	ft_bdebug(debug(), "Total targets: %d", ft_dlstsize(*targets));
+	pthread_mutex_init(&queue_mutex, NULL);
+	pthread_cond_init(&queue_cond, NULL);
 }
 
-void	debug_targets(void)
+void	cleanup(void)
 {
-	debug_target_count(targets());
-	ft_bdebug(debug(), "TARGETS:");
-	ft_dlstiter(*targets(), &inspect_target);
+	pthread_mutex_destroy(&queue_mutex);
+	pthread_cond_destroy(&queue_cond);
+}
+
+int	main(int arc, char *argv[])
+{
+	init();
+	spawn_workers();
+	spawn_schedulers();
+
+	tdebug("Cancelling all threads.");
+	cancel_schedulers();
+	cancel_workers();
+
+	join_schedulers();
+	join_workers();
+	cleanup();
+	return (EXIT_SUCCESS);
 }

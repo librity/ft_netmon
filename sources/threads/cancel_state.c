@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   targets.c                                          :+:      :+:    :+:   */
+/*   cancel_state.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:45:22 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/01 16:11:23 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static void	debug_target_count(t_dlist **targets)
+void	disable_cancellation(void)
 {
-	ft_bdebug(debug(), "Total targets: %d", ft_dlstsize(*targets));
+	int	set_result;
+
+	set_result = pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
+	if (set_result != 0)
+		tdie(THRD_DISABLE_CANCEL_ERR);
 }
 
-void	debug_targets(void)
+void	enable_cancellation(void)
 {
-	debug_target_count(targets());
-	ft_bdebug(debug(), "TARGETS:");
-	ft_dlstiter(*targets(), &inspect_target);
+	int	set_result;
+
+	set_result = pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+	if (set_result != 0)
+		tdie(THRD_ENABLE_CANCEL_ERR);
 }

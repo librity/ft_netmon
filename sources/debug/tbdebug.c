@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   targets.c                                          :+:      :+:    :+:   */
+/*   tbdebug.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:45:22 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/08/01 16:27:05 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/01 16:42:53 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static void	debug_target_count(t_dlist **targets)
+/*
+** Behaves like printf but with a "DEBUG: " suffix and an endline.
+** Only prints if _debug is enabled.
+** Uses system's printf and derivatives so it's thread safe.
+*/
+void	tbdebug(bool _debug, const char *format, ...)
 {
-	ft_bdebug(debug(), "Total targets: %d", ft_dlstsize(*targets));
-}
+	va_list	ap;
 
-void	debug_targets(void)
-{
-	debug_target_count(targets());
-	ft_bdebug(debug(), "TARGETS:");
-	ft_dlstiter(*targets(), &inspect_target);
+	if (!_debug)
+		return ;
+	printf(stdout, "%sDEBUG:%s\t", Y, RC);
+	va_start(ap, format);
+	vfprintf(stdout, format, ap);
+	va_end(ap);
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 18:06:53 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:46:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,4 @@ void	handle_flags(void)
 	parse_flags();
 	debug_flags();
 	validate_flags();
-	if (help_flag())
-		help_and_quit();
-	if (simplify_flag())
-		simplify_and_quit();
 }

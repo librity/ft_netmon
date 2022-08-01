@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   targets.c                                          :+:      :+:    :+:   */
+/*   spawn.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:45:22 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/01 16:50:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static void	debug_target_count(t_dlist **targets)
+void	spawn_threads(pthread_t threads[],
+		t_troutine routine,
+		int thread_count,
+		char *fmt)
 {
-	ft_bdebug(debug(), "Total targets: %d", ft_dlstsize(*targets));
-}
+	int	i;
+	int	result;
 
-void	debug_targets(void)
-{
-	debug_target_count(targets());
-	ft_bdebug(debug(), "TARGETS:");
-	ft_dlstiter(*targets(), &inspect_target);
+	i = 0;
+	while (i < thread_count)
+	{
+		result = pthread_create(&threads[i], NULL, routine, NULL);
+		if (result != 0)
+			die(THRD_SPAWN_ERR);
+		tdebug(fmt, threads[i]);
+		i++;
+	}
 }

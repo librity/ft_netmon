@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   targets.c                                          :+:      :+:    :+:   */
+/*   inspect.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:45:22 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/08/01 16:14:46 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/01 16:45:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static void	debug_target_count(t_dlist **targets)
-{
-	ft_bdebug(debug(), "Total targets: %d", ft_dlstsize(*targets));
-}
+#define TARGET_FORMAT "\t{ protocol: %s, \
+name: %s, \
+address.name: %s, \
+method: %s, \
+code: %s, \
+frequency: %d, \
+dns.ipv4: %s }"
 
-void	debug_targets(void)
+void	inspect_target(void *t)
 {
-	debug_target_count(targets());
-	ft_bdebug(debug(), "TARGETS:");
-	ft_dlstiter(*targets(), &inspect_target);
+	t_target	*target;
+
+	target = (t_target *)t;
+	ft_bdebug(debug(), TARGET_FORMAT,
+		get_protocol_by_code(target->protocol),
+		target->name,
+		target->address.name,
+		target->method,
+		target->code,
+		target->frequency,
+		target->dns.ipv4);
 }

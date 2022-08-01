@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:39:51 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:44:09 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <arpa/inet.h>
 # include <curl/curl.h>
 # include <errno.h>
+# include <pthread.h>
+# include <time.h>
 
 # include <defines.h>
 # include <structs.h>
@@ -124,6 +126,7 @@ bool		is_valid_frequency(char *str);
 \******************************************************************************/
 
 t_target	*new_target(void);
+void		inspect_target(void *t);
 
 /******************************************************************************\
  * HTTP
@@ -182,6 +185,29 @@ typedef struct s_new_dns_target
 void		add_dns_target(t_new_dns_target p);
 
 /******************************************************************************\
+ * THREADS
+\******************************************************************************/
+
+void		tdie(char *error_message);
+
+void		disable_cancellation(void);
+void		enable_cancellation(void);
+
+void		switch_deffered(void);
+void		switch_async(void);
+
+/******************************************************************************\
+ * THREAD POOL
+\******************************************************************************/
+
+/******************************************************************************\
+ * THREAD POOL CONTROL
+\******************************************************************************/
+
+t_tpcontrol	*tpc(void);
+void		initialize_thread_pool_control(void);
+
+/******************************************************************************\
  * FILES
 \******************************************************************************/
 
@@ -195,6 +221,12 @@ int			close_or_die(int close_me);
 
 bool		is_valid_ipv4(char *address);
 bool		is_valid_ipv6(char *address);
+
+/******************************************************************************\
+ * TIME
+\******************************************************************************/
+
+char		*get_readable_time(void);
 
 /******************************************************************************\
  * RUNTIME
@@ -219,6 +251,9 @@ void		free_arr_and_die(char **free_me, char *error_message);
 /******************************************************************************\
  * DEBUG
 \******************************************************************************/
+
+void		tdebug(const char *format, ...);
+void		tbdebug(bool _debug, const char *format, ...);
 
 void		debug_flags(void);
 void		debug_targets(void);

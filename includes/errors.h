@@ -6,107 +6,134 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:38:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:22:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
 
-# define GENERIC_ERR "no no bad bad bad.\n"
+# define GENERIC_ERR "no no bad bad bad."
 
 /******************************************************************************\
  * TTY
 \******************************************************************************/
 
-# define TTY_EMPTY_ATTR_ERR "Original tty attributes are empty.\n"
-# define TTY_GET_ATTR_ERR "Unable to get original tty attributes.\n"
-# define TTY_SET_ATTR_ERR "Unable to set raw mode tty attributes.\n"
-# define TTY_RESTORE_ATTR_ERR "Unable to restore original tty attributes.\n"
+# define TTY_EMPTY_ATTR_ERR "Original tty attributes are empty."
+# define TTY_GET_ATTR_ERR "Can't get original tty attributes."
+# define TTY_SET_ATTR_ERR "Can't set raw mode tty attributes."
+# define TTY_RESTORE_ATTR_ERR "Can't restore original tty attributes."
 
-# define READ_KEY_ERR "Unable to read next input key from STDIN_FILENO.\n"
+# define READ_KEY_ERR "Can't read next input key from STDIN_FILENO."
 
 /******************************************************************************\
  * FILES
 \******************************************************************************/
 
-# define FILE_CREATE_ERR "Unable to create necessary file.\n"
-# define FILE_OPEN_ERR "Unable to open necessary file.\n"
-# define FD_DOUBLE_CLOSE_ERR "Closing a closed file descriptor.\n"
-# define FD_CLOSE_ERR "Unable to close necessary file descriptor.\n"
+# define FILE_CREATE_ERR "Can't create necessary file."
+# define FILE_OPEN_ERR "Can't open necessary file."
+# define FD_DOUBLE_CLOSE_ERR "Closing a closed file descriptor."
+# define FD_CLOSE_ERR "Can't close necessary file descriptor."
 
 /******************************************************************************\
  * FLAGS
 \******************************************************************************/
 
 # define FILE_FLAG_NULL_PATH_ERR "File flags must be followed by \
-a file path argument.\n"
-# define EQUAL_FILE_PATHS_ERR "Config and log file paths must be different.\n"
+a file path argument."
+# define EQUAL_FILE_PATHS_ERR "Config and log file paths must be different."
 # define BAD_FLAGS_ERR "Invalid flag or flags. \
-Run program with --help for flags and usage.\n"
+Run program with --help for flags and usage."
 
 /******************************************************************************\
  * CONFILE FILE
 \******************************************************************************/
 
-# define DOUBLE_OPEN_CONFIG_ERR "Config file descriptor already open.\n"
-# define CONFIG_READ_ERR "Couldn't read config file.\n"
+# define DOUBLE_OPEN_CONFIG_ERR "Config file descriptor already open."
+# define CONFIG_READ_ERR "Couldn't read config file."
 
 /******************************************************************************\
  * LOG FILE
 \******************************************************************************/
 
-# define DOUBLE_OPEN_LOG_ERR "Log file descriptor already open.\n"
-# define LOG_READ_ERR "Couldn't read log file.\n"
+# define DOUBLE_OPEN_LOG_ERR "Log file descriptor already open."
+# define LOG_READ_ERR "Couldn't read log file."
 
 /******************************************************************************\
  * CONFIG
 \******************************************************************************/
 
-# define CONFIG_PROTOCOL_ERR "Invalid monitoring protocol in config file.\n"
+# define CONFIG_PROTOCOL_ERR "Invalid monitoring protocol in config file."
 
 /******************************************************************************\
  * IP
 \******************************************************************************/
 
-# define IPV4_VALIDATION_ERR "Error validating IPv4 address with inet_pton.\n"
-# define IPV6_VALIDATION_ERR "Error validating IPv6 address with inet_pton.\n"
+# define IPV4_VALIDATION_ERR "Error validating IPv4 address with inet_pton."
+# define IPV6_VALIDATION_ERR "Error validating IPv6 address with inet_pton."
 
 /******************************************************************************\
  * CONFIG VALIDATORS
 \******************************************************************************/
 
 # define HTTP_FIELD_COUNT_ERR "HTTP config must have \
-six tab-separated fields.\n"
+six tab-separated fields."
 # define HTTP_METHOD_ERR "Invalid HTTP request method.\n\
-Valid methods: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods\n"
+Valid methods: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"
 # define HTTP_CODE_ERR "Invalid HTTP response status code.\n\
-Valid codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status\n"
+Valid codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
 # define HTTP_FREQUENCY_ERR "Invalid HTTP monitoring frequency.\n\
 Frequency must be a whole number greater than zero, \
-representing the interval between requests in seconds.\n"
+representing the interval between requests in seconds."
 
 # define HTTPS_FIELD_COUNT_ERR "HTTPS config must have \
-six tab-separated fields.\n"
+six tab-separated fields."
 # define HTTPS_METHOD_ERR "Invalid HTTPS request method.\n\
-Valid methods: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods\n"
+Valid methods: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"
 # define HTTPS_CODE_ERR "Invalid HTTPS response status code.\n\
-Valid codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status\n"
+Valid codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
 # define HTTPS_FREQUENCY_ERR "Invalid HTTPS monitoring frequency.\n\
 Frequency must be a whole number greater than zero, \
-representing the interval between requests in seconds.\n"
+representing the interval between requests in seconds."
 
 # define PING_FIELD_COUNT_ERR "Ping config must have \
-four tab-separated fields.\n"
+four tab-separated fields."
 # define PING_FREQUENCY_ERR "Invalid Ping monitoring frequency.\n\
 Frequency must be a whole number greater than zero, \
-representing the interval between requests in seconds.\n"
+representing the interval between requests in seconds."
 
 # define DNS_FIELD_COUNT_ERR "DNS config must have \
-four tab-separated fields.\n"
+four tab-separated fields."
 # define DNS_FREQUENCY_ERR "Invalid DNS monitoring frequency.\n\
 Frequency must be a whole number greater than zero, \
-representing the interval between requests in seconds.\n"
-# define DNS_SERVER_ADDRESS_ERR "Invalid DNS server IPv4 address.\n"
+representing the interval between requests in seconds."
+# define DNS_SERVER_ADDRESS_ERR "Invalid DNS server IPv4 address."
+
+/******************************************************************************\
+ * THREADS
+\******************************************************************************/
+
+# define THRD_DISABLE_CANCEL_ERR "Can't disable cancellation state of thread."
+# define THRD_ENABLE_CANCEL_ERR "Can't enable cancellation state of thread."
+
+# define THRD_SWITCH_DEFFERED_ERR "Can't switch cancelability type of thread \
+to deffered."
+# define THRD_SWITCH_ASYNC_ERR "Can't switch cancelability type of thread \
+to asynchronous."
+
+# define THRD_FIND_STATUS_ERR "Can't find status."
+
+# define THRD_SPAWN_ERR "Can't spawn required thread."
+# define THRD_CANCEL_ERR "Can't send required cancel signal to thread."
+# define THRD_JOIN_ERR "Can't join required thread."
+
+
+/******************************************************************************\
+ * THREAD POOL
+\******************************************************************************/
+
+/******************************************************************************\
+ * THREAD POOL CONTROL
+\******************************************************************************/
 
 #endif
