@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   die.c                                              :+:      :+:    :+:   */
+/*   tty.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 23:34:04 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/07/31 23:40:30 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	die(char *error_message)
+t_termios	original_tty_attr(void)
 {
-	ft_die(error_message);
+	return (c()->original_tty_attr);
 }
 
-void	free_and_die(void *free_me, char *error_message)
+void	save_tty_flags(void)
 {
-	free(free_me);
-	die(error_message);
-}
+	int				get_result;
 
-void	free_arr_and_die(char **free_me, char *error_message)
-{
-	ft_free_strarr(free_me);
-	die(error_message);
+	get_result = tcgetattr(STDIN_FILENO, &c()->original_tty_attr);
+	if (get_result == -1)
+		die(TTY_GET_ATTR_ERR);
 }

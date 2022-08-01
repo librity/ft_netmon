@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 13:08:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/31 23:06:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define STRUCTS_H
 
 # include <libft.h>
+# include <termios.h>
+
+/******************************************************************************\
+ * TTY
+\******************************************************************************/
+
+typedef struct termios	t_termios;
 
 /******************************************************************************\
  * FILES
@@ -33,6 +40,8 @@ typedef struct s_control
 {
 	int			argc;
 	char		**argv;
+
+	t_termios	original_tty_attr;
 
 	bool		help_flag;
 	bool		simplify_flag;

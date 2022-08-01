@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 18:42:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/07/31 23:57:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 # define ERRORS_H
 
 # define GENERIC_ERR "no no bad bad bad.\n"
+
+/******************************************************************************\
+ * TTY
+\******************************************************************************/
+
+# define TTY_EMPTY_ATTR_ERR "Original tty attributes are empty.\n"
+# define TTY_GET_ATTR_ERR "Unable to get original tty attributes.\n"
+# define TTY_SET_ATTR_ERR "Unable to set raw mode tty attributes.\n"
+# define TTY_RESTORE_ATTR_ERR "Unable to restore original tty attributes.\n"
+
+# define READ_KEY_ERR "Unable to read next input key from STDIN_FILENO.\n"
 
 /******************************************************************************\
  * FILES

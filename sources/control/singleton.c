@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 16:53:18 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:09:14 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_control	*c(void)
 
 void	initialize_control(int argc, char **argv)
 {
+	save_tty_flags();
 	c()->argc = argc;
 	c()->argv = argv;
 	c()->help_flag = false;

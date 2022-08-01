@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 13:54:11 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:00:35 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <arpa/inet.h>
 # include <curl/curl.h>
+# include <errno.h>
 
 # include <defines.h>
 # include <structs.h>
@@ -26,6 +27,9 @@
 
 t_control	*c(void);
 void		initialize_control(int argc, char **argv);
+
+t_termios	original_tty_attr(void);
+void		save_tty_flags(void);
 
 int			argc(void);
 char		**argv(void);
@@ -177,15 +181,17 @@ bool		is_valid_ipv4(char *address);
 bool		is_valid_ipv6(char *address);
 
 /******************************************************************************\
- * DEBUG
-\******************************************************************************/
-
-void		debug_flags(void);
-void		debug_targets(void);
-
-/******************************************************************************\
  * RUNTIME
 \******************************************************************************/
+
+void		initialize(int argc, char **argv);
+
+void		disable_tty_raw_mode(void);
+void		enable_tty_raw_mode(void);
+
+void		handle_key(void);
+
+void		cleanup(void);
 
 void		quit(void);
 void		help_and_quit(void);
@@ -193,5 +199,13 @@ void		help_and_quit(void);
 void		die(char *error_message);
 void		free_and_die(void *free_me, char *error_message);
 void		free_arr_and_die(char **free_me, char *error_message);
+
+/******************************************************************************\
+ * DEBUG
+\******************************************************************************/
+
+void		debug_flags(void);
+void		debug_targets(void);
+void		debug_key(char key);
 
 #endif

@@ -100,6 +100,7 @@
     "stdexcept": "c",
     "cinttypes": "c",
     "cstdbool": "c",
-    "time.h": "c"
+    "time.h": "c",
+    "errors.h": "c"
   }
 }

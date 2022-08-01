@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   die.c                                              :+:      :+:    :+:   */
+/*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 23:34:04 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/31 23:14:04 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/01 00:10:14 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	die(char *error_message)
+void	initialize(int argc, char **argv)
 {
-	ft_die(error_message);
-}
-
-void	free_and_die(void *free_me, char *error_message)
-{
-	free(free_me);
-	die(error_message);
-}
-
-void	free_arr_and_die(char **free_me, char *error_message)
-{
-	ft_free_strarr(free_me);
-	die(error_message);
+	initialize_control(argc, argv);
+	atexit(cleanup);
+	enable_tty_raw_mode();
+	handle_flags();
+	handle_config();
 }
