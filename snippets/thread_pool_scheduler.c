@@ -217,6 +217,7 @@ static void	join_scheduler_threads(pthread_t threads[])
 
 static void	init(void)
 {
+	srand(time(NULL));
 	pthread_mutex_init(&mutex_queue, NULL);
 	pthread_cond_init(&cond_queue, NULL);
 }
