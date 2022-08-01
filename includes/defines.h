@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:20:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 02:16:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <ping.h>
 # include <dns.h>
 # include <errors.h>
+# include <banners.h>
 
 /******************************************************************************\
  * TTY
@@ -28,7 +29,7 @@
 # define CONTROL_Q 17
 # define CONTROL_S 19
 
-# define CONTROLS_HELP "Press Control+Q to exit the program cleanly."
+# define CONTROLS_HELP "Press CONTROL+Q to exit the program cleanly."
 
 /******************************************************************************\
  * DEFAULTS
