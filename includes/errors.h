@@ -6,14 +6,12 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 11:31:22 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:45:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
-
-# define ERROR_PREFIX "ERROR:\t"
 
 # define GENERIC_ERR "no no bad bad bad."
 

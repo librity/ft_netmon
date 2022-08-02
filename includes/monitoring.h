@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 12:37:08 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:46:04 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,30 @@ void		end_clock(t_request *request);
 void		log_request(t_request *request);
 
 /******************************************************************************\
+ * THREADS
+\******************************************************************************/
+
+void		disable_cancellation(void);
+void		enable_cancellation(void);
+
+void		switch_deffered(void);
+void		switch_async(void);
+
+t_thread	*find_self(void);
+t_thread	*find_self_or_tdie(void);
+
+t_thread	*find_thread_in_index(t_dlist **threads, pthread_t id);
+t_thread	*find_thread(pthread_t id);
+
+t_thread	*nget_thread(t_dlist *node);
+pthread_t	nget_thread_id(t_dlist *node);
+t_tstatus	nget_thread_status(t_dlist *node);
+
+void		set_self_status(t_tstatus status);
+
+void		tdie(char *error_message);
+
+/******************************************************************************\
  * MAIN THREAD
 \******************************************************************************/
 
@@ -230,30 +254,6 @@ void		destroy_mutex(t_tmutex *mutex);
 
 void		initialize_cond(t_tcond *cond);
 void		destroy_cond(t_tcond *cond);
-
-t_thread	*nget_thread(t_dlist *node);
-pthread_t	nget_thread_id(t_dlist *node);
-t_tstatus	nget_thread_status(t_dlist *node);
-
-t_thread	*find_thread_in_index(t_dlist **threads, pthread_t id);
-t_thread	*find_thread(pthread_t id);
-
-/******************************************************************************\
- * THREADS
-\******************************************************************************/
-
-void		disable_cancellation(void);
-void		enable_cancellation(void);
-
-void		switch_deffered(void);
-void		switch_async(void);
-
-t_thread	*find_self(void);
-t_thread	*find_self_or_tdie(void);
-
-void		set_self_status(t_tstatus status);
-
-void		tdie(char *error_message);
 
 /******************************************************************************\
  * THREAD POOL CONTROL
@@ -347,6 +347,7 @@ void		free_and_die(void *free_me, char *error_message);
 void		free_arr_and_die(char **free_me, char *error_message);
 
 void		print_error(char *message);
+void		print_warning(char *message);
 
 /******************************************************************************\
  * DEBUG

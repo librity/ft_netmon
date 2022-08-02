@@ -6,26 +6,31 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:24:57 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:06:36 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-#define CANCEL_MSG "Sent cancelation signal to thread %lu."
+#define CANCEL_MSG "\tSent cancelation signal to thread %lu."
+#define CANCEL_COUNT_MSG "Total cancellation signals sent: %d."
 
 void	cancel_threads(t_dlist **threads)
 {
 	t_dlist	*node;
 	int		result;
+	int		count;
 
 	node = *threads;
+	count = 0;
 	while (node != NULL)
 	{
 		result = pthread_cancel(nget_thread_id(node));
 		if (result != 0)
 			die(THRD_CANCEL_ERR);
 		tdebug(CANCEL_MSG, nget_thread_id(node));
+		count++;
 		node = node->next;
 	}
+	tdebug(CANCEL_COUNT_MSG, count);
 }

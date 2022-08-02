@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 11:55:22 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:39:18 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	destroy_cond(t_tcond *cond)
 {
 	int	result;
 
+	pthread_cond_broadcast(cond);
 	result = pthread_cond_destroy(cond);
 	if (result != 0)
 		die(THRD_COND_DESTROY_ERR);

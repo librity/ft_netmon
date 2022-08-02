@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   warnings.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 13:48:31 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/02 13:52:09 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#ifndef WARNINGS_H
+# define WARNINGS_H
 
-/**
- * TODO: Fix destroy_mutex.
- */
-static void	destroy_locks(void)
-{
-	destroy_cond(queue_cond());
-	destroy_mutex(queue_mutex());
-}
+# define GENERIC_WARN "you sure about that?"
 
-void	close_thread_pool(void)
-{
-	cancel_schedulers();
-	cancel_workers();
-	join_schedulers();
-	join_workers();
-	destroy_locks();
-}
+/******************************************************************************\
+ * MAIN THREAD
+\******************************************************************************/
+
+# define BUSY_MUTEX_WARN "Trying to destroy locked or referenced mutex: \
+https://linux.die.net/man/3/pthread_mutex_destroy"
+
+#endif
