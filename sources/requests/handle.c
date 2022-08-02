@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 00:26:59 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 12:43:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	handle_request(t_target *target)
 		return (handle_ping_request(target));
 	if (target->protocol == DNS_PROT)
 		return (handle_dns_request(target));
-	tdie(BAD_PROTOCOL_ERR);
+	print_error(BAD_PROTOCOL_ERR);
 }

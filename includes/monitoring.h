@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 11:10:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 12:37:08 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -345,6 +345,8 @@ void		close_thread_pool_and_quit(void);
 void		die(char *error_message);
 void		free_and_die(void *free_me, char *error_message);
 void		free_arr_and_die(char **free_me, char *error_message);
+
+void		print_error(char *message);
 
 /******************************************************************************\
  * DEBUG

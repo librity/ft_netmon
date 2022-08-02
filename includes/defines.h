@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:30:17 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 12:28:41 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@
 # define CONTROL_Q 17
 # define CONTROL_S 19
 
-# define CONTROLS_HELP "Press CONTROL+Q to exit the program cleanly."
+# define CONTROLS_HELP "Press CONTROL+Q to exit the program cleanly. \
+Press CONTROL+C to exit the program."
 
 /******************************************************************************\
  * DEFAULTS
