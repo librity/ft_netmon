@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   runtime.c                                          :+:      :+:    :+:   */
+/*   cond.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:51:56 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:42:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	init(void)
+void	initialize_cond(t_tcond *cond)
 {
-	pthread_mutex_init(&queue_mutex, NULL);
-	pthread_cond_init(&queue_cond, NULL);
+	int	result;
+
+	result = pthread_cond_init(cond, NULL);
+	if (result != 0)
+		tdie(THRD_COND_INIT_ERR);
 }
 
-void	cleanup(void)
+void	destroy_cond(t_tcond *cond)
 {
-	pthread_mutex_destroy(&queue_mutex);
-	pthread_cond_destroy(&queue_cond);
-}
+	int	result;
 
-int	main(int arc, char *argv[])
-{
-	init();
-	spawn_workers();
-	spawn_schedulers();
-
-	tdebug("Cancelling all threads.");
-	cancel_schedulers();
-	cancel_workers();
-
-	join_schedulers();
-	join_workers();
-	cleanup();
-	return (EXIT_SUCCESS);
+	result = pthread_cond_destroy(cond);
+	if (result != 0)
+		tdie(THRD_COND_DESTROY_ERR);
 }

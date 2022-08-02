@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 16:27:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:42:53 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 21:47:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ void	tbdebug(bool _debug, const char *format, ...)
 
 	if (!_debug)
 		return ;
-	printf(stdout, "%sDEBUG:%s\t", Y, RC);
+	fprintf(stdout, "%sDEBUG:%s\t", YB, RC);
 	va_start(ap, format);
 	vfprintf(stdout, format, ap);
+	fprintf(stdout, "\n");
 	va_end(ap);
 }

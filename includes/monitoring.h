@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:44:09 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 21:39:45 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		close_log(void);
 void		close_files(void);
 
 t_dlist		**targets(void);
+int			targets_count(void);
 
 t_list		**lalloc(void);
 void		free_memory(void);
@@ -80,8 +81,6 @@ bool		is_bool_flag(char *argument);
 
 bool		handled_file_flag(char **arguments);
 bool		is_file_flag(char *argument);
-
-void		simplify_and_quit(void);
 
 /******************************************************************************\
  * CONFIG
@@ -127,6 +126,7 @@ bool		is_valid_frequency(char *str);
 
 t_target	*new_target(void);
 void		inspect_target(void *t);
+t_target	*nget_target(t_dlist *node);
 
 /******************************************************************************\
  * HTTP
@@ -185,10 +185,35 @@ typedef struct s_new_dns_target
 void		add_dns_target(t_new_dns_target p);
 
 /******************************************************************************\
+ * REQUESTS
+\******************************************************************************/
+
+void	handle_request(t_target *request);
+
+/******************************************************************************\
  * THREADS
 \******************************************************************************/
 
 void		tdie(char *error_message);
+
+t_thread	*new_thread(void);
+void		add_thread(t_dlist **threads);
+
+void		initialize_n_threads(t_dlist **threads, int n);
+void		nspawn_thread(t_dlist *node, t_troutine routine, void *thread_arg);
+void		spawn_threads(t_dlist **threads, t_troutine routine,
+				void *thread_arg);
+void		create_threads(t_dlist **threads, t_troutine routine,
+				void *thread_arg, int thread_count);
+
+void		cancel_threads(t_dlist **threads);
+void		join_threads(t_dlist **threads);
+
+void		initialize_mutex(t_tmutex *mutex);
+void		destroy_mutex(t_tmutex *mutex);
+
+void		initialize_cond(t_tcond *cond);
+void		destroy_cond(t_tcond *cond);
 
 void		disable_cancellation(void);
 void		enable_cancellation(void);
@@ -196,9 +221,17 @@ void		enable_cancellation(void);
 void		switch_deffered(void);
 void		switch_async(void);
 
-/******************************************************************************\
- * THREAD POOL
-\******************************************************************************/
+t_thread	*nget_thread(t_dlist *node);
+pthread_t	nget_thread_id(t_dlist *node);
+t_tstatus	nget_thread_status(t_dlist *node);
+
+t_thread	*find_thread_in_index(t_dlist **threads, pthread_t id);
+t_thread	*find_thread(pthread_t id);
+
+t_thread	*find_self(void);
+t_thread	*find_self_or_tdie(void);
+
+void		set_self_status(t_tstatus status);
 
 /******************************************************************************\
  * THREAD POOL CONTROL
@@ -206,6 +239,43 @@ void		switch_async(void);
 
 t_tpcontrol	*tpc(void);
 void		initialize_thread_pool_control(void);
+
+t_dlist		**workers(void);
+int			workers_count(void);
+
+t_dlist		**schedulers(void);
+int			schedulers_count(void);
+
+void		enqueue_request(t_target *request);
+t_target	*dequeue_request(void);
+
+int			request_count(void);
+void		increase_request_count(void);
+void		decrease_request_count(void);
+
+t_tmutex	*queue_mutex(void);
+t_tcond		*queue_cond(void);
+
+/******************************************************************************\
+ * THREAD POOL
+\******************************************************************************/
+
+void		initialize_thread_pool(void);
+void		close_thread_pool(void);
+
+void		create_schedulers(void);
+void		cancel_schedulers(void);
+void		join_schedulers(void);
+
+void		create_workers(void);
+void		cancel_workers(void);
+void		join_workers(void);
+
+void		*run_scheduler(void *target_vp);
+void		*run_worker(void *_args);
+
+void		enqueue_safely(t_target *request);
+t_target	*dequeue_safely(void);
 
 /******************************************************************************\
  * FILES
@@ -243,6 +313,8 @@ void		cleanup(void);
 
 void		quit(void);
 void		help_and_quit(void);
+void		simplify_and_quit(void);
+void		close_thread_pool_and_quit(void);
 
 void		die(char *error_message);
 void		free_and_die(void *free_me, char *error_message);

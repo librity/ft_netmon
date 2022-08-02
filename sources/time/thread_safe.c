@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:09:34 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 21:45:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	remove_endline(char *ascii_time)
 {
 	char		*endline;
 
-	endline = ft_strchr(ascii_time, "\n");
+	endline = ft_strchr(ascii_time, '\n');
 	if (endline != NULL)
 		*endline = '\0';
 }

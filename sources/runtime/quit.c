@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:35:56 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:47:44 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:15:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,11 @@ void	help_and_quit(void)
 void	simplify_and_quit(void)
 {
 	ft_putstr("TODO: SIMPLIFY!\n");
+	quit();
+}
+
+void	close_thread_pool_and_quit(void)
+{
+	close_thread_pool();
 	quit();
 }

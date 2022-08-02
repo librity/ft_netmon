@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:04:01 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:47:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ t_tpcontrol	*tpc(void)
 
 void	initialize_thread_pool_control(void)
 {
-	tpc()->task_count = 0;
+	tpc()->request_count = 0;
 }

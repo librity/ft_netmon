@@ -6,31 +6,52 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 17:03:22 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 21:31:35 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-#define SPAWN_SCHEDULER_FMT "Created scheduler thread with id %lu."
-
-void	spawn_schedulers(void)
+static void	spawn_schedulers(void)
 {
-	spawn_threads(schedulers, &run_scheduler, SCHEDULER_THREAD_COUNT,
-		SPAWN_SCHEDULER_FMT);
+	t_dlist	*thread_node;
+	t_dlist	*target_node;
+
+	thread_node = *schedulers();
+	target_node = *targets();
+	while (thread_node != NULL || target_node != NULL)
+	{
+		nspawn_thread(thread_node, &run_scheduler, nget_target(target_node));
+		thread_node = thread_node->next;
+		target_node = target_node->next;
+	}
+	if (thread_node != NULL && target_node != NULL)
+		die(SPAWN_SCHEDULERS_ERR);
 }
 
-#define CANCEL_SCHEDULER_FMT "Sending cancel signal to scheduler thread %lu."
+#define CREATE_MSG "Creating scheduler threads."
+
+void	create_schedulers(void)
+{
+	tdebug(CREATE_MSG);
+	initialize_n_threads(schedulers(), targets_count());
+	if (targets_count() != schedulers_count())
+		die(INIT_SCHEDULERS_ERR);
+	spawn_schedulers();
+}
+
+#define CANCEL_MSG "Canceling scheduler threads."
 
 void	cancel_schedulers(void)
 {
-	cancel_threads(schedulers, SCHEDULER_THREAD_COUNT, CANCEL_SCHEDULER_FMT);
+	tdebug(CANCEL_MSG);
+	cancel_threads(schedulers());
 }
 
-#define JOIN_SCHEDULER_FMT "Joined scheduler thread %lu with return status %d."
+#define JOIN_MSG "Joining scheduler threads."
 
 void	join_schedulers(void)
 {
-	join_threads(schedulers, scheduler_returns, SCHEDULER_THREAD_COUNT,
-		JOIN_SCHEDULER_FMT);
+	tdebug(JOIN_MSG);
+	join_threads(schedulers());
 }

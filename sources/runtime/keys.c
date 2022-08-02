@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 01:25:28 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:18:08 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:14:55 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	handle_key(void)
 	current_key = read_key();
 	debug_key(current_key);
 	if (current_key == CONTROL_Q)
-		quit();
+		close_thread_pool_and_quit();
 	if (current_key == CONTROL_S)
 		print_controls();
 	if (current_key == CONTROL_D)

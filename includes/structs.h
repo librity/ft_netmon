@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:25:48 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 19:39:42 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,9 @@ typedef struct s_target
 
 typedef enum e_tstatus
 {
-	THREAD_EXIT_OK = 0,
-	THREAD_RUNNING,
-	THREAD_ERR
+	THREAD_ERR = -1,
+	THREAD_EXIT_OK,
+	THREAD_RUNNING
 }						t_tstatus;
 
 typedef struct s_thread
@@ -109,12 +109,12 @@ typedef struct s_thread
 
 typedef void			*(*t_troutine)(void *);
 
+typedef pthread_mutex_t	t_tmutex;
+typedef pthread_cond_t	t_tcond;
+
 /******************************************************************************\
  * THREAD POOL
 \******************************************************************************/
-
-typedef pthread_mutex_t	t_tmutex;
-typedef pthread_cond_t	t_tcond;
 
 /******************************************************************************\
  * THREAD POOL CONTROL
@@ -122,11 +122,11 @@ typedef pthread_cond_t	t_tcond;
 
 typedef struct s_tpcontrol
 {
-	t_thread			*workers;
-	t_thread			*schedulers;
+	t_dlist				*workers;
+	t_dlist				*schedulers;
 
-	t_target			target_queue[TARGET_QUEUE_SIZE];
-	int					targetq_count;
+	t_target			*request_queue[REQUEST_QUEUE_SIZE];
+	int					request_count;
 
 	t_tmutex			queue_mutex;
 	t_tcond				queue_cond;

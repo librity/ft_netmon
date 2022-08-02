@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:22:51 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 21:15:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,14 @@ representing the interval between requests in seconds."
  * THREADS
 \******************************************************************************/
 
+# define THRD_DUPLICATE_ERR "Encountred a duplicate thread in thread indexes."
+
+# define THRD_MUTEX_INIT_ERR "Can't initialize required thread mutex."
+# define THRD_MUTEX_DESTROY_ERR "Can't destroy required thread mutex."
+
+# define THRD_COND_INIT_ERR "Can't initialize required thread condition."
+# define THRD_COND_DESTROY_ERR "Can't destroy required thread condition."
+
 # define THRD_DISABLE_CANCEL_ERR "Can't disable cancellation state of thread."
 # define THRD_ENABLE_CANCEL_ERR "Can't enable cancellation state of thread."
 
@@ -121,19 +129,38 @@ to deffered."
 # define THRD_SWITCH_ASYNC_ERR "Can't switch cancelability type of thread \
 to asynchronous."
 
-# define THRD_FIND_STATUS_ERR "Can't find status."
+# define THRD_FIND_ERR "Can't find status."
 
 # define THRD_SPAWN_ERR "Can't spawn required thread."
 # define THRD_CANCEL_ERR "Can't send required cancel signal to thread."
 # define THRD_JOIN_ERR "Can't join required thread."
 
+# define THRD_JOIN_ERR "Can't join required thread."
+
+# define INIT_THREADS_ERR "Can't intialize required scheduler threads."
+
+/******************************************************************************\
+ * THREAD POOL CONTROL
+\******************************************************************************/
+
+# define REQUEST_COUNT_MIN_ERR "Can't decrease request count further than zero."
+# define REQUEST_COUNT_MAX_ERR "Can't increase request count further than \
+request queue size."
+
+# define REQUEST_QUEUE_OVERFLOW_ERR "Can't enqueue new request on a full queue."
+# define REQUEST_QUEUE_UNDERFLOW_ERR "Can't dequeue request on an empty queue."
 
 /******************************************************************************\
  * THREAD POOL
 \******************************************************************************/
 
+# define INIT_SCHEDULERS_ERR "Can't intialize required scheduler threads."
+# define SPAWN_SCHEDULERS_ERR "Can't spawn a scheduler thread for each target."
+
 /******************************************************************************\
- * THREAD POOL CONTROL
+ * IP
 \******************************************************************************/
+
+# define NO_TARGETS_ERROR "No targets to monitor."
 
 #endif
