@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 11:07:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:02:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,8 @@ typedef struct s_request
 	clock_t				clock;
 	double				latency;
 
+	t_lstr				response;
 	char				*code;
-
 	CURLcode			curl_code;
 
 	bool				error;

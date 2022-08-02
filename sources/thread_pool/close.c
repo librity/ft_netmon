@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 13:48:31 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 14:19:23 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
  */
 static void	destroy_locks(void)
 {
-	destroy_cond(queue_cond());
 	destroy_mutex(queue_mutex());
+	destroy_cond(queue_cond());
 }
 
 void	close_thread_pool(void)

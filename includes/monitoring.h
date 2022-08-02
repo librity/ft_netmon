@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 13:46:04 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:31:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,9 @@ t_target	*nget_target(t_dlist *node);
 \******************************************************************************/
 
 bool		is_http_method(char *field);
+
 bool		is_http_code(char *field);
+char		*get_http_code_string(long code_number);
 
 typedef struct s_new_http_target
 {
@@ -159,6 +161,10 @@ typedef struct s_new_https_target
 void		add_https_target(t_new_https_target p);
 
 void		handle_https_request(t_target *target);
+
+char		*handle_curl_request(t_request *request);
+void		set_request_code(t_request *request, CURL *curl);
+bool		has_expected_code(t_request *request);
 
 /******************************************************************************\
  * PING
@@ -191,7 +197,7 @@ void		add_dns_target(t_new_dns_target p);
 
 void		handle_request(t_target *target);
 
-t_request	*new_request(t_target *target);
+void		initialize_request(t_request *new, t_target *target);
 void		destroy_request(t_request *request);
 
 void		handle_request_error(t_request *request, char *error_message);

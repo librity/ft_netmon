@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:31:31 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 19:03:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:52:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,15 @@ static char	**http_codes(void)
 bool	is_http_code(char *field)
 {
 	return (ft_str_in_strarr(http_codes(), field));
+}
+
+char	*get_http_code_string(long code_number)
+{
+	char	*code_string;
+	char	*arr_string;
+
+	code_string = ft_ltoa(code_number);
+	arr_string = ft_find_in_strarr(http_codes(), code_string);
+	free(code_string);
+	return (arr_string);
 }
