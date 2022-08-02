@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 16:27:05 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:47:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 22:08:42 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Behaves like printf but with a "DEBUG: " suffix and an endline.
 ** Only prints if debug flag is enabled.
-** Uses system's printf and derivatives so it's thread safe.
+** Uses system's printf with flockfile/funlockfile so it's thread safe.
 */
 void	tdebug(const char *format, ...)
 {
@@ -23,9 +23,11 @@ void	tdebug(const char *format, ...)
 
 	if (!debug())
 		return ;
+	flockfile(stdout);
 	fprintf(stdout, "%sDEBUG:%s\t", YB, RC);
 	va_start(ap, format);
 	vfprintf(stdout, format, ap);
 	fprintf(stdout, "\n");
 	va_end(ap);
+	funlockfile(stdout);
 }
