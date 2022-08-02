@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/07/31 16:43:25 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/02 10:40:46 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,12 @@ CC_FULL = $(CC_STRICT) \
 #	$(CCF_OPTIMIZATION) \
 
 CCF_INCLUDES = -I $(LOCAL_INCLUDES) -I $(LIBFT_INCLUDES) -I $(INCLUDES_PATH)
-CCF_LIBS = -I $(LIBFT_INCLUDES) -I $(INCLUDES_PATH)
 CCF_STRICT = -Wall -Wextra -Werror
 CCF_OPTIMIZATION = -O3
-CCF_DEBUG = -g -fsanitize=leak
+CCF_DEBUG = -g
+# -fsanitize=leak
+
+CCF_LIBS = -L $(LOCAL_LIBS) -lcurl
 
 MAKE_EXTERNAL = make -C
 SAFE_MAKEDIR = mkdir -p
@@ -47,9 +49,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 LIBFT_INCLUDES = $(LIBFT_PATH)/includes
 
 LOCAL_INCLUDES = /home/lgeniole/.local/include
-LOCAL_LIBS = /home/lgeniole/.local/include
-
-EXTERNAL_LIBS = -lcurl
+LOCAL_LIBS = /home/lgeniole/.local/lib
 
 ################################################################################
 # MANDATORY
@@ -77,6 +77,7 @@ $(NAME): $(LIBFT) $(M_ARCHIVE)
 	$(CC_FULL) \
 		$(M_MAIN) \
 		$(M_ARCHIVES) \
+		$(CCF_LIBS) \
 		-o $(NAME)
 
 $(M_ARCHIVE): $(M_HEADER) $(M_OBJECTS)
@@ -143,6 +144,7 @@ build_tests: re
 		$(TEST_SOURCES) \
 		$(M_ARCHIVES) \
 		$(CCF_TEST_LIBS) \
+		$(CCF_LIBS) \
 		-o $(EXECUTE_TESTS)
 
 test: build_tests
@@ -167,7 +169,8 @@ example: build_example
 build_example: $(M_ARCHIVE)
 	$(CC_FULL) \
 		$(EXAMPLE_MAIN) \
-		$(M_ARCHIVES)
+		$(M_ARCHIVES) \
+		$(CCF_LIBS)
 
 example_clean: fclean
 	$(REMOVE_RECURSIVE) $(EXAMPLE_GARBAGE)
@@ -203,6 +206,7 @@ vg_build: $(LIBFT) $(M_ARCHIVE)
 	$(CC_VG) \
 		$(M_MAIN) \
 		$(M_ARCHIVES) \
+		$(CCF_LIBS) \
 		-o $(NAME)
 
 vglog_clean: fclean

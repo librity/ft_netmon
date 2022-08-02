@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cond.c                                             :+:      :+:    :+:   */
+/*   success.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 17:42:39 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 01:46:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	initialize_cond(t_tcond *cond)
-{
-	int	result;
+#define SUCCESS_MSG "%s - %s on %s is up.\n"
 
-	result = pthread_cond_init(cond, NULL);
-	if (result != 0)
-		tdie(THRD_COND_INIT_ERR);
+static void	print_success(t_request *request)
+{
+	char	*time;
+	char	*protocol;
+	char	*address;
+
+	time = ts_raw_to_asctime(&request->end);
+	protocol = get_protocol_by_code(request->target->protocol);
+	address = request->target->address.name;
+	ts_printf(SUCCESS_MSG, time, address, protocol);
+	free(time);
 }
 
-void	destroy_cond(t_tcond *cond)
+void	handle_request_success(t_request *request)
 {
-	int	result;
-
-	result = pthread_cond_destroy(cond);
-	if (result != 0)
-		tdie(THRD_COND_DESTROY_ERR);
+	end_time(request);
+	print_success(request);
+	log_request(request);
+	destroy_request(request);
 }

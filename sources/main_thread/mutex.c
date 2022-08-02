@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quit.c                                             :+:      :+:    :+:   */
+/*   mutex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 16:35:56 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 11:33:44 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/02 11:52:06 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	quit(void)
+void	initialize_mutex(t_tmutex *mutex)
 {
-	ts_fprintf(stdout, GB"See ya!\n"RC);
-	exit(EXIT_SUCCESS);
+	int	result;
+
+	result = pthread_mutex_init(mutex, NULL);
+	if (result != 0)
+		die(THRD_MUTEX_INIT_ERR);
 }
 
-void	help_and_quit(void)
+void	destroy_mutex(t_tmutex *mutex)
 {
-	ft_putstr(HELP_MSG);
-	quit();
-}
+	int	result;
 
-// TODO: SIMPLIFY!
-void	simplify_and_quit(void)
-{
-	ft_putstr("TODO: SIMPLIFY!\n");
-	quit();
-}
-
-void	close_thread_pool_and_quit(void)
-{
-	close_thread_pool();
-	quit();
+	pthread_mutex_unlock(mutex);
+	result = pthread_mutex_destroy(mutex);
+	if (result != 0)
+		die(THRD_MUTEX_DESTROY_ERR);
 }

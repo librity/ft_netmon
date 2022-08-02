@@ -6,12 +6,14 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 22:27:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:31:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
+
+# define ERROR_PREFIX "ERROR:\t"
 
 # define GENERIC_ERR "no no bad bad bad."
 
@@ -71,6 +73,8 @@ Run program with --help for flags and usage."
 
 # define BAD_PROTOCOL_ERR "Invalid request protocol."
 
+# define CURL_INIT_ERR "Can't initialize libcurl request."
+
 /******************************************************************************\
  * IP
 \******************************************************************************/
@@ -116,16 +120,26 @@ representing the interval between requests in seconds."
 # define DNS_SERVER_ADDRESS_ERR "Invalid DNS server IPv4 address."
 
 /******************************************************************************\
- * THREADS
+ * MAIN THREAD
 \******************************************************************************/
 
-# define THRD_DUPLICATE_ERR "Encountred a duplicate thread in thread indexes."
+# define THRD_DUPLICATE_ERR "Encountred a duplicate thread in thread index."
 
 # define THRD_MUTEX_INIT_ERR "Can't initialize required thread mutex."
 # define THRD_MUTEX_DESTROY_ERR "Can't destroy required thread mutex."
 
 # define THRD_COND_INIT_ERR "Can't initialize required thread condition."
 # define THRD_COND_DESTROY_ERR "Can't destroy required thread condition."
+
+# define THRD_SPAWN_ERR "Can't spawn required thread."
+# define THRD_CANCEL_ERR "Can't send required cancel signal to thread."
+# define THRD_JOIN_ERR "Can't join required thread."
+
+# define INIT_THREADS_ERR "Can't intialize required threads."
+
+/******************************************************************************\
+ * THREADS
+\******************************************************************************/
 
 # define THRD_DISABLE_CANCEL_ERR "Can't disable cancellation state of thread."
 # define THRD_ENABLE_CANCEL_ERR "Can't enable cancellation state of thread."
@@ -136,14 +150,6 @@ to deffered."
 to asynchronous."
 
 # define THRD_FIND_ERR "Can't find status."
-
-# define THRD_SPAWN_ERR "Can't spawn required thread."
-# define THRD_CANCEL_ERR "Can't send required cancel signal to thread."
-# define THRD_JOIN_ERR "Can't join required thread."
-
-# define THRD_JOIN_ERR "Can't join required thread."
-
-# define INIT_THREADS_ERR "Can't intialize required scheduler threads."
 
 /******************************************************************************\
  * THREAD POOL CONTROL

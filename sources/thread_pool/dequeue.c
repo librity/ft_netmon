@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:40:38 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 00:29:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static void	wait_for_request(void)
 
 t_target	*dequeue_safely(void)
 {
-	t_target	*request;
+	t_target	*target;
 
 	pthread_mutex_lock(queue_mutex());
 	wait_for_request();
-	request = dequeue_request();
+	target = dequeue_request();
 	pthread_mutex_unlock(queue_mutex());
-	return (request);
+	return (target);
 }

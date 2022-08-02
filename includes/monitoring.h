@@ -6,22 +6,21 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 22:17:42 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:10:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MONITORING_H
 # define MONITORING_H
 
-# include <fcntl.h>
 # include <arpa/inet.h>
 # include <curl/curl.h>
-# include <errno.h>
-# include <pthread.h>
-# include <time.h>
-
 # include <defines.h>
+# include <errno.h>
+# include <fcntl.h>
+# include <pthread.h>
 # include <structs.h>
+# include <time.h>
 
 /******************************************************************************\
  * CONTROL
@@ -159,6 +158,8 @@ typedef struct s_new_https_target
 }			t_new_https_target;
 void		add_https_target(t_new_https_target p);
 
+void		handle_https_request(t_target *target);
+
 /******************************************************************************\
  * PING
 \******************************************************************************/
@@ -188,13 +189,28 @@ void		add_dns_target(t_new_dns_target p);
  * REQUESTS
 \******************************************************************************/
 
-void	handle_request(t_target *request);
+void		handle_request(t_target *target);
+
+t_request	*new_request(t_target *target);
+void		destroy_request(t_request *request);
+
+void		handle_request_error(t_request *request, char *error_message);
+void		handle_request_success(t_request *request);
+
+void		start_time(t_request *request);
+void		end_time(t_request *request);
+void		start_clock(t_request *request);
+void		end_clock(t_request *request);
 
 /******************************************************************************\
- * THREADS
+ * LOG
 \******************************************************************************/
 
-void		tdie(char *error_message);
+void		log_request(t_request *request);
+
+/******************************************************************************\
+ * MAIN THREAD
+\******************************************************************************/
 
 t_thread	*new_thread(void);
 void		add_thread(t_dlist **threads);
@@ -215,12 +231,6 @@ void		destroy_mutex(t_tmutex *mutex);
 void		initialize_cond(t_tcond *cond);
 void		destroy_cond(t_tcond *cond);
 
-void		disable_cancellation(void);
-void		enable_cancellation(void);
-
-void		switch_deffered(void);
-void		switch_async(void);
-
 t_thread	*nget_thread(t_dlist *node);
 pthread_t	nget_thread_id(t_dlist *node);
 t_tstatus	nget_thread_status(t_dlist *node);
@@ -228,10 +238,22 @@ t_tstatus	nget_thread_status(t_dlist *node);
 t_thread	*find_thread_in_index(t_dlist **threads, pthread_t id);
 t_thread	*find_thread(pthread_t id);
 
+/******************************************************************************\
+ * THREADS
+\******************************************************************************/
+
+void		disable_cancellation(void);
+void		enable_cancellation(void);
+
+void		switch_deffered(void);
+void		switch_async(void);
+
 t_thread	*find_self(void);
 t_thread	*find_self_or_tdie(void);
 
 void		set_self_status(t_tstatus status);
+
+void		tdie(char *error_message);
 
 /******************************************************************************\
  * THREAD POOL CONTROL
@@ -246,7 +268,7 @@ int			workers_count(void);
 t_dlist		**schedulers(void);
 int			schedulers_count(void);
 
-void		enqueue_request(t_target *request);
+void		enqueue_request(t_target *target);
 t_target	*dequeue_request(void);
 
 int			request_count(void);
@@ -274,15 +296,18 @@ void		join_workers(void);
 void		*run_scheduler(void *target_vp);
 void		*run_worker(void *_args);
 
-void		enqueue_safely(t_target *request);
+void		enqueue_safely(t_target *target);
 t_target	*dequeue_safely(void);
 
 /******************************************************************************\
  * THREAD SAFE
 \******************************************************************************/
 
-char		*ts_time(void);
 void		ts_fprintf(FILE *filehandle, const char *format, ...);
+void		ts_printf(const char *format, ...);
+
+char		*ts_asctime(void);
+char		*ts_raw_to_asctime(time_t *rawtime);
 
 /******************************************************************************\
  * FILES

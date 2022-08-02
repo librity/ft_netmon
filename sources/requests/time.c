@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cancel_type.c                                      :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 10:53:33 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 00:18:01 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	switch_deffered(void)
+static double	clock_to_seconds(clock_t clock)
 {
-	int	set_result;
-
-	set_result = pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);
-	if (set_result != 0)
-		tdie(THRD_SWITCH_DEFFERED_ERR);
+	return (((double)clock) / CLOCKS_PER_SEC);
 }
 
-void	switch_async(void)
+void	start_clock(t_request *request)
 {
-	int	set_result;
+	request->clock = clock();
+}
 
-	set_result = pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
-	if (set_result != 0)
-		tdie(THRD_SWITCH_ASYNC_ERR);
+void	end_clock(t_request *request)
+{
+	clock_t	start;
+	clock_t	end;
+
+	end = clock();
+	start = request->clock;
+	request->clock = end - start;
+	request->latency = clock_to_seconds(request->clock);
+}
+
+void	end_time(t_request *request)
+{
+	time(&request->end);
+}
+
+void	start_time(t_request *request)
+{
+	time(&request->start);
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:15:05 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 00:28:10 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ static t_target	**request_queue(void)
 	return (tpc()->request_queue);
 }
 
-void	enqueue_request(t_target *request)
+void	enqueue_request(t_target *target)
 {
 	if (request_count() >= REQUEST_QUEUE_SIZE)
 		die(REQUEST_QUEUE_OVERFLOW_ERR);
-	request_queue()[request_count()] = request;
+	request_queue()[request_count()] = target;
 	increase_request_count();
 }
 
 t_target	*dequeue_request(void)
 {
-	t_target	*request;
+	t_target	*target;
 	int			i;
 
 	if (request_count() <= 0)
 		die(REQUEST_QUEUE_UNDERFLOW_ERR);
-	request = request_queue()[0];
+	target = request_queue()[0];
 	i = 0;
 	while (i < request_count() - 1)
 	{
@@ -40,5 +40,5 @@ t_target	*dequeue_request(void)
 		i++;
 	}
 	decrease_request_count();
-	return (request);
+	return (target);
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 22:25:22 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:07:26 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,37 @@ typedef struct s_target
 	t_protocol			protocol;
 	char				*name;
 	t_address			address;
+	int					frequency;
+
 	char				*method;
 	char				*code;
-	int					frequency;
+
 	t_address			dns;
 }						t_target;
+
+/******************************************************************************\
+ * REQUESTS
+\******************************************************************************/
+
+typedef struct s_request
+{
+	t_target			*target;
+
+	char				*url;
+
+	time_t				start;
+	time_t				end;
+
+	clock_t				clock;
+	double				latency;
+
+	char				*code;
+
+	CURLcode			curl_code;
+
+	bool				error;
+	char				*error_message;
+}						t_request;
 
 /******************************************************************************\
  * THREADS
@@ -111,10 +137,6 @@ typedef void			*(*t_troutine)(void *);
 
 typedef pthread_mutex_t	t_tmutex;
 typedef pthread_cond_t	t_tcond;
-
-/******************************************************************************\
- * THREAD POOL
-\******************************************************************************/
 
 /******************************************************************************\
  * THREAD POOL CONTROL

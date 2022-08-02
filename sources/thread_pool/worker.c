@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:43:22 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:53:03 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ static void	init_worker(void)
 
 void	*run_worker(void *_arg)
 {
-	t_target	*request;
+	t_target	*target;
 
 	(void)_arg;
 	init_worker();
 	pthread_cleanup_push(&exit_worker_cleanly, NULL);
 	while (true)
 	{
-		request = dequeue_safely();
-		handle_request(request);
+		target = dequeue_safely();
+		handle_request(target);
 	}
 	pthread_cleanup_pop(NULL);
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:41:16 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 00:57:02 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define HTTP_CODE_INDEX 4
 # define HTTP_FREQUENCY_INDEX 5
 
+# define HTTP_URL_PREFIX "http://"
+
 /******************************************************************************\
  * HTTPS
 \******************************************************************************/
@@ -44,6 +46,8 @@
 # define HTTPS_METHOD_INDEX 3
 # define HTTPS_CODE_INDEX 4
 # define HTTPS_FREQUENCY_INDEX 5
+
+# define HTTPS_URL_PREFIX "https://"
 
 /******************************************************************************\
  * METHODS

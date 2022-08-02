@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quit.c                                             :+:      :+:    :+:   */
+/*   new.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 16:35:56 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 11:33:44 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/02 00:46:15 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	quit(void)
+t_request	*new_request(t_target *target)
 {
-	ts_fprintf(stdout, GB"See ya!\n"RC);
-	exit(EXIT_SUCCESS);
-}
+	t_request	*new;
 
-void	help_and_quit(void)
-{
-	ft_putstr(HELP_MSG);
-	quit();
-}
-
-// TODO: SIMPLIFY!
-void	simplify_and_quit(void)
-{
-	ft_putstr("TODO: SIMPLIFY!\n");
-	quit();
-}
-
-void	close_thread_pool_and_quit(void)
-{
-	close_thread_pool();
-	quit();
+	new = ft_salloc(sizeof(t_request));
+	ft_bzero(new, sizeof(t_request));
+	start_time(new);
+	new->target = target;
+	return (new);
 }
