@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   thread_safe.c                                      :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:45:27 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 22:22:35 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	localtime_or_die(time_t *rawtime, t_timeinfo *timeinfo)
 
 	result = localtime_r(rawtime, timeinfo);
 	if (result == NULL)
-		die("Can't convert rawtime to calendar time.");
+		die(RAWTIME_CONVERT_ERR);
 }
 
 static char	*asctime_or_die(t_timeinfo *timeinfo)
@@ -31,7 +31,7 @@ static char	*asctime_or_die(t_timeinfo *timeinfo)
 	if (result == NULL)
 	{
 		free(ascii_time);
-		die("Can't convert calendar time to a human-readable string.");
+		die(CALENDARTIME_CONVERT_ERR);
 	}
 	return (ascii_time);
 }
@@ -45,7 +45,7 @@ static void	remove_endline(char *ascii_time)
 		*endline = '\0';
 }
 
-char	*get_readable_time(void)
+char	*ts_time(void)
 {
 	time_t		rawtime;
 	t_timeinfo	timeinfo;

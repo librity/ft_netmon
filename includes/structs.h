@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 19:39:42 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 22:25:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ typedef struct s_address
 
 typedef enum e_protocol
 {
-	EMPTY_CODE = 0,
-	HTTP_CODE,
-	HTTPS_CODE,
-	PING_CODE,
-	DNS_CODE
+	NO_PROTOCOL = 0,
+	HTTP_PROT,
+	HTTPS_PROT,
+	PING_PROT,
+	DNS_PROT
 }						t_protocol;
 
 typedef struct s_target

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:15:27 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 22:27:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ Run program with --help for flags and usage."
 \******************************************************************************/
 
 # define CONFIG_PROTOCOL_ERR "Invalid monitoring protocol in config file."
+
+/******************************************************************************\
+ * REQUESTS
+\******************************************************************************/
+
+# define BAD_PROTOCOL_ERR "Invalid request protocol."
 
 /******************************************************************************\
  * IP
@@ -156,6 +162,14 @@ request queue size."
 
 # define INIT_SCHEDULERS_ERR "Can't intialize required scheduler threads."
 # define SPAWN_SCHEDULERS_ERR "Can't spawn a scheduler thread for each target."
+
+/******************************************************************************\
+ * THREAD SAFE
+\******************************************************************************/
+
+# define RAWTIME_CONVERT_ERR "Can't convert rawtime to calendar time."
+# define CALENDARTIME_CONVERT_ERR "Can't convert calendar time \
+to a human-readable string."
 
 /******************************************************************************\
  * IP

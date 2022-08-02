@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/31 13:02:33 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/01 22:24:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_target	*new_http_target(t_new_http_target p)
 	t_target	*new;
 
 	new = new_target();
-	new->protocol = HTTP_CODE;
+	new->protocol = HTTP_PROT;
 	new->name = ft_strdup_lalloc(lalloc(), p.name);
 	new->address.name = ft_strdup_lalloc(lalloc(), p.address);
 	new->method = ft_strdup_lalloc(lalloc(), p.method);
