@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:28:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 16:13:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 14:01:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static bool	has_valid_range(char *str)
 
 bool	is_valid_frequency(char *str)
 {
-
 	if (!is_valid_string(str))
 		return (false);
 	return (has_valid_range(str));
