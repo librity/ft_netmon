@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   handle_request.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 10:34:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 01:59:01 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/03 03:05:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static void	run_log(void)
+void	handle_ping_request(t_target *target)
 {
-	while (true)
-		handle_key();
-}
+	t_request	request;
+	char		*error_message;
 
-int	main(int argc, char **argv)
-{
-	initialize(argc, argv);
-	run_log();
-	exit(EXIT_SUCCESS);
+	initialize_request(&request, target);
+	error_message = ping_target(&request);
+	if (error_message != NULL)
+		return (handle_request_error(&request, error_message));
+	handle_request_success(&request);
 }

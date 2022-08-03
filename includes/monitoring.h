@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 23:11:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 03:08:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <pthread.h>
 # include <structs.h>
 # include <time.h>
+
+// #include <stdio.h>
+// #include <arpa/inet.h>
+// #include <string.h>
 
 /******************************************************************************\
  * CONTROL
@@ -164,7 +168,7 @@ void		add_https_target(t_new_https_target p);
 
 void		handle_https_request(t_target *target);
 
-char		*handle_curl_request(t_request *request);
+char		*curl_target(t_request *request);
 void		set_request_code(t_request *request, CURL *curl);
 bool		has_expected_code(t_request *request);
 
@@ -179,6 +183,9 @@ typedef struct s_new_ping_target
 	int		frequency;
 }			t_new_ping_target;
 void		add_ping_target(t_new_ping_target p);
+
+void		handle_ping_request(t_target *target);
+char		*ping_target(t_request *request);
 
 /******************************************************************************\
  * DNS
@@ -345,6 +352,9 @@ FILE		*close_fs_or_die(FILE *close_me);
 
 bool		is_valid_ipv4(char *address);
 bool		is_valid_ipv6(char *address);
+
+char		*lookup_ipv4(char *name);
+char		*lookup_ipv6(char *name);
 
 /******************************************************************************\
  * SOCKETS

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/29 20:48:56 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 01:13:16 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,10 @@
 # define PING_PROTOCOL_INDEX 1
 # define PING_ADDRESS_INDEX 2
 # define PING_FREQUENCY_INDEX 3
+
+# define PING_PACKET_SIZE 64
+# define AUTOMATIC_PORT_NUMBER 0
+# define PING_RECEIVE_TIMEOUT 1
+# define PING_TIME_TO_LIVE 64
 
 #endif

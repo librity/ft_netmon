@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 23:14:53 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 02:56:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,18 @@ Run program with --help for flags and usage."
 
 # define CURL_INIT_ERR "Can't initialize libcurl request."
 # define HTTPS_BAD_CODE "HTTPS response code doesn't match expected code."
+
+/******************************************************************************\
+ * PING
+\******************************************************************************/
+
+# define PING_DNS_ERR "Can't resolve target IPv4 address."
+# define PING_RAW_SOCKET_ERR "Can't create raw socket."
+# define PING_TTL_ERR "Can't set socket's time to live."
+# define PING_TIMEOUT_ERR "Can't set socket's time to live."
+# define PING_PACKET_ERR "Can't send ICMP packet to target."
+# define PING_RECEIVE_ERR "Can't receive ICMP packet from target."
+# define PING_CODE_ERR "ICMP packet response returned invalid code."
 
 /******************************************************************************\
  * IP
