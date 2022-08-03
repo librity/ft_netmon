@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/08/02 14:45:58 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/03 15:03:42 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ CCF_STRICT = -Wall -Wextra -Werror
 CCF_OPTIMIZATION = -O3
 CCF_DEBUG = -g #-fsanitize=leak
 
-CCF_LIBS = -L $(LOCAL_LIBS) -lcurl
+CCF_LIBS = -L $(LOCAL_LIBS) -lcurl -pthread
 
 MAKE_EXTERNAL = make -C
 SAFE_MAKEDIR = mkdir -p
