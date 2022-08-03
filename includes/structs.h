@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 03:48:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 04:13:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ typedef struct s_log
 	char					*protocol;
 	char					*name;
 	char					*url;
+	char					*ip;
 	int						frequency_sec;
 	char					*method;
 	char					*target_code;

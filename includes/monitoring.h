@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 04:03:22 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 04:16:10 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,8 +226,11 @@ void		end_clock(t_request *request);
 void		log_request(t_request *request);
 
 void		log_https_request(t_request *request);
+void		log_ping_request(t_request *request);
 
 char		*resolve_log_type(t_request *request);
+
+void		destroy_log(t_log *log);
 
 /******************************************************************************\
  * THREADS
