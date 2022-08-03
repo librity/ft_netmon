@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handler.c                                          :+:      :+:    :+:   */
+/*   monitoring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 23:10:10 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/31 23:14:04 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/02 23:15:14 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	handle_config(void)
+static void	check_raw_sockets_capability(void)
 {
-	parse_config_file();
-	debug_targets();
-	if (targets_count() <= 0)
-		die(NO_TARGETS_ERR);
+	if (!can_use_raw_sockets())
+		die(RAW_SOCKET_CAP_ERR);
+}
+
+static void	print_banner(void)
+{
+	ft_clear();
+	ft_putendl(WELCOME_BANNER);
+}
+
+void	handle_monitoring(void)
+{
+	check_raw_sockets_capability();
+	enable_tty_raw_mode();
+	print_banner();
+	handle_config();
+	open_log_fs();
+	initialize_thread_pool();
 }

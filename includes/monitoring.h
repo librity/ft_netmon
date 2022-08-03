@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 20:46:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 23:11:23 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -347,10 +347,19 @@ bool		is_valid_ipv4(char *address);
 bool		is_valid_ipv6(char *address);
 
 /******************************************************************************\
+ * SOCKETS
+\******************************************************************************/
+
+bool		can_use_raw_sockets(void);
+int			create_raw_socket_or_die(void);
+
+/******************************************************************************\
  * RUNTIME
 \******************************************************************************/
 
 void		initialize(int argc, char **argv);
+
+void		handle_monitoring(void);
 
 void		disable_tty_raw_mode(void);
 void		enable_tty_raw_mode(void);

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 21:05:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 21:39:44 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ END: %s\t\
 PROTOCOL: %s\t\
 NAME: %s\t\
 URL: %s\t\
-FREQUENCY: %d\t\
+FREQUENCY_SECS: %d\t\
 METHOD: %s\t\
 TARGET_CODE: %s\t\
 RESPONSE_CODE: %s\t\
 RESPONSE_LENGTH: %d\t\
-LATENCY: %f\t\
+LATENCY_SECS: %f\t\
 ERROR_MESSAGE: %s\n\
 "
 

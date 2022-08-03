@@ -102,6 +102,10 @@
     "cstdbool": "c",
     "time.h": "c",
     "errors.h": "c",
-    "pthread.h": "c"
+    "pthread.h": "c",
+    "types.h": "c",
+    "posix_types.h": "c",
+    "capability.h": "c",
+    "in.h": "c"
   }
 }

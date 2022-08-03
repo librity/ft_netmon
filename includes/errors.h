@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 20:52:11 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 23:14:53 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,19 @@ request queue size."
  * IP
 \******************************************************************************/
 
-# define NO_TARGETS_ERROR "No targets to monitor."
+# define NO_TARGETS_ERR "No targets to monitor."
+
+/******************************************************************************\
+ * SOCKETS
+\******************************************************************************/
+
+# define RAW_SOCKET_CREATE_ERR "Can't create required raw socket."
+
+/******************************************************************************\
+ * RUNTIME
+\******************************************************************************/
+
+# define RAW_SOCKET_CAP_ERR "Can't create required raw sockets. \
+Check if program is running with administrator privileges (sudo ./monitoring)"
 
 #endif

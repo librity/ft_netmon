@@ -6,14 +6,14 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 21:05:08 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 21:35:52 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
 #define LOGTIME_FMT "%Y-%m-%d %H:%M:%S"
-#define LOGTIME_STRING_SIZE 100
+#define LOGTIME_STRING_SIZE 20
 
 static char	*logtime_or_die(t_timeinfo *timeinfo)
 {

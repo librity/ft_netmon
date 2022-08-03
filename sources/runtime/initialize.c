@@ -6,17 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 23:14:04 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 19:18:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 23:03:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
-
-static void	print_banner(void)
-{
-	ft_clear();
-	ft_putendl(WELCOME_BANNER);
-}
 
 static void	handle_simplify(void)
 {
@@ -28,15 +22,6 @@ static void	handle_help(void)
 {
 	if (help_flag())
 		help_and_quit();
-}
-
-static void	handle_monitoring(void)
-{
-	enable_tty_raw_mode();
-	print_banner();
-	handle_config();
-	open_log_fs();
-	initialize_thread_pool();
 }
 
 void	initialize(int argc, char **argv)
