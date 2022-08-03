@@ -6,17 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 12:23:45 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 15:18:50 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
-
-void	log_http_request(t_request *request)
-{
-	(void)request;
-	ts_fprintf(stdout, "MOCK LOGGING HTTP\n");
-}
 
 void	log_request(t_request *request)
 {

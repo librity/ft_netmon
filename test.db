@@ -5,18 +5,20 @@
 # PING:	name	PING	address	frequency_in_seconds
 # DNS:	name	DNS	address	frequency_in_seconds	dns_server_ipv4
       #
-#intra	HTTP	intra.42.fr	GET	200	2
 
-bad	HTTPS	intra.42.fr	GET	200	4
-intra 302	HTTPS	intra.42.fr	GET	302	4
+bad	HTTP	intra.42.fr	GET	200	2
+intra	HTTP	intra.42.fr	GET	301	2
 
-game ping test	PING	game.42sp.org.br	3
-workspaces	PING	workspaces.42sp.org.br	3
-fb	PING	facebook.com	2
-bad	PING	baddsasda	2
-bad	PING	dsae21da	2
+#bad	HTTPS	intra.42.fr	GET	200	4
+#intra 302	HTTPS	intra.42.fr	GET	302	4
 
-workspaces dns	DNS	workspaces.42sp.org.br	2	8.8.8.8
-workspaces dns	DNS	google.com	2	8.8.8.8
-bad	DNS	workspaces.42sp.org.br	2	0.0.0.0
-bad	DNS	basdasd	2	8.8.8.8
+#game ping test	PING	game.42sp.org.br	3
+#workspaces	PING	workspaces.42sp.org.br	3
+#fb	PING	facebook.com	2
+#bad	PING	baddsasda	2
+#bad	PING	dsae21da	2
+
+#workspaces dns	DNS	workspaces.42sp.org.br	2	8.8.8.8
+#workspaces dns	DNS	google.com	2	8.8.8.8
+#bad	DNS	workspaces.42sp.org.br	2	0.0.0.0
+#bad	DNS	basdasd	2	8.8.8.8

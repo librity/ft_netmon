@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   curl_request.c                                     :+:      :+:    :+:   */
+/*   handle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 03:04:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 15:21:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*get_curl_error(CURLcode curl_code)
 	return ((char *)curl_easy_strerror(curl_code));
 }
 
-char	*curl_target(t_request *request)
+char	*handle_curl(t_request *request)
 {
 	CURL		*curl;
 	CURLcode	curl_code;
@@ -61,6 +61,6 @@ char	*curl_target(t_request *request)
 	if (curl_code != CURLE_OK)
 		return (get_curl_error(curl_code));
 	if (!has_expected_code(request))
-		return (HTTPS_BAD_CODE);
+		return (HTTP_BAD_CODE);
 	return (NULL);
 }

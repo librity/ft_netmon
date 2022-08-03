@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 13:45:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 15:19:41 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,8 @@ typedef struct s_new_http_target
 }			t_new_http_target;
 void		add_http_target(t_new_http_target p);
 
+void		handle_http_request(t_target *target);
+
 /******************************************************************************\
  * HTTPS
 \******************************************************************************/
@@ -165,10 +167,14 @@ typedef struct s_new_https_target
 void		add_https_target(t_new_https_target p);
 
 void		handle_https_request(t_target *target);
-
-char		*curl_target(t_request *request);
-void		set_request_code(t_request *request, CURL *curl);
 bool		has_expected_code(t_request *request);
+
+/******************************************************************************\
+ * CURL
+\******************************************************************************/
+
+char		*handle_curl(t_request *request);
+void		set_request_code(t_request *request, CURL *curl);
 
 /******************************************************************************\
  * PING
@@ -253,6 +259,7 @@ void		put_request_success(t_req_success req_success);
 
 void		log_request(t_request *request);
 
+void		log_http_request(t_request *request);
 void		log_https_request(t_request *request);
 void		log_ping_request(t_request *request);
 void		log_dns_request(t_request *request);

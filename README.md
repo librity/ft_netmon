@@ -195,7 +195,7 @@ that you can run with `sudo ./monitoring`.
   - [x] Parse `PING` targets
   - [x] Parse `DNS` targets
 
-- [x] Handle request with a Thread Pool
+- [x] Handle request with a Thread Pool:
 
   - [x] Spawn workers that:
     - [x] Dequeue task safely (`mutex` and `cond`)
@@ -209,10 +209,10 @@ that you can run with `sudo ./monitoring`.
     - [x] Enable tty raw mode and manually handle key presses.
 
 - [ ] Requests:
-  - [ ] `HTTP`
-    - [ ] Get IP with **`getaddrinfo()`**
+  - [x] `HTTP`
+    - [x] Get IP with **`getaddrinfo()`**
     - [ ] My own implementation with `sys/socket.h`
-    - [ ] Save all relevant request data to log file in parsable form.
+    - [x] Save all relevant request data to log file in parsable form.
   - [x] `HTTPS`
     - [x] Use `libcurl` for the entire thing
     - [x] Save all relevant request data to log file in parsable form.
