@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 03:15:17 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 03:19:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ static void	prepare_packet(t_ping_packet *packet)
 		i++;
 	}
 	packet->msg[i] = 0;
-	packet->hdr.checksum = calculate_checksum((unsigned short *)packet, sizeof(*packet));
+	packet->hdr.checksum = calculate_checksum(
+			(unsigned short *)packet,
+			sizeof(*packet));
 }
 
 char	*ping_target(t_request *request)

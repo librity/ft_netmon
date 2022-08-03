@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 03:02:44 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 03:25:35 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_target
 	t_protocol				protocol;
 	char					*name;
 	t_address				address;
-	int						frequency;
+	int						frequency_sec;
 
 	char					*method;
 	char					*code;
@@ -137,7 +137,7 @@ typedef struct s_request
 	time_t					end;
 
 	clock_t					clock;
-	double					latency;
+	double					latency_msec;
 
 	t_lstr					response;
 	char					*code;
@@ -158,12 +158,12 @@ typedef struct s_log
 	char					*protocol;
 	char					*name;
 	char					*url;
-	int						frequency;
+	int						frequency_sec;
 	char					*method;
 	char					*target_code;
 	char					*response_code;
 	int						response_length;
-	double					latency;
+	double					latency_msec;
 	char					*error_message;
 }							t_log;
 

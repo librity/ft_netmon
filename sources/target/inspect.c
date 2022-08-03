@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 16:14:46 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 16:45:29 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 03:24:36 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	inspect_target(void *t)
 		target->address.name,
 		target->method,
 		target->code,
-		target->frequency,
+		target->frequency_sec,
 		target->dns.ipv4);
 }

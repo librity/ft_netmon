@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:43:37 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 03:24:36 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	*run_scheduler(void *target_vp)
 	while (true)
 	{
 		enqueue_safely(target);
-		sleep(target->frequency);
+		sleep(target->frequency_sec);
 	}
 	pthread_cleanup_pop(NULL);
 	return (NULL);
