@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 12:43:25 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 18:53:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ void	handle_dns_request(t_target *target)
 
 void	handle_request(t_target *target)
 {
-	if (target->protocol == HTTP_PROT)
+	const t_protocol	protocol = target->protocol;
+
+	if (protocol == HTTP_PROT)
 		return (handle_http_request(target));
-	if (target->protocol == HTTPS_PROT)
+	if (protocol == HTTPS_PROT)
 		return (handle_https_request(target));
-	if (target->protocol == PING_PROT)
+	if (protocol == PING_PROT)
 		return (handle_ping_request(target));
-	if (target->protocol == DNS_PROT)
+	if (protocol == DNS_PROT)
 		return (handle_dns_request(target));
 	print_error(BAD_PROTOCOL_ERR);
 }

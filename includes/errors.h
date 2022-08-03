@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 16:56:03 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:52:11 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,14 @@
 \******************************************************************************/
 
 # define FILE_CREATE_ERR "Can't create necessary file."
+# define FILESTREAM_CREATE_ERR "Can't create stream to necessary file."
+
 # define FILE_OPEN_ERR "Can't open necessary file."
+
 # define FD_DOUBLE_CLOSE_ERR "Closing a closed file descriptor."
+# define FS_DOUBLE_CLOSE_ERR "Closing a closed file stream."
 # define FD_CLOSE_ERR "Can't close necessary file descriptor."
+# define FS_CLOSE_ERR "Can't close necessary file stream."
 
 /******************************************************************************\
  * FLAGS
@@ -58,6 +63,8 @@ Run program with --help for flags and usage."
 
 # define DOUBLE_OPEN_LOG_ERR "Log file descriptor already open."
 # define LOG_READ_ERR "Couldn't read log file."
+
+# define DOUBLE_OPEN_LOG_STREAM_ERR "Log file file already open."
 
 /******************************************************************************\
  * CONFIG
@@ -176,9 +183,11 @@ request queue size."
  * THREAD SAFE
 \******************************************************************************/
 
-# define RAWTIME_CONVERT_ERR "Can't convert rawtime to calendar time."
-# define CALENDARTIME_CONVERT_ERR "Can't convert calendar time \
-to a human-readable string."
+# define LOCAL_TIME_CONVERT_ERR "Can't convert rawtime to calendar time."
+# define UTC_TIME_CONVERT_ERR "Can't convert rawtime to calendar time."
+
+# define ASCTIME_CONVERT_ERR "Can't convert timeinfo to asctime string."
+# define LOGTIME_CONVERT_ERR "Can't convert timeinfo to logtime string."
 
 /******************************************************************************\
  * IP

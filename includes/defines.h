@@ -6,20 +6,20 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 13:46:46 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:47:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 
+# include <banners.h>
+# include <dns.h>
+# include <errors.h>
 # include <help.h>
 # include <http.h>
 # include <ping.h>
-# include <dns.h>
-# include <errors.h>
 # include <warnings.h>
-# include <banners.h>
 
 /******************************************************************************\
  * TTY
@@ -72,6 +72,13 @@ Press CONTROL+C to exit the program."
 # define FREQUENCY_FIELD_MAX_LENGTH 10
 
 /******************************************************************************\
+ * LOG
+\******************************************************************************/
+
+# define LOG_INFO "[INFO]"
+# define LOG_ERROR "[ERROR]"
+
+/******************************************************************************\
  * THREAD POOL
 \******************************************************************************/
 
@@ -92,6 +99,6 @@ Press CONTROL+C to exit the program."
 
 typedef struct tm	t_timeinfo;
 
-# define TIME_BUFFER_SIZE 26
+# define ASCTIME_STRING_SIZE 26
 
 #endif

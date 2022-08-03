@@ -6,13 +6,41 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 01:16:37 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:58:55 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-void	log_request(t_request *request)
+void	log_http_request(t_request *request)
 {
 	(void)request;
+	ts_fprintf(stdout, "MOCK LOGGING HTTP\n");
+}
+
+void	log_ping_request(t_request *request)
+{
+	(void)request;
+	ts_fprintf(stdout, "MOCK LOGGING PING\n");
+}
+
+void	log_dns_request(t_request *request)
+{
+	(void)request;
+	ts_fprintf(stdout, "MOCK LOGGING DNS\n");
+}
+
+void	log_request(t_request *request)
+{
+	const t_protocol	protocol = request->target->protocol;
+
+	if (protocol == HTTP_PROT)
+		return (log_http_request(request));
+	if (protocol == HTTPS_PROT)
+		return (log_https_request(request));
+	if (protocol == PING_PROT)
+		return (log_ping_request(request));
+	if (protocol == DNS_PROT)
+		return (log_dns_request(request));
+	print_error(BAD_PROTOCOL_ERR);
 }

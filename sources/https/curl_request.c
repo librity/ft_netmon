@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 17:37:47 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:38:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,35 @@ static void	set_curl_options(t_request *request, CURL *curl)
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &request->response);
 }
 
-static void	send_request(t_request *request, CURL *curl)
+static CURLcode	send_request(t_request *request, CURL *curl)
 {
+	CURLcode	curl_code;
+
 	start_clock(request);
-	request->curl_code = curl_easy_perform(curl);
+	curl_code = curl_easy_perform(curl);
 	end_clock(request);
+	return (curl_code);
 }
 
-static char	*get_curl_error(t_request *request)
+static char	*get_curl_error(CURLcode curl_code)
 {
-	return ((char *)curl_easy_strerror(request->curl_code));
+	return ((char *)curl_easy_strerror(curl_code));
 }
 
 char	*handle_curl_request(t_request *request)
 {
-	CURL	*curl;
+	CURL		*curl;
+	CURLcode	curl_code;
 
 	curl = curl_easy_init();
 	if (curl == NULL)
 		return (CURL_INIT_ERR);
 	set_curl_options(request, curl);
-	send_request(request, curl);
+	curl_code = send_request(request, curl);
 	set_request_code(request, curl);
 	curl_easy_cleanup(curl);
-	if (request->curl_code != CURLE_OK)
-		return (get_curl_error(request));
+	if (curl_code != CURLE_OK)
+		return (get_curl_error(curl_code));
 	if (!has_expected_code(request))
 		return (HTTPS_BAD_CODE);
 	return (NULL);

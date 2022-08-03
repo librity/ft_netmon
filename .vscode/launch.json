@@ -5,11 +5,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "(gdb) ./monitoring",
+      "name": "(gdb) ./monitoring -d --config-file test.db",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/monitoring",
-      "args": [],
+      "args": ["-d", "--config-file", "test.db"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],

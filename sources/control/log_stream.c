@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   log_stream.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 22:04:01 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 19:11:21 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 18:38:44 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/02 20:46:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-int	create_file_or_die(char *path)
+FILE	*log_fs(void)
 {
-	int	open_fd;
-	int	create_flags;
-
-	create_flags = O_CREAT | O_WRONLY | O_APPEND;
-	open_fd = open(path, create_flags, CREATE_PERMISSION);
-	if (open_fd < 0)
-		die(FILE_CREATE_ERR);
-	return (open_fd);
+	return (c()->log.fs);
 }
 
-FILE	*create_fs_or_die(char *path)
+void	open_log_fs(void)
 {
-	FILE	*open_fs;
+	FILE	*fs;
 
-	open_fs = fopen(path, "a");
-	if (open_fs == NULL)
-		die(FILESTREAM_CREATE_ERR);
-	return (open_fs);
+	if (log_fs() != NULL)
+		die(DOUBLE_OPEN_LOG_STREAM_ERR);
+	fs = create_fs_or_die(log_path());
+	c()->log.fs = fs;
+}
+
+void	close_log_fs(void)
+{
+	if (log_fs() == NULL)
+		return ;
+	close_fs_or_die(log_fs());
+	c()->log.fs = NULL;
 }

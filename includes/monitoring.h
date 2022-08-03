@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 17:31:29 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:46:07 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ int			log_fd(void);
 void		open_log(void);
 void		close_log(void);
 
-void		close_files(void);
+FILE		*log_fs(void);
+void		open_log_fs(void);
+void		close_log_fs(void);
 
 t_dlist		**targets(void);
 int			targets_count(void);
@@ -214,6 +216,10 @@ void		end_clock(t_request *request);
 
 void		log_request(t_request *request);
 
+void		log_https_request(t_request *request);
+
+char		*resolve_log_type(t_request *request);
+
 /******************************************************************************\
  * THREADS
 \******************************************************************************/
@@ -315,13 +321,23 @@ void		ts_printf(const char *format, ...);
 char		*ts_asctime(void);
 char		*ts_raw_to_asctime(time_t *rawtime);
 
+char		*ts_logtime(void);
+char		*ts_raw_to_logtime(time_t *rawtime);
+
+void		localtime_or_die(time_t *rawtime, t_timeinfo *timeinfo);
+void		utctime_or_die(time_t *rawtime, t_timeinfo *timeinfo);
+
 /******************************************************************************\
  * FILES
 \******************************************************************************/
 
 int			create_file_or_die(char *path);
+FILE		*create_fs_or_die(char *path);
+
 int			open_file_or_die(char *path);
+
 int			close_or_die(int close_me);
+FILE		*close_fs_or_die(FILE *close_me);
 
 /******************************************************************************\
  * IP

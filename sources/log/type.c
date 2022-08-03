@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   type.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 22:04:01 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 19:11:21 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/08/02 20:45:43 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/02 20:47:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-int	create_file_or_die(char *path)
+char	*resolve_log_type(t_request *request)
 {
-	int	open_fd;
-	int	create_flags;
-
-	create_flags = O_CREAT | O_WRONLY | O_APPEND;
-	open_fd = open(path, create_flags, CREATE_PERMISSION);
-	if (open_fd < 0)
-		die(FILE_CREATE_ERR);
-	return (open_fd);
-}
-
-FILE	*create_fs_or_die(char *path)
-{
-	FILE	*open_fs;
-
-	open_fs = fopen(path, "a");
-	if (open_fs == NULL)
-		die(FILESTREAM_CREATE_ERR);
-	return (open_fs);
+	if (request->error)
+		return (LOG_ERROR);
+	return (LOG_INFO);
 }

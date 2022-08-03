@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 22:04:01 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/28 22:50:46 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:47:18 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,16 @@ int	close_or_die(int close_me)
 	if (close_me < 0)
 		die(FD_CLOSE_ERR);
 	return (CLOSED_FD);
+}
+
+FILE	*close_fs_or_die(FILE *close_me)
+{
+	int	result;
+
+	if (close_me == NULL)
+		die(FS_DOUBLE_CLOSE_ERR);
+	result = fclose(close_me);
+	if (result != 0)
+		die(FS_CLOSE_ERR);
+	return (NULL);
 }

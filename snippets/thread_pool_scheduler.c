@@ -55,7 +55,7 @@ char	*get_tsafe_ascii_time(void)
 	if (result == NULL)
 		perr_n_die("Unable to convert rawtime to calendar time.");
 
-	ascii_time = malloc(TIME_BUFFER_SIZE);
+	ascii_time = malloc(ASCTIME_STRING_SIZE);
 	result = asctime_r(&timeinfo, ascii_time);
 	if (result == NULL)
 	{

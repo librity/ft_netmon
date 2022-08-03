@@ -19,7 +19,7 @@ int	main(void)
 	time_t		rawtime;
 	struct tm	timeinfo;
 	void		*result;
-	char		time_buffer[TIME_BUFFER_SIZE];
+	char		time_buffer[ASCTIME_STRING_SIZE];
 
 	time(&rawtime);
 

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 23:14:04 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:07:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:18:23 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	handle_monitoring(void)
 	enable_tty_raw_mode();
 	print_banner();
 	handle_config();
+	open_log_fs();
 	initialize_thread_pool();
 }
 

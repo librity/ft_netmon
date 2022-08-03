@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 17:02:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:36:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_file
 {
 	char				*path;
 	int					fd;
+	FILE				*fs;
 }						t_file;
 
 /******************************************************************************\
@@ -110,11 +111,31 @@ typedef struct s_request
 
 	t_lstr				response;
 	char				*code;
-	CURLcode			curl_code;
 
 	bool				error;
 	char				*error_message;
 }						t_request;
+
+/******************************************************************************\
+ * LOG
+\******************************************************************************/
+
+typedef struct s_log
+{
+	char				*type;
+	char				*start;
+	char				*end;
+	char				*protocol;
+	char				*name;
+	char				*url;
+	int					frequency;
+	char				*method;
+	char				*target_code;
+	char				*response_code;
+	int					response_length;
+	double				latency;
+	char				*error_message;
+}						t_log;
 
 /******************************************************************************\
  * THREADS
