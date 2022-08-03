@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 03:08:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 04:03:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@
 # include <pthread.h>
 # include <structs.h>
 # include <time.h>
-
-// #include <stdio.h>
-// #include <arpa/inet.h>
-// #include <string.h>
 
 /******************************************************************************\
  * CONTROL
@@ -185,7 +181,13 @@ typedef struct s_new_ping_target
 void		add_ping_target(t_new_ping_target p);
 
 void		handle_ping_request(t_target *target);
+
 char		*ping_target(t_request *request);
+void		prepare_address(t_ping *p);
+uint16_t	calculate_checksum(unsigned short *bytes, int len);
+void		prepare_socket(t_ping *p);
+void		prepare_packet(t_ping_packet *packet);
+void		send_and_receive(t_ping *p);
 
 /******************************************************************************\
  * DNS
@@ -361,6 +363,7 @@ char		*lookup_ipv6(char *name);
 \******************************************************************************/
 
 bool		can_use_raw_sockets(void);
+int			create_raw_socket(void);
 int			create_raw_socket_or_die(void);
 
 /******************************************************************************\

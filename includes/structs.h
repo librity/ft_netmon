@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 03:25:35 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 03:48:58 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,27 +102,6 @@ typedef struct s_target
 }							t_target;
 
 /******************************************************************************\
- * PING
-\******************************************************************************/
-
-typedef struct s_ping_packet
-{
-	t_icmphdr				hdr;
-	char					msg[PING_PACKET_SIZE - sizeof(t_icmphdr)];
-}							t_ping_packet;
-
-typedef struct s_ping
-{
-	t_inet_sockaddr			sendaddr;
-	t_inet_sockaddr			recvaddr;
-	t_ping_packet			packet;
-	int						raw_socket;
-	int						address_length;
-	int						result;
-	char					*err;
-}							t_ping;
-
-/******************************************************************************\
  * REQUESTS
 \******************************************************************************/
 
@@ -145,6 +124,28 @@ typedef struct s_request
 	bool					error;
 	char					*error_message;
 }							t_request;
+
+/******************************************************************************\
+ * PING
+\******************************************************************************/
+
+typedef struct s_ping_packet
+{
+	t_icmphdr				hdr;
+	char					msg[PING_PACKET_SIZE - sizeof(t_icmphdr)];
+}							t_ping_packet;
+
+typedef struct s_ping
+{
+	t_request				*req;
+	t_inet_sockaddr			sendaddr;
+	t_inet_sockaddr			recvaddr;
+	t_ping_packet			packet;
+	int						raw_socket;
+	int						address_length;
+	int						result;
+	char					*err;
+}							t_ping;
 
 /******************************************************************************\
  * LOG

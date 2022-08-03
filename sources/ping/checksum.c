@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ping_target.c                                      :+:      :+:    :+:   */
+/*   checksum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 04:02:06 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/08/03 03:55:04 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/03 03:57:41 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-char	*ping_target(t_request *request)
+uint16_t	calculate_checksum(unsigned short *bytes, int len)
 {
-	t_ping	p;
+	unsigned int	sum;
+	unsigned short	result;
 
-	p.req = request;
-	prepare_address(&p);
-	if (p.err != NULL)
-		return (p.err);
-	prepare_socket(&p);
-	if (p.err != NULL)
-		return (p.err);
-	prepare_packet(&p.packet);
-	send_and_receive(&p);
-	if (p.err != NULL)
-		return (p.err);
-	return (NULL);
+	sum = 0;
+	while (len > 1)
+	{
+		sum += *bytes++;
+		len -= 2;
+	}
+	if (len == 1)
+		sum += *(unsigned char *)bytes;
+	sum = (sum >> 16) + (sum & 0xFFFF);
+	sum += (sum >> 16);
+	result = ~sum;
+	return (result);
 }
