@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 04:01:12 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 04:02:45 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 05:16:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static char	*receive_response(t_ping *p)
 			(struct sockaddr *)&p->recvaddr,
 			(unsigned int *)&p->address_length);
 	end_clock(p->req);
+	close(p->raw_socket);
 	if (result <= 0)
 		return (PING_RECEIVE_ERR);
 	return (NULL);

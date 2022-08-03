@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 04:13:27 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 10:37:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,34 @@ typedef struct s_ping
 	int						result;
 	char					*err;
 }							t_ping;
+
+/******************************************************************************\
+ * DNS
+\******************************************************************************/
+
+typedef struct s_dns_query
+{
+	uint16_t				length;
+	uint16_t				req_type;
+	unsigned char			message[DNS_BUFFER_SIZE];
+}							t_dns_query;
+
+typedef struct s_dns
+{
+	t_request				*req;
+	t_dns_query				query;
+	t_inet_sockaddr			addr;
+	int						socket;
+	int						ret;
+	int						rcode;
+	int						size;
+	int						i;
+	int						ip;
+	int						dom;
+	int						length;
+	unsigned char			buffer[DNS_BUFFER_SIZE];
+	unsigned char			temp_buf[3];
+}							t_dns;
 
 /******************************************************************************\
  * LOG

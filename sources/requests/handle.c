@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 02:00:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 04:41:18 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@ void	handle_http_request(t_target *target)
 {
 	(void)target;
 	ts_fprintf(stdout, "MOCK PINGING HTTP\n");
-}
-
-void	handle_dns_request(t_target *target)
-{
-	(void)target;
-	ts_fprintf(stdout, "MOCK PINGING DNS\n");
 }
 
 void	handle_request(t_target *target)
