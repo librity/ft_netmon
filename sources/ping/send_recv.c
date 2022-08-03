@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 04:01:12 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 05:16:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 11:47:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ static char	*send_packet(t_ping *p)
 
 static char	*receive_response(t_ping *p)
 {
-	int	result;
+	int				result;
+	unsigned int	address_size;
 
-	p->address_length = sizeof(p->recvaddr);
+	address_size = sizeof(p->recvaddr);
 	result = recvfrom(p->raw_socket, &p->packet, sizeof(p->packet), 0,
-			(struct sockaddr *)&p->recvaddr,
-			(unsigned int *)&p->address_length);
+			(struct sockaddr *)&p->recvaddr, (unsigned int *)&address_size);
 	end_clock(p->req);
 	close(p->raw_socket);
 	if (result <= 0)

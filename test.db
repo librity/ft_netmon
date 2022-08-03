@@ -17,5 +17,6 @@
 #bad bad monitoring	PING	dsae21da	2
 
 workspaces dns	DNS	workspaces.42sp.org.br	2	8.8.8.8
-#workspaces dns	DNS	google.com	2	8.8.8.8
-#BAD	DNS	workspaces.42sp.org.br	2	0.0.0.0
+workspaces dns	DNS	google.com	2	8.8.8.8
+BAD	DNS	workspaces.42sp.org.br	2	0.0.0.0
+basdasd	DNS	basdasd	2	8.8.8.8

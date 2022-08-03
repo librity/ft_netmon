@@ -1,6 +1,6 @@
 // SOURCE: https://www.theinsanetechie.in/2016/02/dns-lookup-implementation-in-c.html
 
-// gcc dnsda.c  && ./a.out
+// gcc simple_dns.c && ./a.out
 
 /**dnsclient.c**/
 #include "stdio.h"

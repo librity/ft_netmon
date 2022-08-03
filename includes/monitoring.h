@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 10:32:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 11:23:03 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,7 +214,9 @@ void		add_dns_target(t_new_dns_target p);
 
 void		handle_dns_request(t_target *target);
 
-char		 *resolve_name(t_request *request);
+char		*resolve_name(t_request *request);
+void		prepare_query(t_dns *d);
+void		dns_send_and_receive(t_dns *d);
 
 /******************************************************************************\
  * REQUESTS
