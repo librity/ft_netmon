@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 11:57:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:22:09 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@ static void	prepare_server_address(t_dns *d)
 	d->addr.sin_port = htons(DNS_PORT);
 }
 
+#define IP_IDENTIFIER_START 0xC0
+#define IP_IDENTIFIER_END 0x01
+
 static bool	found_ip(t_dns *d, int i)
 {
-	return (d->res_buff[i] == 0xC0 && d->res_buff[i + 3] == 0x01);
+	return (d->res_buff[i] == IP_IDENTIFIER_START
+		&& d->res_buff[i + 3] == IP_IDENTIFIER_END);
 }
 
 static void	save_ip(t_dns *d, int i)

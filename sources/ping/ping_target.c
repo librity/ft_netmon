@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 04:02:06 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:22:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ping_target(t_request *request)
 	if (p.err != NULL)
 		return (p.err);
 	prepare_packet(&p.packet);
-	send_and_receive(&p);
+	ping_send_and_receive(&p);
 	if (p.err != NULL)
 		return (p.err);
 	return (NULL);

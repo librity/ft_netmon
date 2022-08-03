@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 04:01:12 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 11:47:19 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:22:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	*receive_response(t_ping *p)
 	return (NULL);
 }
 
-void	send_and_receive(t_ping *p)
+void	ping_send_and_receive(t_ping *p)
 {
 	start_clock(p->req);
 	p->err = send_packet(p);

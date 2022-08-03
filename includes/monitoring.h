@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 11:23:03 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:23:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,7 @@ void		prepare_address(t_ping *p);
 uint16_t	calculate_checksum(unsigned short *bytes, int len);
 void		prepare_socket(t_ping *p);
 void		prepare_packet(t_ping_packet *packet);
-void		send_and_receive(t_ping *p);
+void		ping_send_and_receive(t_ping *p);
 
 /******************************************************************************\
  * DNS
@@ -243,6 +243,7 @@ void		log_request(t_request *request);
 
 void		log_https_request(t_request *request);
 void		log_ping_request(t_request *request);
+void		log_dns_request(t_request *request);
 
 char		*resolve_log_type(t_request *request);
 
