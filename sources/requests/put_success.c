@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type.c                                             :+:      :+:    :+:   */
+/*   put_success.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 20:45:43 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 12:55:09 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/03 13:43:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-char	*resolve_log_type(t_request *request)
-{
-	if (request->error)
-		return (LOG_ERROR);
-	return (LOG_INFO);
-}
+#define SUCCESS_FMT "\
+\033[1;36m[\033[0;35m%s\033[1;36m] \
+\033[1;32m%s (%s) on %s \033[0;32mis up (latency: %f ms).\n\
+"
 
-char	*resolve_log_error(t_request *request)
+void	put_request_success(t_req_success req_success)
 {
-	if (request->error)
-		return (LOG_TRUE);
-	return (LOG_FALSE);
+	ts_printf(SUCCESS_FMT RC,
+		req_success.time,
+		req_success.name,
+		req_success.address,
+		req_success.protocol,
+		req_success.latency);
 }

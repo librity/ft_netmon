@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 11:25:57 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:48:37 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ Run program with --help for flags and usage."
 # define DNS_SEND_ERR "Can't send DNS query to target server."
 # define DNS_RECEIVE_ERR "Can't receive DNS query response."
 # define DNS_SERVER_ERR "DNS server returned an error."
-# define DNS_NOT_FOUND_ERR "DNS server couldn't resolve the domain name\
+# define DNS_NOT_FOUND_ERR "DNS server couldn't resolve the domain name \
 to an IP address."
 # define DNS_NO_IPS_ERR "DNS response didn't contain any IP addresses."
 

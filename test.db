@@ -14,9 +14,9 @@ game ping test	PING	game.42sp.org.br	3
 workspaces	PING	workspaces.42sp.org.br	3
 fb	PING	facebook.com	2
 bad	PING	baddsasda	2
-bad monitoring	PING	dsae21da	2
+bad	PING	dsae21da	2
 
 workspaces dns	DNS	workspaces.42sp.org.br	2	8.8.8.8
 workspaces dns	DNS	google.com	2	8.8.8.8
-bad	workspaces.42sp.org.br	2	0.0.0.0
+bad	DNS	workspaces.42sp.org.br	2	0.0.0.0
 bad	DNS	basdasd	2	8.8.8.8

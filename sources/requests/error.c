@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 20:03:51 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:22:10 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,24 @@ void	set_request_error(t_request *request, char *error_message)
 	request->error_message = error_message;
 }
 
-#define ERROR_FMT "\
-\033[1;36m[\033[0;35m%s\033[1;36m] \
-\033[1;31m%s (%s) on %s \033[0;31mrequest error: \
-\033[1;34m%s\n\
-"
-
-static void	put_request(t_request *request)
+static void	put_error(t_request *request)
 {
-	char	*time;
-	char	*name;
-	char	*protocol;
-	char	*address;
-	char	*error_message;
+	t_req_error	req_error;
 
-	time = ts_raw_to_logtime(&request->end);
-	name = request->target->name;
-	address = request->target->address.name;
-	protocol = get_protocol_by_code(request->target->protocol);
-	error_message = request->error_message;
-	ts_printf(ERROR_FMT RC, time, name, address, protocol, error_message);
-	free(time);
+	req_error.time = ts_raw_to_logtime(&request->end);
+	req_error.name = request->target->name;
+	req_error.address = request->target->address.name;
+	req_error.protocol = get_protocol_by_code(request->target->protocol);
+	req_error.error_message = request->error_message;
+	put_request_error(req_error);
+	free(req_error.time);
 }
 
 void	handle_request_error(t_request *request, char *error_message)
 {
 	end_time(request);
 	set_request_error(request, error_message);
-	put_request(request);
+	put_error(request);
 	log_request(request);
 	destroy_request(request);
 }

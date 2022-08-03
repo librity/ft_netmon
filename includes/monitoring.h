@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 12:23:31 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:45:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,10 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <pthread.h>
+# include <stdio.h>
+# include <string.h>
 # include <structs.h>
 # include <time.h>
-# include <string.h>
-# include <stdio.h>
-
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <sys/types.h>
-// #include <sys/socket.h>
-// #include <netinet/in.h>
-// #include <netdb.h>
-// #include <arpa/inet.h>
 
 /******************************************************************************\
  * CONTROL
@@ -235,6 +227,26 @@ void		end_time(t_request *request);
 void		start_clock(t_request *request);
 void		end_clock(t_request *request);
 
+typedef struct s_req_error
+{
+	char	*time;
+	char	*name;
+	char	*protocol;
+	char	*address;
+	char	*error_message;
+}			t_req_error;
+void		put_request_error(t_req_error req_error);
+
+typedef struct s_req_success
+{
+	char	*time;
+	char	*protocol;
+	char	*name;
+	char	*address;
+	double	latency;
+}			t_req_success;
+void		put_request_success(t_req_success req_success);
+
 /******************************************************************************\
  * LOG
 \******************************************************************************/
@@ -246,8 +258,17 @@ void		log_ping_request(t_request *request);
 void		log_dns_request(t_request *request);
 
 char		*resolve_log_type(t_request *request);
+char		*resolve_log_error(t_request *request);
 
 void		destroy_log(t_log *log);
+
+/******************************************************************************\
+ * SIMPLIFY
+\******************************************************************************/
+
+void		simplify_log(void);
+
+void		simplify_fields(char **fields);
 
 /******************************************************************************\
  * THREADS

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 12:29:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:35:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,8 @@ typedef struct s_log
 	char					*end;
 	char					*protocol;
 	char					*name;
+	char					*address;
+	char					*has_error;
 	char					*error_message;
 	int						frequency_sec;
 	double					latency_msec;
@@ -184,7 +186,7 @@ typedef struct s_log
 	char					*response_code;
 	int						response_length;
 
-	char					*ip;
+	char					*ipv4;
 
 	char					*domain;
 	char					*dns_ip;

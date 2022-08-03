@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:35:56 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 12:39:14 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:41:25 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,9 @@ void	help_and_quit(void)
 	quit();
 }
 
-/**
- * TODO: SIMPLIFY!
- */
 void	simplify_and_quit(void)
 {
-	ts_printf("TODO: SIMPLIFY!\n");
+	simplify_log();
 	quit();
 }
 

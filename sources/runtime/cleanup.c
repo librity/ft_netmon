@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 23:12:11 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 19:17:34 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:37:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	close_files(void)
 {
 	close_log();
+	close_log_fs();
 	close_config();
 }
 

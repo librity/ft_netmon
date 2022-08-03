@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 01:25:30 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:40:47 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,23 @@ Press CONTROL+C to exit the program."
 
 # define LOG_INFO "[INFO]"
 # define LOG_ERROR "[ERROR]"
+
+# define LOG_TRUE "TRUE"
+# define LOG_FALSE "FALSE"
+
+/******************************************************************************\
+ * SIMPLIFY
+\******************************************************************************/
+
+# define LOG_TYPE_INDEX 0
+# define LOG_START_INDEX 1
+# define LOG_END_INDEX 2
+# define LOG_PROTOCOL_INDEX 3
+# define LOG_NAME_INDEX 4
+# define LOG_ADDRESS_INDEX 5
+# define LOG_HAS_ERROR_INDEX 6
+# define LOG_ERROR_MESSAGE_INDEX 7
+# define LOG_LATENCY_INDEX 8
 
 /******************************************************************************\
  * IP

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type.c                                             :+:      :+:    :+:   */
+/*   put_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 20:45:43 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 12:55:09 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/03 13:13:31 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-char	*resolve_log_type(t_request *request)
-{
-	if (request->error)
-		return (LOG_ERROR);
-	return (LOG_INFO);
-}
+#define ERROR_FMT "\
+\033[1;36m[\033[0;35m%s\033[1;36m] \
+\033[1;31m%s (%s) on %s \033[0;31mrequest error: \
+\033[1;34m%s\n\
+"
 
-char	*resolve_log_error(t_request *request)
+void	put_request_error(t_req_error req_error)
 {
-	if (request->error)
-		return (LOG_TRUE);
-	return (LOG_FALSE);
+	ts_printf(ERROR_FMT RC,
+		req_error.time,
+		req_error.name,
+		req_error.address,
+		req_error.protocol,
+		req_error.error_message);
 }
