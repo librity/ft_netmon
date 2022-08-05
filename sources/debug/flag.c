@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 15:00:50 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:20:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ void	debug_int_flag(char *flag_name, int number)
 {
 	ft_bdebug(debug(), "%s: %d", flag_name, number);
 }
-
