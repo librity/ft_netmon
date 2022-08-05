@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/04 21:09:26 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:43:56 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 static char	*create_socket(t_http *h)
 {
-	h->sockfd = socket(AF_INET, SOCK_STREAM, 0);
-	if (h->sockfd < 0)
+	h->socket = socket(AF_INET, SOCK_STREAM, 0);
+	if (h->socket < 0)
 		return (HTTP_SOCKET_ERR);
 	return (NULL);
 }
 
 static char	*set_socket_timeout(t_http *h)
 {
-	int	result;
+	t_timeval	socket_timeout;
+	int			result;
 
-	h->tv.tv_sec = HTTP_SOCKET_TIMEOUT_SECS;
-	h->tv.tv_usec = 0;
-	result = setsockopt(h->sockfd, SOL_SOCKET, SO_RCVTIMEO,
-			(const char *)&h->tv, sizeof(h->tv));
+	socket_timeout.tv_sec = HTTP_SOCKET_TIMEOUT_SECS;
+	socket_timeout.tv_usec = 0;
+	result = setsockopt(h->socket, SOL_SOCKET, SO_RCVTIMEO,
+			(const char *)&socket_timeout, sizeof(socket_timeout));
 	if (result < 0)
 		return (HTTP_SOCKET_ERR);
 	return (NULL);

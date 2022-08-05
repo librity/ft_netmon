@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 04:01:12 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 00:29:52 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:52:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static char	*receive_response(t_dns *d)
 	close(d->socket);
 	if (d->bytes_received < 0)
 		return (DNS_RECEIVE_ERR);
+	return (NULL);
 }
 
 #define RETURN_CODE_FLAG 0x0F

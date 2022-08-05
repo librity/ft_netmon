@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 00:22:59 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:44:51 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,16 +135,12 @@ typedef struct s_request
 typedef struct s_http
 {
 	t_request				*req;
-	int						sockfd;
-	char					*request;
-	int						sendbytes;
-	int						read_result;
 	t_inet_sockaddr			servaddr;
-	char					sendline[HTTP_BUFFER_SIZE];
-	char					recvline[HTTP_BUFFER_SIZE];
+	char					send_buffer[HTTP_BUFFER_SIZE];
+	char					recv_buffer[HTTP_BUFFER_SIZE];
+	int						socket;
+	char					*content;
 	char					**header_tokens;
-	t_timeval				tv;
-	char					*ipv4;
 	char					*err;
 }							t_http;
 

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 00:07:16 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:51:46 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void		add_http_target(t_new_http_target p);
 void		handle_http_request(t_target *target);
 
 char		*handle_http(t_request *request);
-void		http_prepare_request(t_http *h);
+void		http_prepare_content(t_http *h);
 void		http_prepare_address(t_http *h);
 void		http_prepare_socket(t_http *h);
 void		http_send_and_receive(t_http *h);
@@ -219,7 +219,9 @@ void		handle_dns_request(t_target *target);
 
 char		*handle_dns(t_request *request);
 void		dns_prepare_query(t_dns *d);
+void		dns_prepare_address(t_dns *d);
 void		dns_send_and_receive(t_dns *d);
+void		dns_extract_ip(t_dns *d);
 
 /******************************************************************************\
  * REQUESTS

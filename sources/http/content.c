@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   request.c                                          :+:      :+:    :+:   */
+/*   content.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:31:31 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 00:18:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 02:44:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static char	*resolve_request(t_http *h)
+static char	*resolve_content(t_http *h)
 {
 	char	*method;
 
@@ -36,9 +36,9 @@ static char	*resolve_request(t_http *h)
 	return (NULL);
 }
 
-void	http_prepare_request(t_http *h)
+void	http_prepare_content(t_http *h)
 {
-	h->request = resolve_request(h);
-	if (h->request == NULL)
+	h->content = resolve_content(h);
+	if (h->content == NULL)
 		h->err = HTTP_METHOD_ERR;
 }
