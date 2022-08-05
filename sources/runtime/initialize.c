@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 23:14:04 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 23:03:12 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 14:29:28 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,15 @@ static void	handle_help(void)
 		help_and_quit();
 }
 
-void	initialize(int argc, char **argv)
+static void	initialize_controls(int argc, char **argv)
 {
 	initialize_control(argc, argv);
+	initialize_thread_pool_control();
+}
+
+void	initialize(int argc, char **argv)
+{
+	initialize_controls(argc, argv);
 	atexit(cleanup);
 	handle_flags();
 	handle_help();

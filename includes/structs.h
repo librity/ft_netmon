@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 02:44:51 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 14:21:39 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,6 +243,8 @@ typedef pthread_cond_t		t_tcond;
 typedef struct s_tpcontrol
 {
 	t_dlist					*workers;
+	int						workers_count;
+
 	t_dlist					*schedulers;
 
 	t_target				*request_queue[REQUEST_QUEUE_SIZE];

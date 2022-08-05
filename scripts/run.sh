@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/08/04 22:01:39 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/05 15:14:24 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,7 @@ separator
 # ./monitoring
 # separator
 
-sudo ./monitoring -d --config-file test.db
+sudo ./monitoring -d --workers 50 --config-file test.db
 separator
 
 # ./monitoring --log-file bar

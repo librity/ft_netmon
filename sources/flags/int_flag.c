@@ -1,50 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_flags.c                                       :+:      :+:    :+:   */
+/*   int_flag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 18:34:18 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 14:56:44 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 14:57:03 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static char	**file_flags(void)
+static char	**int_flags(void)
 {
-	static char	*__file_flags[] = {
-		CONFIG_FILE_FLAG, LOG_FILE_FLAG, NULL
+	static char	*__int_flags[] = {
+		WORKERS_FLAG, WORKERS_FLAG_SHORT, NULL
 	};
 
-	return (__file_flags);
+	return (__int_flags);
 }
 
-static void	set_file_flag(char **arguments)
+static void	set_int_flag(char **arguments)
 {
-	char	*file_path;
+	char	*ascii_int;
+	int		value;
 
-	file_path = *(arguments + 1);
-	if (file_path == NULL)
-		die(FILE_FLAG_NULL_PATH_ERR);
-	if (ft_streq(*arguments, CONFIG_FILE_FLAG))
-		return (set_config_path(file_path));
-	if (ft_streq(*arguments, LOG_FILE_FLAG))
-		return (set_log_path(file_path));
+	ascii_int = *(arguments + 1);
+	if (ascii_int == NULL)
+		die(INT_FLAG_ARGUMENT_ERR);
+	value = ft_atoi(ascii_int);
+	if (ft_streq(*arguments, WORKERS_FLAG))
+		return (set_workers_count(value));
+	if (ft_streq(*arguments, WORKERS_FLAG_SHORT))
+		return (set_workers_count(value));
 }
 
-bool	is_file_flag(char *argument)
+bool	is_int_flag(char *argument)
 {
-	return (ft_str_in_strarr(file_flags(), argument));
+	return (ft_str_in_strarr(int_flags(), argument));
 }
 
-bool	handled_file_flag(char **arguments)
+bool	handled_int_flag(char **arguments)
 {
-	if (!is_file_flag(*arguments))
+	if (!is_int_flag(*arguments))
 		return (false);
 	if (next_is_flag(arguments))
 		return (false);
-	set_file_flag(arguments);
+	set_int_flag(arguments);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 00:00:45 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:03:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,14 @@
  * FLAGS
 \******************************************************************************/
 
-# define FILE_FLAG_NULL_PATH_ERR "File flags must be followed by \
-a file path argument."
 # define EQUAL_FILE_PATHS_ERR "Config and log file paths must be different."
 # define BAD_FLAGS_ERR "Invalid flag or flags. \
 Run program with --help for flags and usage."
+
+# define FILE_FLAG_NULL_PATH_ERR "File flags must be followed by \
+a file path argument."
+# define INT_FLAG_ARGUMENT_ERR "Number flags must be followed by \
+an ascii integer number."
 
 /******************************************************************************\
  * CONFILE FILE
@@ -215,6 +218,9 @@ request queue size."
 
 # define REQUEST_QUEUE_OVERFLOW_ERR "Can't enqueue new request on a full queue."
 # define REQUEST_QUEUE_UNDERFLOW_ERR "Can't dequeue request on an empty queue."
+
+# define SET_WORKER_COUNT_ERR "Worker thread count must be a number \
+between 1 and 500."
 
 /******************************************************************************\
  * THREAD POOL

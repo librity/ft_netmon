@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:26:36 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:07:20 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ OPTIONS: \033[0m \n\
 \n\
 \033[1;32m	--log-file <file> \033[0m\n\
 		Set log file path (default ./monitoring.log)\n\
+\n\
+\033[1;32m	-w <integer>, --workers <integer> \033[0m\n\
+		Set the initial number of worker threads (default 8).\n\
 \033[0;33m\n\
 CONFIG FILE FORMAT: \033[0m\n\
 \n\

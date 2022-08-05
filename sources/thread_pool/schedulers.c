@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 13:11:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 14:17:53 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	create_schedulers(void)
 {
 	tdebug(CREATE_MSG);
 	initialize_n_threads(schedulers(), targets_count());
-	if (targets_count() != schedulers_count())
+	if (targets_count() != count_schedulers())
 		die(INIT_SCHEDULERS_ERR);
 	spawn_schedulers();
 }

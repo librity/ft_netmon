@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 02:51:46 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:03:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ bool		is_bool_flag(char *argument);
 
 bool		handled_file_flag(char **arguments);
 bool		is_file_flag(char *argument);
+
+bool		handled_int_flag(char **arguments);
+bool		is_int_flag(char *argument);
+
+bool		next_is_flag(char **arguments);
 
 /******************************************************************************\
  * CONFIG
@@ -339,10 +344,13 @@ t_tpcontrol	*tpc(void);
 void		initialize_thread_pool_control(void);
 
 t_dlist		**workers(void);
+int			count_workers(void);
+
 int			workers_count(void);
+void		set_workers_count(int new_count);
 
 t_dlist		**schedulers(void);
-int			schedulers_count(void);
+int			count_schedulers(void);
 
 void		enqueue_request(t_target *target);
 t_target	*dequeue_request(void);
@@ -458,6 +466,10 @@ void		tdebug(const char *format, ...);
 void		tbdebug(bool _debug, const char *format, ...);
 
 void		debug_flags(void);
+void		debug_bool_flag(char *flag_name, bool flag);
+void		debug_file_flag(char *flag_name, char *file_path);
+void		debug_int_flag(char *flag_name, int number);
+
 void		debug_targets(void);
 void		debug_key(char key);
 

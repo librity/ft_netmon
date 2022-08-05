@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   singleton.c                                        :+:      :+:    :+:   */
+/*   next_arg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 14:29:49 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/08/05 14:35:48 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/05 14:57:27 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-t_tpcontrol	*tpc(void)
+bool	next_is_flag(char **arguments)
 {
-	static t_tpcontrol	__tp_control_instance;
+	char	*next;
 
-	return (&__tp_control_instance);
-}
-
-void	initialize_thread_pool_control(void)
-{
-	tpc()->workers_count = DEFAULT_WORKERS_COUNT;
+	next = *(arguments + 1);
+	if (next == NULL)
+		return (false);
+	if (is_bool_flag(next))
+		return (true);
+	if (is_file_flag(next))
+		return (true);
+	if (is_int_flag(next))
+		return (true);
+	return (false);
 }

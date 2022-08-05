@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 13:40:47 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:01:45 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,10 @@ Press CONTROL+C to exit the program."
 # define LOG_FILE_FLAG "--log-file"
 # define LOG_FILE_FLAG_NAME "Log file"
 
+# define WORKERS_FLAG "--workers"
+# define WORKERS_FLAG_SHORT "-w"
+# define WORKERS_FLAG_NAME "Initial worker threads"
+
 /******************************************************************************\
  * CONFIG
 \******************************************************************************/
@@ -103,11 +107,16 @@ Press CONTROL+C to exit the program."
 # define IPV6_ADDRESS_STRING_SIZE 170
 
 /******************************************************************************\
+ * THREADS
+\******************************************************************************/
+
+# define MAX_WORKER_THREADS 500
+
+/******************************************************************************\
  * THREAD POOL
 \******************************************************************************/
 
-# define WORKERS_COUNT 8
-
+# define DEFAULT_WORKERS_COUNT 8
 # define REQUEST_QUEUE_SIZE 500
 
 /******************************************************************************\

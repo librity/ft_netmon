@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 00:17:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 18:03:29 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:11:30 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ void	parse_flags(void)
 			continue ;
 		}
 		if (handled_file_flag(arguments))
+		{
+			arguments = arguments + 2;
+			continue ;
+		}
+		if (handled_int_flag(arguments))
 		{
 			arguments = arguments + 2;
 			continue ;

@@ -1,28 +1,20 @@
 <h3 align="center">42 São Paulo - Labs, 3rd Edition</h3>
 
-<!-- <div align="center">
+<div align="center">
 
 ![42 São Paulo](https://img.shields.io/badge/42-SP-1E2952)
-![License](https://img.shields.io/github/license/42sp/42labs-selection-process-v3-librity?color=yellow)
-![Code size in bytes](https://img.shields.io/github/languages/code-size/42sp/42labs-selection-process-v3-librity?color=blue)
-![Lines of code](https://img.shields.io/tokei/lines/github/42sp/42labs-selection-process-v3-librity?color=blueviolet)
-![Top language](https://img.shields.io/github/languages/top/42sp/42labs-selection-process-v3-librity?color=ff69b4)
-![Last commit](https://img.shields.io/github/last-commit/42sp/42labs-selection-process-v3-librity?color=orange)
+![License](https://img.shields.io/github/license/42sp/ft_labs_v3?color=yellow)
+![Code size in bytes](https://img.shields.io/github/languages/code-size/42sp/ft_labs_v3?color=blue)
+![Lines of code](https://img.shields.io/tokei/lines/github/42sp/ft_labs_v3?color=blueviolet)
+![Top language](https://img.shields.io/github/languages/top/42sp/ft_labs_v3?color=ff69b4)
+![Last commit](https://img.shields.io/github/last-commit/42sp/ft_labs_v3?color=orange)
 
 </div>
 
 <div align="center">
 
-[![Build](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/build.yml/badge.svg)](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/build.yml)
-[![Norminette v3](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/norminette_v3.yml)
-
-</div> -->
-
-<div align="center">
-
-![42 São Paulo](https://img.shields.io/badge/42-SP-1E2952)
-[![Build](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/build.yml/badge.svg)](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/build.yml)
-[![Norminette v3](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/42sp/42labs-selection-process-v3-librity/actions/workflows/norminette_v3.yml)
+[![Build](https://github.com/42sp/ft_labs_v3/actions/workflows/build.yml/badge.svg)](https://github.com/42sp/ft_labs_v3/actions/workflows/build.yml)
+[![Norminette v3](https://github.com/42sp/ft_labs_v3/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/42sp/ft_labs_v3/actions/workflows/norminette_v3.yml)
 
 </div>
 
@@ -121,7 +113,7 @@ $ make install
 Clone the repo and build with `make`:
 
 ```bash
-$ git clone --recurse-submodules https://github.com/42sp/42labs-selection-process-v3-librity.git ft_labs_v3
+$ git clone --recurse-submodules https://github.com/42sp/ft_labs_v3.git ft_labs_v3
 $ cd ft_labs_v3
 $ make
 ```
@@ -141,42 +133,23 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
 
 ### Mandatory
 
-- [x] It should work as an useful and professional network monitoring serivice.
-- [x] Compile an executable named `monitoring`.
-- [x] Validate and parse the config file `monitoring.db` properly.
-- [x] Each monitoring service/request must use the configurations defined in `monitoring.db`.
-- [x] `monitoring.log` should contain all available request data.
-- [x] `monitoring.log` should be saved in parsable form, such that it can be displayed simply with the `--simplify` flag.
-- [x] Clean and readable code.
-- [x] Code documentation.
-  - [x] Add a beautiful `README.md` explaining how the program works overall.\*\*\*\*
-  - [ ] Add documentation comments using keywords like `@brief` `@param` `@return`
-    - [https://github.com/vcwild/feminist-api/blob/main/sources/cli.c#L3](https://github.com/vcwild/feminist-api/blob/main/sources/cli.c#L3)
-- [x] Be able to justify your use of external tool and libs.
-- [x] Come up with simple and creative solutions.
-- [x] Follow specs as much as possible.
-
-- [ ] Test in workspaces
 - [x] Follows `norminette 3.3.51`
 - [x] Makefile rules: `$(NAME)` `all` `clean` `fclean` `re`
-- [x] Program name `monitoring`
+- [x] Compile an executable named `monitoring`.
 - [x] Compiles with `-Wall -Wextra -Werror`
 - [x] Should not quit unexpectedly (segmentation fault, bus error, double free, etc.)
 - [x] All allocated heap memory properly freed, no memory leaks.
   - [x] Check memory leaks with `valgrind`
 - [x] Allowed functions:
-
   - [x] Anything you want, as long as you can reasonably justify it.
-
 - [x] Handle flags
-
   - [x] `-h` and `—help` display help message and exits cleanly.
   - [x] `-s` and `—simplify` reads the log file, prints it in simple form to `STDOUT` and exits cleanly.
   - [x] `-d` and `—debug` flags that print debug info through runtime.
-  - [x] `—config-file <file>` sets the config file path (default `./monitoring.db`)
-  - [x] `--log-file <file>` sets the log file path (default `./monitoring.log`)
-
-- [x] Validate config file:
+  - [x] `—config-file <file>` Set the config file path (default `./monitoring.db`)
+  - [x] `--log-file <file>` Set the log file path (default `./monitoring.log`)
+  - [x] `--workers <number>` Set the initial number of worker threads (default `8`).
+- [x] Validate config file `monitoring.db`:
   - [x] Handle comments with `#`.
   - [x] Validate `HTTP` configs:
     - [x] Should have 6 tab-separated fields
@@ -191,13 +164,11 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
     - [x] Validate timeout in seconds (`unsigned int` > 0).
     - [x] Validate IPv4 address
 - [x] Parse configs for each protocol:
-
   - [x] Parse `HTTP` targets
   - [x] Parse `PING` targets
   - [x] Parse `DNS` targets
-
-- [x] Handle request with a Thread Pool:
-
+- [x] Each monitoring service/request must use the configurations defined in `monitoring.db`.
+- [x] Handle request with a Thread Pool
   - [x] Spawn workers that:
     - [x] Dequeue task safely (`mutex` and `cond`)
     - [x] Perform network requests
@@ -208,11 +179,10 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
     - [x] Enqueue every `timeout` seconds.
   - [x] All threads exit cleanly and join main thread on `CONTROL+Q` with no deadlocks.
     - [x] Enable tty raw mode and manually handle key presses.
-
-- [ ] Requests:
+- [x] Requests:
   - [x] `HTTP`
     - [x] Get IP with **`getaddrinfo()`**
-    - [ ] My own implementation with `sys/socket.h`
+    - [x] My own implementation with `sys/socket.h`
     - [x] Save all relevant request data to log file in parsable form.
   - [x] `HTTPS`
     - [x] Use `libcurl` for the entire thing
@@ -224,29 +194,43 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
   - [x] `DNS`
     - [x] My own implementation with `sys/socket.h`
     - [x] Save all relevant request data to log file in parsable form.
+- [x] `monitoring.log` should contain all available request data.
+- [x] `monitoring.log` should be saved in parsable form, such that it can be displayed simply with the `--simplify` flag.
+- [x] Should work as an useful and professional network monitoring service.
+- [x] Clean and readable code.
+- [x] Code documentation.
+  - [x] Add a beautiful `README.md` explaining how the program works.\*\*\*\*
+  - [ ] Add documentation comments using keywords like `@brief` `@param` `@return`
+    - [https://github.com/vcwild/feminist-api/blob/main/sources/cli.c#L3](https://github.com/vcwild/feminist-api/blob/main/sources/cli.c#L3)
+- [x] Come up with simple and creative solutions.
+- [x] Follow specs as much as possible.
+
+### Bonus
+
+- [x] Parse add extra flags
+  - [x] Add help message.
+  - [x] Set custom config path.
+  - [x] Set custom log path.
+- [x] Take special care with optimizations, code quality and design patterns.
+- [x] Use external tools to plan and track various stages of development.
+- [ ] Notify bad request through Discord, email, Slack or Webhook.
+- [ ] Thoroughly test the application:
+  - [ ] Flag tests
+  - [ ] Config tests
+  - [ ] Thread Pool tests
+  - [ ] Request handler tests
+  - [ ] Logger tests
+- [ ] Identifies odd behaviors in target services, like and increase in latency.
+- [ ] Aggregate analysis of `monitoring.log` data, with diagrams and graphs on the CLI.
+- [ ] Handle `MQTT` and `TCP` requests/monitoring:
   - [ ] `TCP`
     - [ ] My own implementation with `sys/socket.h`
     - [ ] Save all relevant request data to log file in parsable form.
   - [ ] `MQTT`
     - [ ] Use `libcurl` for the entire thing
     - [ ] Save all relevant request data to log file in parsable form.
-- [x] Write a well-documented `README.md`
-
-### Bonus
-
-- [ ] Notify bad request through Discord, email, Slack or Webhook.
-- [ ] Tests, and lots of them.
-- [ ] Identifies odd behaviors in target services, like and increase in latency.
-- [ ] Aggregate analysis of `monitoring.log` data, with diagrams and graphs on the CLI.
-- [x] Parse add extra flags
-  - [x] Add help message.
-  - [x] Set custom config path.
-  - [x] Set custom log path.
-- [x] Take special care with optimizations, code quality and design patterns.
-- [ ] Handle `MQTT` and `TCP` requests/monitoring.
-- [ ] Use external tools to plan and track various stages of development.
-- [ ] Supervisor thread restarts worker threads that exit with an error.
-- [ ] Supervisor thread restarts scheduler threads that exit with an error.
+- [ ] Supervisor threads:
+  - [ ] Restart worker and scheduler threads that exit with an error.
 
 ## 🛸 42 São Paulo <a name = "ft_sp"></a>
 

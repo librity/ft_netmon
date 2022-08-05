@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   singleton.c                                        :+:      :+:    :+:   */
+/*   workers_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 14:29:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:11:40 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-t_tpcontrol	*tpc(void)
+int	workers_count(void)
 {
-	static t_tpcontrol	__tp_control_instance;
-
-	return (&__tp_control_instance);
+	return (tpc()->workers_count);
 }
 
-void	initialize_thread_pool_control(void)
+void	set_workers_count(int new_count)
 {
-	tpc()->workers_count = DEFAULT_WORKERS_COUNT;
+	if (new_count < 1)
+		die(SET_WORKER_COUNT_ERR);
+	if (new_count > MAX_WORKER_THREADS)
+		die(SET_WORKER_COUNT_ERR);
+	tpc()->workers_count = new_count;
 }

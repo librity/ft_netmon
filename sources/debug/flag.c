@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   singleton.c                                        :+:      :+:    :+:   */
+/*   flag.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 16:14:41 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 14:29:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:00:50 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-t_tpcontrol	*tpc(void)
+void	debug_bool_flag(char *flag_name, bool flag)
 {
-	static t_tpcontrol	__tp_control_instance;
-
-	return (&__tp_control_instance);
+	if (flag)
+		ft_bdebug(debug(), "Is %s flag enabled? YES", flag_name);
+	else
+		ft_bdebug(debug(), "Is %s flag enabled? NO", flag_name);
 }
 
-void	initialize_thread_pool_control(void)
+void	debug_file_flag(char *flag_name, char *file_path)
 {
-	tpc()->workers_count = DEFAULT_WORKERS_COUNT;
+	ft_bdebug(debug(), "%s path: %s", flag_name, file_path);
 }
+
+void	debug_int_flag(char *flag_name, int number)
+{
+	ft_bdebug(debug(), "%s: %d", flag_name, number);
+}
+

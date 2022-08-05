@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 21:32:27 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:11:43 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	create_workers(void)
 {
 	tdebug(CREATE_MSG);
-	create_threads(workers(), &run_worker, NULL, WORKERS_COUNT);
+	create_threads(workers(), &run_worker, NULL, workers_count());
 }
 
 #define CANCEL_MSG "Canceling worker threads."
