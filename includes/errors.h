@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 15:22:07 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:00:45 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,19 +82,28 @@ Run program with --help for flags and usage."
  * HTTP
 \******************************************************************************/
 
-# define HTTP_BAD_CODE "HTTP response code doesn't match expected code."
+# define HTTP_SOCKET_ERR "Can't create required socket."
+# define HTTP_SET_TIMEOUT_ERR "Can't set timeout of HTTP socket."
+# define HTTP_DNS_ERR "Can't resolve HTTP server's IPv4 address."
+# define HTTP_ADDRESS_ERR "Can't set socket address of HTTP server."
+# define HTTP_CONNECT_ERR "Can't connect to required socket."
+# define HTTP_WRITE_ERR "Can't write HTTP request to connected socket."
+# define HTTP_READ_ERR "Can't read HTTP response from connected socket."
+# define HTTP_HEADER_ERR "Invalid header from HTTP response."
+# define HTTP_EXPECTED_CODE_ERR "HTTP response code doesn't match \
+expected code."
 
 /******************************************************************************\
  * HTTPS
 \******************************************************************************/
-
-# define HTTPS_BAD_CODE "HTTPS response code doesn't match expected code."
 
 /******************************************************************************\
  * CURL
 \******************************************************************************/
 
 # define CURL_INIT_ERR "Can't initialize libcurl request."
+# define HTTPS_EXPECTED_CODE_ERR "HTTPS response code doesn't match \
+expected code."
 
 /******************************************************************************\
  * PING
@@ -109,7 +118,7 @@ Run program with --help for flags and usage."
 # define PING_CODE_ERR "ICMP packet response returned invalid code."
 
 /******************************************************************************\
- * DNSPING
+ * DNS
 \******************************************************************************/
 
 # define DNS_DATAGRAM_SOCKET_ERR "Can't create datagram socket."

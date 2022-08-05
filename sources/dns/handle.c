@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   resolve_name.c                                     :+:      :+:    :+:   */
+/*   handle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 12:22:09 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:30:04 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static void	prepare_server_address(t_dns *d)
+static void	dns_prepare_address(t_dns *d)
 {
 	ft_bzero(&d->addr, sizeof(d->addr));
 	d->addr.sin_family = AF_INET;
@@ -39,7 +39,7 @@ static void	save_ip(t_dns *d, int i)
 		d->res_buff[i + 3]);
 }
 
-void	extract_ip(t_dns *d)
+void	dns_extract_ip(t_dns *d)
 {
 	int		i;
 
@@ -57,17 +57,18 @@ void	extract_ip(t_dns *d)
 	d->err = DNS_NO_IPS_ERR;
 }
 
-char	*resolve_name(t_request *request)
+char	*handle_dns(t_request *request)
 {
 	t_dns	d;
 
 	d.req = request;
-	prepare_query(&d);
-	prepare_server_address(&d);
+	d.err = NULL;
+	dns_prepare_query(&d);
+	dns_prepare_address(&d);
 	dns_send_and_receive(&d);
 	if (d.err != NULL)
 		return (d.err);
-	extract_ip(&d);
+	dns_extract_ip(&d);
 	if (d.err != NULL)
 		return (d.err);
 	return (NULL);

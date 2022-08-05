@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 04:00:03 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/04 21:08:49 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*create_socket(t_ping *p)
 	return (NULL);
 }
 
-void	prepare_socket(t_ping *p)
+void	ping_prepare_socket(t_ping *p)
 {
 	p->err = create_socket(p);
 	if (p->err != NULL)

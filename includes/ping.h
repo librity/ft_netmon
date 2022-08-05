@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 01:13:16 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:50:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@
 # define AUTOMATIC_PORT_NUMBER 0
 # define PING_RECEIVE_TIMEOUT 1
 # define PING_TIME_TO_LIVE 64
+
+# define PING_ECHO_REPLY_TYPE 69
+# define PING_ECHO_REPLY_CODE 0
 
 #endif

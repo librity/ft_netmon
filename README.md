@@ -65,7 +65,7 @@ Columns are tab-separated and must conform to the format:
 ====================================================================================================
 ```
 
-The program parse the file, and spawns a scheduler thread for each target
+The program parses the file and spawns a scheduler thread for each target
 that periodically enqueues a new request in the request pool.
 It also spawns worker threads that dequeue and perform the requests.
 
@@ -80,8 +80,9 @@ The thread pool implementation is based on CodeVault's video:
 - https://www.youtube.com/watch?v=_n2hE2gyPxU&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2&index=28
 
 I handled `HTTPS` request with `libcurl`,
-and made my own implementation of `PING` and `DNS` based on:
+and made my own implementation of `HTTP`, `PING` and `DNS` based on:
 
+- https://www.youtube.com/watch?v=bdIiTxtMaKA&list=PL9IEJIKnBJjH_zM5LnovnoaKlXML5qh17&index=2
 - https://www.geeksforgeeks.org/ping-in-c/
 - https://www.theinsanetechie.in/2016/02/dns-lookup-implementation-in-c.html
 
@@ -125,8 +126,7 @@ $ cd ft_labs_v3
 $ make
 ```
 
-It should create a `monitoring` executable in the project's root directory,
-that you can run with `sudo ./monitoring`.
+It should create a `monitoring` executable that you can run with `sudo ./monitoring`.
 
 ### 🏳️ Options and Flags
 
@@ -135,6 +135,7 @@ that you can run with `sudo ./monitoring`.
 - `-d` and `--debug`: Verbose, prints debug throughout runtime.
 - `--config-file <file>`: Specify the config file path (default `./monitoring.db`).
 - `--log-file <file>`: Specify the log file path (default `./monitoring.log`).
+- `--workers <number>`: Set the initial number of worker threads (default `8`).
 
 ## ✅ Checklist <a name = "checklist"></a>
 

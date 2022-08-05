@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 15:15:55 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:05:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	handle_http_request(t_target *target)
 	char		*error_message;
 
 	initialize_http_request(&request, target);
-	error_message = handle_curl(&request);
+	error_message = handle_http(&request);
 	tdebug(BB DEBUG_FMT RB, request.response.ptr);
 	if (error_message != NULL)
 		return (handle_request_error(&request, error_message));

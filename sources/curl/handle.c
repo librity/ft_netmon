@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 15:21:43 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:01:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static CURLcode	send_request(t_request *request, CURL *curl)
 
 	start_clock(request);
 	curl_code = curl_easy_perform(curl);
-	end_clock(request);
+	stop_clock(request);
 	return (curl_code);
 }
 
@@ -61,6 +61,6 @@ char	*handle_curl(t_request *request)
 	if (curl_code != CURLE_OK)
 		return (get_curl_error(curl_code));
 	if (!has_expected_code(request))
-		return (HTTP_BAD_CODE);
+		return (HTTPS_EXPECTED_CODE_ERR);
 	return (NULL);
 }

@@ -6,8 +6,12 @@
 # DNS:	name	DNS	address	frequency_in_seconds	dns_server_ipv4
       #
 
-bad	HTTP	intra.42.fr	GET	200	2
-intra	HTTP	intra.42.fr	GET	301	2
+intra	HTTP	intra.42.fr	GET	400	2
+#bad	HTTP	intra.42.fr	GET	200	2
+#intra	HTTP	google.com	GET	400	2
+#bad	HTTP	google.com	GET	200	2
+#intra	HTTP	facebook.com	GET	400	2
+#bad	HTTP	facebook.com	GET	200	2
 
 #bad	HTTPS	intra.42.fr	GET	200	4
 #intra 302	HTTPS	intra.42.fr	GET	302	4

@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ping_target.c                                      :+:      :+:    :+:   */
+/*   handle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 15:12:57 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:20:58 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-char	*ping_target(t_request *request)
+char	*handle_http(t_request *request)
 {
-	t_ping	p;
+	t_http	h;
 
-	p.req = request;
-	prepare_address(&p);
-	if (p.err != NULL)
-		return (p.err);
-	prepare_socket(&p);
-	if (p.err != NULL)
-		return (p.err);
-	prepare_packet(&p.packet);
-	ping_send_and_receive(&p);
-	if (p.err != NULL)
-		return (p.err);
+	h.req = request;
+	h.err = NULL;
+	http_prepare_request(&h);
+	if (h.err != NULL)
+	{
+		tdebug("dsadsadsadsadsad");
+		return (h.err);
+	}
+	http_prepare_address(&h);
+	if (h.err != NULL)
+		return (h.err);
+	http_prepare_socket(&h);
+	if (h.err != NULL)
+		return (h.err);
+	http_send_and_receive(&h);
+	if (h.err != NULL)
+		return (h.err);
+	http_validate_response(&h);
+	if (h.err != NULL)
+		return (h.err);
 	return (NULL);
 }

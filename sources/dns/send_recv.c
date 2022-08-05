@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 04:01:12 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 11:48:44 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:29:52 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,26 @@ static char	*send_query(t_dns *d)
 	return (NULL);
 }
 
-#define RETURN_CODE_FLAG 0x0F
-
 static char	*receive_response(t_dns *d)
 {
-	int				return_code;
 	unsigned int	address_size;
 
 	address_size = sizeof(d->addr);
 	ft_memset(&d->res_buff, 0, DNS_BUFFER_SIZE);
 	d->bytes_received = recvfrom(d->socket, d->res_buff, DNS_BUFFER_SIZE, 0,
 			(t_sockaddr *)&d->addr, &address_size);
-	end_clock(d->req);
+	stop_clock(d->req);
 	close(d->socket);
 	if (d->bytes_received < 0)
 		return (DNS_RECEIVE_ERR);
+}
+
+#define RETURN_CODE_FLAG 0x0F
+
+static char	*validate_return_code(t_dns *d)
+{
+	int	return_code;
+
 	return_code = (d->res_buff[3] & RETURN_CODE_FLAG);
 	if (return_code == 2)
 		return (DNS_SERVER_ERR);
@@ -56,4 +61,7 @@ void	dns_send_and_receive(t_dns *d)
 	if (d->err != NULL)
 		return ;
 	d->err = receive_response(d);
+	if (d->err != NULL)
+		return ;
+	d->err = validate_return_code(d);
 }

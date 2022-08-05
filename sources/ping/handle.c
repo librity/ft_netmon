@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checksum.c                                         :+:      :+:    :+:   */
+/*   handle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 03:55:04 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 03:57:41 by lpaulo-m         ###   ########.fr       */
+/*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
+/*   Updated: 2022/08/05 00:30:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-uint16_t	calculate_checksum(unsigned short *bytes, int len)
+char	*handle_ping(t_request *request)
 {
-	unsigned int	sum;
-	unsigned short	result;
+	t_ping	p;
 
-	sum = 0;
-	while (len > 1)
-	{
-		sum += *bytes++;
-		len -= 2;
-	}
-	if (len == 1)
-		sum += *(unsigned char *)bytes;
-	sum = (sum >> 16) + (sum & 0xFFFF);
-	sum += (sum >> 16);
-	result = ~sum;
-	return (result);
+	p.req = request;
+	p.req = NULL;
+	ping_prepare_address(&p);
+	if (p.err != NULL)
+		return (p.err);
+	ping_prepare_socket(&p);
+	if (p.err != NULL)
+		return (p.err);
+	ping_prepare_packet(&p.packet);
+	ping_send_and_receive(&p);
+	if (p.err != NULL)
+		return (p.err);
+	return (NULL);
 }

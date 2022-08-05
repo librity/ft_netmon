@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 22:46:21 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 03:25:23 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/04 21:25:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	start_clock(t_request *request)
 	request->clock = clock();
 }
 
-void	end_clock(t_request *request)
+void	stop_clock(t_request *request)
 {
 	clock_t	start;
 	clock_t	end;

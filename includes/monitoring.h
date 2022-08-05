@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 15:19:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:07:16 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <stdio.h>
 # include <string.h>
 # include <structs.h>
-# include <time.h>
 
 /******************************************************************************\
  * CONTROL
@@ -152,6 +151,13 @@ void		add_http_target(t_new_http_target p);
 
 void		handle_http_request(t_target *target);
 
+char		*handle_http(t_request *request);
+void		http_prepare_request(t_http *h);
+void		http_prepare_address(t_http *h);
+void		http_prepare_socket(t_http *h);
+void		http_send_and_receive(t_http *h);
+void		http_validate_response(t_http *h);
+
 /******************************************************************************\
  * HTTPS
 \******************************************************************************/
@@ -190,11 +196,10 @@ void		add_ping_target(t_new_ping_target p);
 
 void		handle_ping_request(t_target *target);
 
-char		*ping_target(t_request *request);
-void		prepare_address(t_ping *p);
-uint16_t	calculate_checksum(unsigned short *bytes, int len);
-void		prepare_socket(t_ping *p);
-void		prepare_packet(t_ping_packet *packet);
+char		*handle_ping(t_request *request);
+void		ping_prepare_address(t_ping *p);
+void		ping_prepare_socket(t_ping *p);
+void		ping_prepare_packet(t_ping_packet *packet);
 void		ping_send_and_receive(t_ping *p);
 
 /******************************************************************************\
@@ -212,8 +217,8 @@ void		add_dns_target(t_new_dns_target p);
 
 void		handle_dns_request(t_target *target);
 
-char		*resolve_name(t_request *request);
-void		prepare_query(t_dns *d);
+char		*handle_dns(t_request *request);
+void		dns_prepare_query(t_dns *d);
 void		dns_send_and_receive(t_dns *d);
 
 /******************************************************************************\
@@ -231,7 +236,7 @@ void		handle_request_success(t_request *request);
 void		start_time(t_request *request);
 void		end_time(t_request *request);
 void		start_clock(t_request *request);
-void		end_clock(t_request *request);
+void		stop_clock(t_request *request);
 
 typedef struct s_req_error
 {

@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 13:35:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:22:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ typedef struct s_file
 	int						fd;
 	FILE					*fs;
 }							t_file;
+
+/******************************************************************************\
+ * TIME
+\******************************************************************************/
+
+typedef struct timeval		t_timeval;
 
 /******************************************************************************\
  * CONTROL
@@ -121,6 +127,26 @@ typedef struct s_request
 
 	char					*ipv4;
 }							t_request;
+
+/******************************************************************************\
+ * HTTP
+\******************************************************************************/
+
+typedef struct s_http
+{
+	t_request				*req;
+	int						sockfd;
+	char					*request;
+	int						sendbytes;
+	int						read_result;
+	t_inet_sockaddr			servaddr;
+	char					sendline[HTTP_BUFFER_SIZE];
+	char					recvline[HTTP_BUFFER_SIZE];
+	char					**header_tokens;
+	t_timeval				tv;
+	char					*ipv4;
+	char					*err;
+}							t_http;
 
 /******************************************************************************\
  * PING
@@ -230,10 +256,5 @@ typedef struct s_tpcontrol
 	t_tcond					queue_cond;
 }							t_tpcontrol;
 
-/******************************************************************************\
- * TIME
-\******************************************************************************/
-
-typedef struct timeval		t_timeval;
 
 #endif

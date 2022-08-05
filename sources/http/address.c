@@ -6,31 +6,37 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/04 21:08:30 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:26:32 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <monitoring.h>
 
-static void	set_sockaddr(t_inet_sockaddr *socket_address, char *ipv4)
+static char	*get_ipv4(t_http *h)
 {
-	(*socket_address).sin_family = AF_INET;
-	(*socket_address).sin_port = htons(AUTOMATIC_PORT_NUMBER);
-	(*socket_address).sin_addr.s_addr = inet_addr(ipv4);
-}
-
-static char	*get_ip(t_ping *p)
-{
-	p->req->ipv4 = lookup_ipv4(p->req->target->address.name);
-	if (p->req->ipv4 == NULL)
-		return (PING_DNS_ERR);
+	h->req->ipv4 = lookup_ipv4(h->req->target->address.name);
+	if (h->req->ipv4 == NULL)
+		return (HTTP_DNS_ERR);
 	return (NULL);
 }
 
-void	ping_prepare_address(t_ping *p)
+static char	*set_socket_address(t_http *h)
 {
-	p->err = get_ip(p);
-	if (p->err != NULL)
+	int	result;
+
+	ft_bzero(&h->servaddr, sizeof(h->servaddr));
+	h->servaddr.sin_family = AF_INET;
+	h->servaddr.sin_port = htons(HTTP_SERVER_PORT);
+	result = inet_pton(AF_INET, h->req->ipv4, &h->servaddr.sin_addr);
+	if (result <= 0)
+		return (HTTP_ADDRESS_ERR);
+	return (NULL);
+}
+
+void	http_prepare_address(t_http *h)
+{
+	h->err = get_ipv4(h);
+	if (h->err != NULL)
 		return ;
-	set_sockaddr(&p->sendaddr, p->req->ipv4);
+	h->err = set_socket_address(h);
 }

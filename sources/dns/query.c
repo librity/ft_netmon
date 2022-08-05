@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 11:02:41 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/04 21:09:01 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	write_footer(t_dns *d)
 	d->query.message[d->query.length++] = END_OF_QUERY;
 }
 
-void	prepare_query(t_dns *d)
+void	dns_prepare_query(t_dns *d)
 {
 	write_header(d);
 	write_domain_name(d);
