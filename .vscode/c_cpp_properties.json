@@ -10,7 +10,7 @@
       "defines": [],
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "${default}",
-      "cStandard": "${default}",
+      "cppStandard": "${default}",
       "intelliSenseMode": "${default}"
     }
   ],
