@@ -92,7 +92,7 @@ To compile and run this program you will need:
 - `GNU Make` installed in your computer.
 
 You will also need to install `libcurl` as a dev dependency.
-You can do it through apt-get:
+You can do it through apt-get (recommended):
 
 ```bash
 $ sudo apt-get install libcurl4-openssl-dev
@@ -102,7 +102,8 @@ Or you can install it manually:
 
 ```bash
 $ wget https://curl.se/download/curl-7.84.0.zip
-$ unzip -d curl-7.84.0.zip
+$ unzip curl-7.84.0.zip
+$ cd curl-7.84.0
 $ ./configure --with-openssl --prefix=$HOME/.local
 $ make
 $ make install
