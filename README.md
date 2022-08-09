@@ -3,18 +3,18 @@
 <div align="center">
 
 ![42 São Paulo](https://img.shields.io/badge/42-SP-1E2952)
-![License](https://img.shields.io/github/license/42sp/ft_labs_v3?color=yellow)
-![Code size in bytes](https://img.shields.io/github/languages/code-size/42sp/ft_labs_v3?color=blue)
-![Lines of code](https://img.shields.io/tokei/lines/github/42sp/ft_labs_v3?color=blueviolet)
-![Top language](https://img.shields.io/github/languages/top/42sp/ft_labs_v3?color=ff69b4)
-![Last commit](https://img.shields.io/github/last-commit/42sp/ft_labs_v3?color=orange)
+![License](https://img.shields.io/github/license/librity/ft_labs_v3?color=yellow)
+![Code size in bytes](https://img.shields.io/github/languages/code-size/librity/ft_labs_v3?color=blue)
+![Lines of code](https://img.shields.io/tokei/lines/github/librity/ft_labs_v3?color=blueviolet)
+![Top language](https://img.shields.io/github/languages/top/librity/ft_labs_v3?color=ff69b4)
+![Last commit](https://img.shields.io/github/last-commit/librity/ft_labs_v3?color=orange)
 
 </div>
 
 <div align="center">
 
-[![Build](https://github.com/42sp/ft_labs_v3/actions/workflows/build.yml/badge.svg)](https://github.com/42sp/ft_labs_v3/actions/workflows/build.yml)
-[![Norminette v3](https://github.com/42sp/ft_labs_v3/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/42sp/ft_labs_v3/actions/workflows/norminette_v3.yml)
+[![Build](https://github.com/librity/ft_labs_v3/actions/workflows/build.yml/badge.svg)](https://github.com/librity/ft_labs_v3/actions/workflows/build.yml)
+[![Norminette v3](https://github.com/librity/ft_labs_v3/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/librity/ft_labs_v3/actions/workflows/norminette_v3.yml)
 
 </div>
 
