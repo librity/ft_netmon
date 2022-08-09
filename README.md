@@ -18,7 +18,7 @@
 
 </div>
 
-<p align="center"> A network monitoring service with `pthreads` in pure C.
+<p align="center"> A network monitoring service with <code>pthreads</code> in pure C.
   <br>
 </p>
 
@@ -199,10 +199,7 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
 - [x] `monitoring.log` should be saved in parsable form, such that it can be displayed simply with the `--simplify` flag.
 - [x] Should work as an useful and professional network monitoring service.
 - [x] Clean and readable code.
-- [x] Code documentation.
-  - [x] Add a beautiful `README.md` explaining how the program works.\*\*\*\*
-  - [ ] Add documentation comments using keywords like `@brief` `@param` `@return`
-    - [https://github.com/vcwild/feminist-api/blob/main/sources/cli.c#L3](https://github.com/vcwild/feminist-api/blob/main/sources/cli.c#L3)
+- [x] Add a beautiful `README.md` explaining how the program works.
 - [x] Come up with simple and creative solutions.
 - [x] Follow specs as much as possible.
 
