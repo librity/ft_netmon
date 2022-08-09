@@ -34,7 +34,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-- [Specs (English)](./github/specs_en.md)
+<!-- - [Specs (English)](./github/specs_en.md) -->
 - [Specs (Portuguese)](./github/specs_pt.md)
 
 This is a network monitor that periodically sends request
