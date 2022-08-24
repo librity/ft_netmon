@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/23 22:44:19 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 23:12:38 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ CONFIG FILE FORMAT: \033[0m\n\
 CONFIG FILE EXAMPLE: \033[0m\n\
 \033[1;36m \n\
 \"\"\"\n\
-# netmon .db\n\
+# netmon.db\n\
 \n\
 # THIS IS A COMMENT\n\
 intra	HTTP	intra.42.fr	GET	200	120\n\

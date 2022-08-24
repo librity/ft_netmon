@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 14:21:39 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 23:13:08 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,6 +253,5 @@ typedef struct s_tpcontrol
 	t_tmutex				queue_mutex;
 	t_tcond					queue_cond;
 }							t_tpcontrol;
-
 
 #endif
