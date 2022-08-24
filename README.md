@@ -24,7 +24,7 @@
 
 ---
 
-![Usage Gif](./.github/usage.gif)
+![Usage Gif](./.github/usage_small.gif)
 
 ## 📜 Table of Contents
 
@@ -686,3 +686,8 @@ $ bat /var/log/syslog
 - [https://statuspage.freshping.io/22651-42Network](https://statuspage.freshping.io/22651-42Network)
 - [https://www.freshworks.com/website-monitoring/](https://www.freshworks.com/website-monitoring/)
 - [https://github.com/Liurunex/WebSite_Monitoring](https://github.com/Liurunex/WebSite_Monitoring)
+
+### GIF
+
+- https://itsfoss.com/best-gif-recorder-linux/
+- https://ezgif.com/optimize
