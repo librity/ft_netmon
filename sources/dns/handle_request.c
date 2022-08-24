@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:31:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/04 21:00:28 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:22 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 #define DEBUG_FMT "DNS QUERY RESULT: \033[0;34m%s"
 

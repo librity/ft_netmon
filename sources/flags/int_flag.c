@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 static char	**int_flags(void)
 {

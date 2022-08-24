@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 15:03:24 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:33:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,6 +256,6 @@ between 1 and 500."
 \******************************************************************************/
 
 # define RAW_SOCKET_CAP_ERR "Can't create required raw sockets. \
-Check if program is running with administrator privileges (sudo ./monitoring)"
+Check if program is running with administrator privileges (sudo ./netmon)"
 
 #endif

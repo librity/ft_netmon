@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:39:30 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 13:45:28 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 static char	**split_fields(char *line)
 {

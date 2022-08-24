@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 23:00:03 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/01 00:09:22 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:48 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 static bool	attr_is_empty(t_termios *attr)
 {

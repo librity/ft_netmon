@@ -6,7 +6,7 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 19:02:23 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/08/05 15:14:24 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/23 22:35:22 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,52 +60,52 @@ separator
 # HELP
 ################################################################################
 
-# ./monitoring -h
+# ./netmon -h
 # separator
 
-# ./monitoring --help
+# ./netmon --help
 # separator
 
-# ./monitoring --help --config-file foo
+# ./netmon --help --config-file foo
 # separator
 
-# ./monitoring --help --log-file bar
+# ./netmon --help --log-file bar
 # separator
 
 ################################################################################
 # SIMPLIFY
 ################################################################################
 
-# ./monitoring --simplify
+# ./netmon --simplify
 # separator
 
-# ./monitoring -s
+# ./netmon -s
 # separator
 
-# ./monitoring -s -h
+# ./netmon -s -h
 # separator
 
 ################################################################################
 # RUN
 ################################################################################
 
-# ./monitoring
+# ./netmon
 # separator
 
-sudo ./monitoring -d --workers 50 --config-file test.db
+sudo ./netmon -d --workers 50 --config-file test.db
 separator
 
-# ./monitoring --log-file bar
+# ./netmon --log-file bar
 # separator
 
-# ./monitoring --config-file bar
+# ./netmon --config-file bar
 # separator
 
-# ./monitoring --config-file bar --log-file bar
+# ./netmon --config-file bar --log-file bar
 # separator
 
-# ./monitoring --config-file --log-file bar
+# ./netmon --config-file --log-file bar
 # separator
 
-# ./monitoring --config-file bar --log-file
+# ./netmon --config-file bar --log-file
 # separator

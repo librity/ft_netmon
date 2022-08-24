@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:20:45 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 15:01:45 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:32:59 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ Press CONTROL+C to exit the program."
  * DEFAULTS
 \******************************************************************************/
 
-# define DEFAULT_CONFIG_PATH "./monitoring.db"
-# define DEFAULT_LOG_PATH "./monitoring.log"
+# define DEFAULT_CONFIG_PATH "./netmon.db"
+# define DEFAULT_LOG_PATH "./netmon.log"
 
 /******************************************************************************\
  * FLAGS

@@ -1,4 +1,4 @@
-# monitoring.db
+# test.db
 			#
 # HTTP:	name	HTTP	address	http_method expected_http_code frequency_in_seconds
 # HTTP:	name	HTTPS	address	http_method expected_http_code frequency_in_seconds

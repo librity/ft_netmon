@@ -3,18 +3,18 @@
 <div align="center">
 
 ![42 São Paulo](https://img.shields.io/badge/42-SP-1E2952)
-![License](https://img.shields.io/github/license/librity/ft_labs_v3?color=yellow)
-![Code size in bytes](https://img.shields.io/github/languages/code-size/librity/ft_labs_v3?color=blue)
-![Lines of code](https://img.shields.io/tokei/lines/github/librity/ft_labs_v3?color=blueviolet)
-![Top language](https://img.shields.io/github/languages/top/librity/ft_labs_v3?color=ff69b4)
-![Last commit](https://img.shields.io/github/last-commit/librity/ft_labs_v3?color=orange)
+![License](https://img.shields.io/github/license/librity/ft_netmon?color=yellow)
+![Code size in bytes](https://img.shields.io/github/languages/code-size/librity/ft_netmon?color=blue)
+![Lines of code](https://img.shields.io/tokei/lines/github/librity/ft_netmon?color=blueviolet)
+![Top language](https://img.shields.io/github/languages/top/librity/ft_netmon?color=ff69b4)
+![Last commit](https://img.shields.io/github/last-commit/librity/ft_netmon?color=orange)
 
 </div>
 
 <div align="center">
 
-[![Build](https://github.com/librity/ft_labs_v3/actions/workflows/build.yml/badge.svg)](https://github.com/librity/ft_labs_v3/actions/workflows/build.yml)
-[![Norminette v3](https://github.com/librity/ft_labs_v3/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/librity/ft_labs_v3/actions/workflows/norminette_v3.yml)
+[![Build](https://github.com/librity/ft_netmon/actions/workflows/build.yml/badge.svg)](https://github.com/librity/ft_netmon/actions/workflows/build.yml)
+[![Norminette v3](https://github.com/librity/ft_netmon/actions/workflows/norminette_v3.yml/badge.svg)](https://github.com/librity/ft_netmon/actions/workflows/norminette_v3.yml)
 
 </div>
 
@@ -24,7 +24,54 @@
 
 ---
 
-![Usage Gif](./.github/usage_small.gif)
+```elixir
+/-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\
+|                                                                                     |
+|                                              ::^~^:::     ::                        |
+|                                   :^~~JPGPJ5GB#&&&&&#GYJ?!: :    :                  |
+|                              ::!YB#&&@@@@@@@@@@@@@@@@@@@@@#GPY7~^:  :               |
+|                         ^!?YP#&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&B5!:               |
+|                     :!Y#&@&&@@@@@@@@@@@@@&&&##BBBBGBBB&&&&@@@@@@@@@&5?~:            |
+|                :!JYB&@@@@@@@@@@@@@@@&&#??77^~^  :     :::^~!JP5G&@@@&#B?^           |
+|            ^?P#&@@@@@@@@@@@@@@@&&BYPGJPY?PP?!?Y~!^^^:::::       :!?P#@@&BY^         |
+|          Y#&@@@@@@@@@@@@@@@&#BGBPBG##P&##&##5B&GB5?YY?5!7~~:^:::     ~5B&&P~:       |
+|        !&@@@@@@@@@@@@@@&&#&B&&#&@@@&@&@&@&@@@&&&&#&&#B#GYY5??~~~^~  :   ~?#&P^      |
+|        Y@@@@@@@@@@@&&G&B#&&@&GPYJ7!!!7!!7?Y5PGB#&&&&&&&&#&B#BP557!~^!!:    ?&#?     |
+|       :^?B##&&#BB5GBB#@@&#5YY~^:  :~J: :~   :!~::~7JPB&@&@&&&&GBPPPY?J!!^:  :YB~    |
+|      :~~!?JJJY555P#&@@&BGGY5J?^^~?5&@&B#&&PPB&&J^7?: :^^~JG#&&&###P#PG5J???^:  ~7   |
+|    ^^!J7555BBG&&&@@@#5PBBY?75B&@@@@@@@@@@@@@@@&&@#5GP~    :~?G#@#&GGPGP5G57~::      |
+|    ^~7GJPP#B&B&&@&&BPGP5J!P&@@&#@@@&@@@@@@@@@@@@@&@@&BJ!~!~   :!5#BGP5GPPP~~:       |
+|    !??PGBG&G#5&@@#&##B5!P@@&#P!P@@@@@@@@@@@@&&&@@BGB#&@@@&Y!~!^  :!55?YJ7~:         |
+|   !??PBG5GG#&&@#7!5G55J#@&B?!^ ?@@@@#G@@@@@&&&@@@!::~!5P#&@@&PPY~                   |
+|   :~?J5G#G#&&5!   :JPB#@&57:   :B@@@B5@@@@&&&&@@5:      :75BBPY!                    |
+|    :!7YPBG#G:    ?@&J^:P5~      :P&@@@@@&@@@@@#?           ^~!J~     :~!^!::        |
+|     :^?J5YJY:    :!?7YJ?7^:       ^YB&&@@@&#P7      ::~!!?JJ!:   :^!J?Y?7!::        |
+|       : ::    :^^^:P#&##5BPP??|^:    :^~~~^   ^^~~77JJ5J7^     ^75PJ5YY~^^          |
+|           :^!7BB&#G&BB&G#PGJYGGGP555P5JYYY555GPJ?!!~:    ::^J55PBGP??|^:            |
+|                 :^7~PJBBG#&@&&@B&GJGJP?^~~~7~!7!~^:^7: ::^~~!~?GPB#5P5P?~           |
+|            :^^~J7YYBG#B#&B&&&&##&#BB5JY?5J?~7!^?5BGG&BB#G&#GJJ!^^:                  |
+|               :^!7!JY5YBYG5GBG&G#&#&##&#B&B#BGG###BGBP5YY^^:                        |
+|                      ^ ~:!^77?YJYPJ5G5P55YGP?57PPJJ7?~^^::                          |
+|                            : :^:::: ^~:!^^^ :                                       |
+|                                                                                     |
+|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|
+|                                                                                     |
+!               ░░░    ░░ ░░░░░░░ ░░░░░░░░ ░░░    ░░░  ░░░░░░  ░░░    ░░              !
+!               ▒▒▒▒   ▒▒ ▒▒         ▒▒    ▒▒▒▒  ▒▒▒▒ ▒▒    ▒▒ ▒▒▒▒   ▒▒              !
+:               ▒▒ ▒▒  ▒▒ ▒▒▒▒▒      ▒▒    ▒▒ ▒▒▒▒ ▒▒ ▒▒    ▒▒ ▒▒ ▒▒  ▒▒              :
+:               ▓▓  ▓▓ ▓▓ ▓▓         ▓▓    ▓▓  ▓▓  ▓▓ ▓▓    ▓▓ ▓▓  ▓▓ ▓▓              :
+.               ██   ████ ███████    ██    ██      ██  ██████  ██   ████              .
+.                                                            by lpaulo-m              .
+.                                                                                     .
+.                          __ __     ___ __  __     __                                :
+:                         /  /  \|\ | | |__)/  \|  (_                                 :
+:                         \__\__/| \| | | \ \__/|____)                                :
+!                                                                                     !
+!                         - CONTROL+Q: Exits program cleanly.                         !
+!                         - CONTROL+C: Exits program.                                 !
+|                                                                                     |
+\-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-/
+```
 
 ## 📜 Table of Contents
 
@@ -44,7 +91,7 @@ This is a network monitor that periodically sends request
 and saves the results to a `.log` file.
 It currently handles `HTTP`, `HTTPS`, `PING` and `DNS` requests.
 
-It can be configured im multiple ways with the `monitoring.db` file.
+It can be configured im multiple ways with the `netmon.db` file.
 Each line in the file specifies a target, protocol,
 and request frequency (period between requests).
 Columns are tab-separated and must conform to the format:
@@ -66,6 +113,8 @@ It also spawns worker threads that dequeue and perform the requests.
 
 The worker then prints a simplified result of the request to `STDOUT`
 and saves all the relevant data to the specified `.log` file.
+
+![Usage Gif](./.github/usage_small.gif)
 
 It can also parse the log file and print it to `STDOUT`
 in simple form with the flag `--simplify`.
@@ -117,20 +166,20 @@ $ make install
 Clone the repo and build with `make`:
 
 ```bash
-$ git clone --recurse-submodules https://github.com/42sp/ft_labs_v3.git ft_labs_v3
-$ cd ft_labs_v3
+$ git clone --recurse-submodules https://github.com/42sp/ft_netmon.git ft_netmon
+$ cd ft_netmon
 $ make
 ```
 
-It should create a `monitoring` executable that you can run with `sudo ./monitoring`.
+It should create a `netmon` executable that you can run with `sudo ./netmon`.
 
 ### 🏳️ Options and Flags
 
 - `-h` and `--help`: Print the help message.
 - `-s` and `--simplify`: Parse the `.log` file and print it to `STDOUT` in simple form.
 - `-d` and `--debug`: Verbose, prints debug throughout runtime.
-- `--config-file <file>`: Specify the config file path (default `./monitoring.db`).
-- `--log-file <file>`: Specify the log file path (default `./monitoring.log`).
+- `--config-file <file>`: Specify the config file path (default `./netmon.db`).
+- `--log-file <file>`: Specify the log file path (default `./netmon.log`).
 - `--workers <number>`: Set the initial number of worker threads (default `8`).
 
 ## ✅ Checklist <a name = "checklist"></a>
@@ -139,7 +188,7 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
 
 - [x] Follows `norminette 3.3.51`
 - [x] Makefile rules: `$(NAME)` `all` `clean` `fclean` `re`
-- [x] Compile an executable named `monitoring`.
+- [x] Compile an executable named `netmon`.
 - [x] Compiles with `-Wall -Wextra -Werror`
 - [x] Should not quit unexpectedly (segmentation fault, bus error, double free, etc.)
 - [x] All allocated heap memory properly freed, no memory leaks.
@@ -150,10 +199,10 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
   - [x] `-h` and `—help` display help message and exits cleanly.
   - [x] `-s` and `—simplify` reads the log file, prints it in simple form to `STDOUT` and exits cleanly.
   - [x] `-d` and `—debug` flags that print debug info through runtime.
-  - [x] `—config-file <file>` Set the config file path (default `./monitoring.db`)
-  - [x] `--log-file <file>` Set the log file path (default `./monitoring.log`)
+  - [x] `—config-file <file>` Set the config file path (default `./netmon.db`)
+  - [x] `--log-file <file>` Set the log file path (default `./netmon.log`)
   - [x] `--workers <number>` Set the initial number of worker threads (default `8`).
-- [x] Validate config file `monitoring.db`:
+- [x] Validate config file `netmon.db`:
   - [x] Handle comments with `#`.
   - [x] Validate `HTTP` configs:
     - [x] Should have 6 tab-separated fields
@@ -171,7 +220,7 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
   - [x] Parse `HTTP` targets
   - [x] Parse `PING` targets
   - [x] Parse `DNS` targets
-- [x] Each monitoring service/request must use the configurations defined in `monitoring.db`.
+- [x] Each monitoring service/request must use the configurations defined in `netmon.db`.
 - [x] Handle request with a Thread Pool
   - [x] Spawn workers that:
     - [x] Dequeue task safely (`mutex` and `cond`)
@@ -198,8 +247,8 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
   - [x] `DNS`
     - [x] My own implementation with `sys/socket.h`
     - [x] Save all relevant request data to log file in parsable form.
-- [x] `monitoring.log` should contain all available request data.
-- [x] `monitoring.log` should be saved in parsable form, such that it can be displayed simply with the `--simplify` flag.
+- [x] `netmon.log` should contain all available request data.
+- [x] `netmon.log` should be saved in parsable form, such that it can be displayed simply with the `--simplify` flag.
 - [x] Should work as an useful and professional network monitoring service.
 - [x] Clean and readable code.
 - [x] Add a beautiful `README.md` explaining how the program works.
@@ -222,7 +271,7 @@ It should create a `monitoring` executable that you can run with `sudo ./monitor
   - [ ] Request handler tests
   - [ ] Logger tests
 - [ ] Identifies odd behaviors in target services, like and increase in latency.
-- [ ] Aggregate analysis of `monitoring.log` data, with diagrams and graphs on the CLI.
+- [ ] Aggregate analysis of `netmon.log` data, with diagrams and graphs on the CLI.
 - [ ] Handle `MQTT` and `TCP` requests/monitoring:
   - [ ] `TCP`
     - [ ] My own implementation with `sys/socket.h`

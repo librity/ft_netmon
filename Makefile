@@ -6,11 +6,11 @@
 #    By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 16:25:08 by lpaulo-m          #+#    #+#              #
-#    Updated: 2022/08/03 15:03:42 by lpaulo-m         ###   ########.fr        #
+#    Updated: 2022/08/23 22:30:06 by lpaulo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = monitoring
+NAME = netmon
 
 CC = gcc
 CC_STRICT = $(CC) \
@@ -54,8 +54,8 @@ LOCAL_LIBS = /home/lgeniole/.local/lib
 # MANDATORY
 ################################################################################
 
-M_HEADER = $(INCLUDES_PATH)/monitoring.h
-M_ARCHIVE = $(ARCHIVES_PATH)/monitoring.a
+M_HEADER = $(INCLUDES_PATH)/netmon.h
+M_ARCHIVE = $(ARCHIVES_PATH)/netmon.a
 
 M_SOURCES_PATH = $(SOURCES_PATH)
 M_OBJECTS_PATH = $(OBJECTS_PATH)

@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 04:01:12 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 02:52:48 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:23 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 static char	*send_query(t_dns *d)
 {

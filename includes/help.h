@@ -6,7 +6,7 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 02:27:26 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 15:07:20 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:44:19 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define HELP_MSG "Welcome to lpaulo-m's network monitoring service!\n\
 \033[0;33m \n\
 USAGE: \033[0m\n\
-	monitoring [OPTIONS]...\n\
+	sudo ./netmon [OPTIONS]...\n\
 \033[0;33m \n\
 OPTIONS: \033[0m \n\
 \033[1;32m	-h, --help \033[0m\n\
@@ -29,10 +29,10 @@ OPTIONS: \033[0m \n\
 		Prints debug information throughout runtime.\n\
 \n\
 \033[1;32m	--config-file <file> \033[0m\n\
-		Set config file path (default ./monitoring.db)\n\
+		Set config file path (default ./netmon.db)\n\
 \n\
 \033[1;32m	--log-file <file> \033[0m\n\
-		Set log file path (default ./monitoring.log)\n\
+		Set log file path (default ./netmon.log)\n\
 \n\
 \033[1;32m	-w <integer>, --workers <integer> \033[0m\n\
 		Set the initial number of worker threads (default 8).\n\
@@ -51,7 +51,7 @@ CONFIG FILE FORMAT: \033[0m\n\
 CONFIG FILE EXAMPLE: \033[0m\n\
 \033[1;36m \n\
 \"\"\"\n\
-# monitoring .db\n\
+# netmon .db\n\
 \n\
 # THIS IS A COMMENT\n\
 intra	HTTP	intra.42.fr	GET	200	120\n\

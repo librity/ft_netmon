@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   monitoring.h                                       :+:      :+:    :+:   */
+/*   netmon.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 16:26:39 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 15:03:00 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:35:06 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MONITORING_H
-# define MONITORING_H
+#ifndef NETMON_H
+# define NETMON_H
 
 # include <arpa/inet.h>
 # include <curl/curl.h>

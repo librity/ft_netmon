@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 18:34:18 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 14:56:44 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:24 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 static char	**file_flags(void)
 {

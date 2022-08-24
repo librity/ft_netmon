@@ -8,5 +8,10 @@
 
   "[c]": {
     "editor.defaultFormatter": "keyhr.42-c-format"
+  },
+  "files.associations": {
+    "*.gohtml": "html",
+    "*.s": "plaintext",
+    "netmon.h": "c"
   }
 }

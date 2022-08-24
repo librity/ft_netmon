@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 01:09:08 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 01:52:51 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 static void	extract_ip_string(t_addrinfo *info, char *address)
 {

@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 18:24:18 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/07/30 18:43:58 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:29 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 bool	is_valid_ipv6(char *address)
 {

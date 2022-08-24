@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 23:28:20 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/03 14:01:29 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:17 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 static bool	is_valid_string(char *str)
 {

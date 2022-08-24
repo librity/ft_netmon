@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 22:04:01 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/02 20:47:18 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:37:23 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 int	close_or_die(int close_me)
 {

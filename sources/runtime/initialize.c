@@ -6,11 +6,11 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 23:14:04 by lpaulo-m          #+#    #+#             */
-/*   Updated: 2022/08/05 14:29:28 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/23 22:40:12 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <monitoring.h>
+#include <netmon.h>
 
 static void	handle_simplify(void)
 {

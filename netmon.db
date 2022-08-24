@@ -1,4 +1,4 @@
-# monitoring.db
+# netmon.db
 
 # HTTP:	name	HTTP	address	http_method expected_http_code frequency_in_seconds
 # PING:	name	PING	address	frequency_in_seconds
