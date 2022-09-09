@@ -6,13 +6,12 @@
 /*   By: lpaulo-m <lpaulo-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 20:27:24 by aroque            #+#    #+#             */
-/*   Updated: 2022/07/18 18:28:49 by lpaulo-m         ###   ########.fr       */
+/*   Updated: 2022/08/28 20:20:00 by lpaulo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minunit.h"
 #include <fcntl.h>
-#include <push_swap.h>
 
 int		x = 10;
 int		y = 30;
